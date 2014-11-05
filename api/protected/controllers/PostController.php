@@ -69,9 +69,8 @@ class PostController extends Controller
                 $sql = "INSERT INTO post (date, thread, message, user, forum, parent, isApproved, isHighlighted,
                                             isEdited, isSpam, isDeleted, path) 
                         VALUES (:date, :thread, :message, :user, :forum, :parent, :isApproved, :isHighlighted,
-                                :isEdited, :isSpam, :isDeleted, :path); ";
-//                if ($isDeleted == 0)
-                    $sql .= " UPDATE thread SET posts = posts + 1 WHERE thread.id = :thread; ";
+                                :isEdited, :isSpam, :isDeleted, :path);
+                        UPDATE thread SET posts = posts + 1 WHERE thread.id = :thread; ";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":date", $date);
                 $command->bindParam(":thread", $thread);

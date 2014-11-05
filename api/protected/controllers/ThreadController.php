@@ -526,7 +526,8 @@ class ThreadController extends Controller
                 $thread = $request['thread'];
                 $connection = Yii::app()->db;
 
-                $sql = "UPDATE thread SET isDeleted = 1 WHERE id = :thread;";
+                $sql = "UPDATE thread SET isDeleted = 1 WHERE id = :thread;
+                        UPDATE post SET isDeleted = 1 WHERE thread = :thread;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":thread", $thread);
                 try {
@@ -558,7 +559,8 @@ class ThreadController extends Controller
                 $thread = $request['thread'];
                 $connection = Yii::app()->db;
 
-                $sql = "UPDATE thread SET isDeleted = 0 WHERE id = :thread;";
+                $sql = "UPDATE thread SET isDeleted = 0 WHERE id = :thread;
+                        UPDATE post SET isDeleted = 0 WHERE thread = :thread;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":thread", $thread);
                 try {
