@@ -27699,3 +27699,9 @@ in C:\YII_sites\db\api\index.php (13)
 2014/11/05 20:58:19 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
 in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
 in C:\YII_sites\db\api\index.php (13)
+2014/11/05 21:04:45 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/05 21:07:02 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
