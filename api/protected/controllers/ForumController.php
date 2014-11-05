@@ -563,7 +563,7 @@ class ForumController extends Controller
             if (array_key_exists('limit', $_GET))
                 $limit = $_GET['limit'];
 
-            $order = 'desc';
+            $order = 'asc';
             if (array_key_exists('order', $_GET))
                 $order = $_GET['order'];
 
