@@ -603,10 +603,9 @@ class ForumController extends Controller
                     from user as self join
                     (select u.id as u_id, post.id as p_id from post
                     join user as u on u.email = post.user
-                    where post.forum = :forum ";
-
-           $sql .= " group by u.id) as t
-            on self.id = t.u_id ";
+                    where post.forum = :forum
+                    group by u.id) as t
+                    on self.id = t.u_id ";
             if (array_key_exists('since_id', $_GET))
                 $sql .= " where self.id >= :since_id ";
 
