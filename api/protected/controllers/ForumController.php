@@ -601,7 +601,7 @@ class ForumController extends Controller
                     group by u.id
                     ) as subscriptions
                     from user as self join
-                    (select u.id as u_id, post.id as p_id from post
+                    (select u.id as u_id from post
                     join user as u on u.email = post.user
                     where post.forum = :forum
                     group by u.id) as t
