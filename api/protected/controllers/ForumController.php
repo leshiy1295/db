@@ -563,7 +563,7 @@ class ForumController extends Controller
             if (array_key_exists('limit', $_GET))
                 $limit = $_GET['limit'];
 
-            $order = 'asc';
+            $order = 'desc';
             if (array_key_exists('order', $_GET))
                 $order = $_GET['order'];
 
@@ -601,11 +601,12 @@ class ForumController extends Controller
                     group by u.id
                     ) as subscriptions
                     from user as self join
-                    (select u.id as res_id from post
+                    (select u.id as u_id, post.id as p_id from post
                     join user as u on u.email = post.user
-                    where post.forum = :forum
-                    group by u.id) as t
-                    on self.id = t.res_id ";
+                    where post.forum = :forum ";
+
+           $sql .= " group by u.id) as t
+            on self.id = t.u_id ";
             if (array_key_exists('since_id', $_GET))
                 $sql .= " where self.id >= :since_id ";
 
@@ -615,7 +616,6 @@ class ForumController extends Controller
             if (array_key_exists('limit', $_GET))
                 $sql .= " limit ".strval($limit);
             $sql .= ";";
-
             $command = $connection->createCommand($sql);
             $command->bindParam(":forum", $forum);
             if (array_key_exists('since_id', $_GET))
