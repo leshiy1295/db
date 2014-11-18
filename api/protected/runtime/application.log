@@ -28139,3 +28139,716 @@ in C:\YII_sites\db\api\index.php (13)
 2014/11/06 15:15:16 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2-5' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
 in C:\YII_sites\db\api\protected\controllers\ThreadController.php (601)
 in C:\YII_sites\db\api\index.php (13)
+2014/11/09 14:25:34 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/09 14:25:45 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-5' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (601)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:03:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:21:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "db/api/clear".' in C:\YII_sites\yii-1.1.15.022a51\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\YII_sites\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('db/api/clear')
+#1 C:\YII_sites\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\YII_sites\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/db/api/clear/
+---
+2014/11/18 04:22:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "db/api/clear".' in C:\YII_sites\yii-1.1.15.022a51\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\YII_sites\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('db/api/clear')
+#1 C:\YII_sites\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\YII_sites\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/db/api/clear/
+---
+2014/11/18 04:22:55 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points, user.id as u_id, user.name as u_name, about, email, isAnonymous, username,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_to
+                   join user as u2
+                   on f.u_from = u2.id
+                   where u1.id = u_id
+                   group by f.u_to
+                   ) as followers
+                   ,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_from
+                   join user as u2
+                   on f.u_to = u2.id
+                   where u1.id = u_id
+                   group by f.u_from
+                   ) as following
+                   ,
+                   (
+                   select group_concat(t_id)
+                   from user as u
+                   join subscriptions as s
+                   on u.id = s.u_id
+                   where u.id = u_id
+                   group by u.id
+                   ) as subscriptions from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (195)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:22:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points, user.id as u_id, user.name as u_name, about, email, isAnonymous, username,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_to
+                   join user as u2
+                   on f.u_from = u2.id
+                   where u1.id = u_id
+                   group by f.u_to
+                   ) as followers
+                   ,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_from
+                   join user as u2
+                   on f.u_to = u2.id
+                   where u1.id = u_id
+                   group by f.u_from
+                   ) as following
+                   ,
+                   (
+                   select group_concat(t_id)
+                   from user as u
+                   join subscriptions as s
+                   on u.id = s.u_id
+                   where u.id = u_id
+                   group by u.id
+                   ) as subscriptions from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (195)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:22:59 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points, user.id as u_id, user.name as u_name, about, email, isAnonymous, username,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_to
+                   join user as u2
+                   on f.u_from = u2.id
+                   where u1.id = u_id
+                   group by f.u_to
+                   ) as followers
+                   ,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_from
+                   join user as u2
+                   on f.u_to = u2.id
+                   where u1.id = u_id
+                   group by f.u_from
+                   ) as following
+                   ,
+                   (
+                   select group_concat(t_id)
+                   from user as u
+                   join subscriptions as s
+                   on u.id = s.u_id
+                   where u.id = u_id
+                   group by u.id
+                   ) as subscriptions from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (195)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:23:02 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points, user.id as u_id, user.name as u_name, about, email, isAnonymous, username,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_to
+                   join user as u2
+                   on f.u_from = u2.id
+                   where u1.id = u_id
+                   group by f.u_to
+                   ) as followers
+                   ,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_from
+                   join user as u2
+                   on f.u_to = u2.id
+                   where u1.id = u_id
+                   group by f.u_from
+                   ) as following
+                   ,
+                   (
+                   select group_concat(t_id)
+                   from user as u
+                   join subscriptions as s
+                   on u.id = s.u_id
+                   where u.id = u_id
+                   group by u.id
+                   ) as subscriptions from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (195)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:23:53 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:24:03 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '6-1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (601)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:24:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: select id as u_id, name as u_name, about, email, isAnonymous, username,
+                    (
+                    select group_concat(u2.email)
+                    from user as u1
+                    join followers as f
+                    on u1.id = f.u_to
+                    join user as u2
+                    on f.u_from = u2.id
+                    where u1.id = self.id
+                    group by f.u_to
+                    ) as followers
+                    ,
+                    (
+                    select group_concat(u2.email)
+                    from user as u1
+                    join followers as f
+                    on u1.id = f.u_from
+                    join user as u2
+                    on f.u_to = u2.id
+                    where u1.id = self.id
+                    group by f.u_from
+                    ) as following
+                    ,
+                    (
+                    select group_concat(t_id)
+                    from user as u
+                    join subscriptions as s
+                    on u.id = s.u_id
+                    where u.id = self.id
+                    group by u.id
+                    ) as subscriptions
+                    from user as self join
+                    (select u.id as u_id from post
+                    join user as u on u.email = post.user
+                    where post.forum = :forum
+                    group by u.id) as t
+                    on self.id = t.u_id  order by self.name asc  limit 2;.
+in C:\YII_sites\db\api\protected\controllers\ForumController.php (623)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:24:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "db/api/clear".' in C:\YII_sites\yii-1.1.15.022a51\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\YII_sites\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('db/api/clear')
+#1 C:\YII_sites\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\YII_sites\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/db/api/clear/
+---
+2014/11/18 04:25:13 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points, user.id as u_id, user.name as u_name, about, email, isAnonymous, username,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_to
+                   join user as u2
+                   on f.u_from = u2.id
+                   where u1.id = u_id
+                   group by f.u_to
+                   ) as followers
+                   ,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_from
+                   join user as u2
+                   on f.u_to = u2.id
+                   where u1.id = u_id
+                   group by f.u_from
+                   ) as following
+                   ,
+                   (
+                   select group_concat(t_id)
+                   from user as u
+                   join subscriptions as s
+                   on u.id = s.u_id
+                   where u.id = u_id
+                   group by u.id
+                   ) as subscriptions from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (195)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:25:15 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points, user.id as u_id, user.name as u_name, about, email, isAnonymous, username,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_to
+                   join user as u2
+                   on f.u_from = u2.id
+                   where u1.id = u_id
+                   group by f.u_to
+                   ) as followers
+                   ,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_from
+                   join user as u2
+                   on f.u_to = u2.id
+                   where u1.id = u_id
+                   group by f.u_from
+                   ) as following
+                   ,
+                   (
+                   select group_concat(t_id)
+                   from user as u
+                   join subscriptions as s
+                   on u.id = s.u_id
+                   where u.id = u_id
+                   group by u.id
+                   ) as subscriptions from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (195)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:25:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points, user.id as u_id, user.name as u_name, about, email, isAnonymous, username,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_to
+                   join user as u2
+                   on f.u_from = u2.id
+                   where u1.id = u_id
+                   group by f.u_to
+                   ) as followers
+                   ,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_from
+                   join user as u2
+                   on f.u_to = u2.id
+                   where u1.id = u_id
+                   group by f.u_from
+                   ) as following
+                   ,
+                   (
+                   select group_concat(t_id)
+                   from user as u
+                   join subscriptions as s
+                   on u.id = s.u_id
+                   where u.id = u_id
+                   group by u.id
+                   ) as subscriptions from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (195)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:25:19 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points, user.id as u_id, user.name as u_name, about, email, isAnonymous, username,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_to
+                   join user as u2
+                   on f.u_from = u2.id
+                   where u1.id = u_id
+                   group by f.u_to
+                   ) as followers
+                   ,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_from
+                   join user as u2
+                   on f.u_to = u2.id
+                   where u1.id = u_id
+                   group by f.u_from
+                   ) as following
+                   ,
+                   (
+                   select group_concat(t_id)
+                   from user as u
+                   join subscriptions as s
+                   on u.id = s.u_id
+                   where u.id = u_id
+                   group by u.id
+                   ) as subscriptions from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (195)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:26:30 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: select id as u_id, name as u_name, about, email, isAnonymous, username,
+                    (
+                    select group_concat(u2.email)
+                    from user as u1
+                    join followers as f
+                    on u1.id = f.u_to
+                    join user as u2
+                    on f.u_from = u2.id
+                    where u1.id = self.id
+                    group by f.u_to
+                    ) as followers
+                    ,
+                    (
+                    select group_concat(u2.email)
+                    from user as u1
+                    join followers as f
+                    on u1.id = f.u_from
+                    join user as u2
+                    on f.u_to = u2.id
+                    where u1.id = self.id
+                    group by f.u_from
+                    ) as following
+                    ,
+                    (
+                    select group_concat(t_id)
+                    from user as u
+                    join subscriptions as s
+                    on u.id = s.u_id
+                    where u.id = self.id
+                    group by u.id
+                    ) as subscriptions
+                    from user as self join
+                    (select u.id as u_id from post
+                    join user as u on u.email = post.user
+                    where post.forum = :forum
+                    group by u.id) as t
+                    on self.id = t.u_id  order by self.name asc  limit 2;.
+in C:\YII_sites\db\api\protected\controllers\ForumController.php (623)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:27:55 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: select id as u_id, name as u_name, about, email, isAnonymous, username,
+                    (
+                    select group_concat(u2.email)
+                    from user as u1
+                    join followers as f
+                    on u1.id = f.u_to
+                    join user as u2
+                    on f.u_from = u2.id
+                    where u1.id = self.id
+                    group by f.u_to
+                    ) as followers
+                    ,
+                    (
+                    select group_concat(u2.email)
+                    from user as u1
+                    join followers as f
+                    on u1.id = f.u_from
+                    join user as u2
+                    on f.u_to = u2.id
+                    where u1.id = self.id
+                    group by f.u_from
+                    ) as following
+                    ,
+                    (
+                    select group_concat(t_id)
+                    from user as u
+                    join subscriptions as s
+                    on u.id = s.u_id
+                    where u.id = self.id
+                    group by u.id
+                    ) as subscriptions
+                    from user as self join
+                    (select u.id as u_id from post
+                    join user as u on u.email = post.user
+                    where post.forum = :forum
+                    group by u.id) as t
+                    on self.id = t.u_id  order by self.name asc  limit 2;.
+in C:\YII_sites\db\api\protected\controllers\ForumController.php (623)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:28:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:29:23 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: select id as u_id, name as u_name, about, email, isAnonymous, username,
+                    (
+                    select group_concat(u2.email)
+                    from user as u1
+                    join followers as f
+                    on u1.id = f.u_to
+                    join user as u2
+                    on f.u_from = u2.id
+                    where u1.id = self.id
+                    group by f.u_to
+                    ) as followers
+                    ,
+                    (
+                    select group_concat(u2.email)
+                    from user as u1
+                    join followers as f
+                    on u1.id = f.u_from
+                    join user as u2
+                    on f.u_to = u2.id
+                    where u1.id = self.id
+                    group by f.u_from
+                    ) as following
+                    ,
+                    (
+                    select group_concat(t_id)
+                    from user as u
+                    join subscriptions as s
+                    on u.id = s.u_id
+                    where u.id = self.id
+                    group by u.id
+                    ) as subscriptions
+                    from user as self join
+                    (select u.id as u_id from post
+                    join user as u on u.email = post.user
+                    where post.forum = :forum
+                    group by u.id) as t
+                    on self.id = t.u_id  order by self.name asc  limit 2;.
+in C:\YII_sites\db\api\protected\controllers\ForumController.php (623)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:31:28 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: select id as u_id, name as u_name, about, email, isAnonymous, username,
+                    (
+                    select group_concat(u2.email)
+                    from user as u1
+                    join followers as f
+                    on u1.id = f.u_to
+                    join user as u2
+                    on f.u_from = u2.id
+                    where u1.id = self.id
+                    group by f.u_to
+                    ) as followers
+                    ,
+                    (
+                    select group_concat(u2.email)
+                    from user as u1
+                    join followers as f
+                    on u1.id = f.u_from
+                    join user as u2
+                    on f.u_to = u2.id
+                    where u1.id = self.id
+                    group by f.u_from
+                    ) as following
+                    ,
+                    (
+                    select group_concat(t_id)
+                    from user as u
+                    join subscriptions as s
+                    on u.id = s.u_id
+                    where u.id = self.id
+                    group by u.id
+                    ) as subscriptions
+                    from user as self join
+                    (select u.id as u_id from post
+                    join user as u on u.email = post.user
+                    where post.forum = :forum
+                    group by u.id) as t
+                    on self.id = t.u_id  order by self.name asc  limit 2;.
+in C:\YII_sites\db\api\protected\controllers\ForumController.php (623)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:32:03 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:36:32 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:36:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:37:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:37:01 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '3-5' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (601)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:39:15 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:39:16 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-5' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (601)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:40:02 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:40:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:40:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "db/api/clear".' in C:\YII_sites\yii-1.1.15.022a51\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\YII_sites\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('db/api/clear')
+#1 C:\YII_sites\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\YII_sites\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/db/api/clear/
+---
+2014/11/18 04:40:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points, user.id as u_id, user.name as u_name, about, email, isAnonymous, username,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_to
+                   join user as u2
+                   on f.u_from = u2.id
+                   where u1.id = u_id
+                   group by f.u_to
+                   ) as followers
+                   ,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_from
+                   join user as u2
+                   on f.u_to = u2.id
+                   where u1.id = u_id
+                   group by f.u_from
+                   ) as following
+                   ,
+                   (
+                   select group_concat(t_id)
+                   from user as u
+                   join subscriptions as s
+                   on u.id = s.u_id
+                   where u.id = u_id
+                   group by u.id
+                   ) as subscriptions from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (195)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:40:49 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points, user.id as u_id, user.name as u_name, about, email, isAnonymous, username,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_to
+                   join user as u2
+                   on f.u_from = u2.id
+                   where u1.id = u_id
+                   group by f.u_to
+                   ) as followers
+                   ,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_from
+                   join user as u2
+                   on f.u_to = u2.id
+                   where u1.id = u_id
+                   group by f.u_from
+                   ) as following
+                   ,
+                   (
+                   select group_concat(t_id)
+                   from user as u
+                   join subscriptions as s
+                   on u.id = s.u_id
+                   where u.id = u_id
+                   group by u.id
+                   ) as subscriptions from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (195)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:40:52 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points, user.id as u_id, user.name as u_name, about, email, isAnonymous, username,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_to
+                   join user as u2
+                   on f.u_from = u2.id
+                   where u1.id = u_id
+                   group by f.u_to
+                   ) as followers
+                   ,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_from
+                   join user as u2
+                   on f.u_to = u2.id
+                   where u1.id = u_id
+                   group by f.u_from
+                   ) as following
+                   ,
+                   (
+                   select group_concat(t_id)
+                   from user as u
+                   join subscriptions as s
+                   on u.id = s.u_id
+                   where u.id = u_id
+                   group by u.id
+                   ) as subscriptions from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (195)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:40:54 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points, user.id as u_id, user.name as u_name, about, email, isAnonymous, username,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_to
+                   join user as u2
+                   on f.u_from = u2.id
+                   where u1.id = u_id
+                   group by f.u_to
+                   ) as followers
+                   ,
+                   (
+                   select group_concat(u2.email)
+                   from user as u1
+                   join followers as f
+                   on u1.id = f.u_from
+                   join user as u2
+                   on f.u_to = u2.id
+                   where u1.id = u_id
+                   group by f.u_from
+                   ) as following
+                   ,
+                   (
+                   select group_concat(t_id)
+                   from user as u
+                   join subscriptions as s
+                   on u.id = s.u_id
+                   where u.id = u_id
+                   group by u.id
+                   ) as subscriptions from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (195)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:41:45 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:41:51 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '7-2' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (601)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:45:07 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)

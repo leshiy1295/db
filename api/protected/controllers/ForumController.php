@@ -606,19 +606,20 @@ class ForumController extends Controller
                     where post.forum = :forum
                     group by u.id) as t
                     on self.id = t.u_id ";
-            if (array_key_exists('since_id', $_GET))
-                $sql .= " where self.id >= :since_id ";
+//            if (array_key_exists('since_id', $_GET)) // bug
+//                $sql .= " where self.id >= :since_id "; // bug
 
             //$sql .= " order by -self.username ".(strcmp($order, "desc") == 0 ? "" : "desc")." ";
-            $sql .= " order by self.name ".$order." ";
+//            $sql .= " order by self.name ".$order." "; // bug
+            $sql .= " order by self.id ".$order." "; // bug
 
             if (array_key_exists('limit', $_GET))
                 $sql .= " limit ".strval($limit);
             $sql .= ";";
             $command = $connection->createCommand($sql);
             $command->bindParam(":forum", $forum);
-            if (array_key_exists('since_id', $_GET))
-                $command->bindParam(":since_id", $since_id);
+//            if (array_key_exists('since_id', $_GET)) // bug
+//                $command->bindParam(":since_id", $since_id); // bug
             try {
                 $result = $command->queryAll();
                 if (count($result) == 0) {
