@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 26 2014 г., 20:18
+-- Время создания: Ноя 26 2014 г., 20:57
 -- Версия сервера: 5.6.20-log
 -- Версия PHP: 5.3.28
 
@@ -168,7 +168,7 @@ ALTER TABLE `followers`
 -- Индексы таблицы `forum`
 --
 ALTER TABLE `forum`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`), ADD UNIQUE KEY `short_name` (`short_name`,`name`,`user`), ADD KEY `user` (`user`);
+ ADD PRIMARY KEY (`id`), ADD KEY `short_name` (`short_name`,`name`,`user`), ADD KEY `user` (`user`), ADD KEY `name` (`name`);
 
 --
 -- Индексы таблицы `post`
@@ -192,13 +192,13 @@ ALTER TABLE `subscriptions`
 -- Индексы таблицы `thread`
 --
 ALTER TABLE `thread`
- ADD PRIMARY KEY (`id`), ADD KEY `forum` (`forum`), ADD KEY `user` (`user`), ADD KEY `likes-dislikes` (`likes`,`dislikes`);
+ ADD PRIMARY KEY (`id`), ADD KEY `forum` (`forum`), ADD KEY `likes-dislikes` (`likes`,`dislikes`), ADD KEY `user` (`user`);
 
 --
 -- Индексы таблицы `user`
 --
 ALTER TABLE `user`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `email` (`email`);
+ ADD PRIMARY KEY (`id`), ADD KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
