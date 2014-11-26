@@ -168,7 +168,7 @@ ALTER TABLE `followers`
 -- Индексы таблицы `forum`
 --
 ALTER TABLE `forum`
- ADD PRIMARY KEY (`id`), ADD KEY `short_name` (`short_name`,`name`,`user`), ADD KEY `user` (`user`), ADD KEY `name` (`name`);
+ ADD PRIMARY KEY (`id`), ADD KEY `short_name` (`short_name`,`name`,`user`) USING HASH, ADD KEY `user` (`user`) USING HASH, ADD KEY `name` (`name`) USING HASH;
 
 --
 -- Индексы таблицы `post`
@@ -192,13 +192,13 @@ ALTER TABLE `subscriptions`
 -- Индексы таблицы `thread`
 --
 ALTER TABLE `thread`
- ADD PRIMARY KEY (`id`), ADD KEY `forum` (`forum`), ADD KEY `likes-dislikes` (`likes`,`dislikes`), ADD KEY `user` (`user`);
+ ADD PRIMARY KEY (`id`), ADD KEY `forum` (`forum`) USING HASH, ADD KEY `user` (`user`) USING HASH;
 
 --
 -- Индексы таблицы `user`
 --
 ALTER TABLE `user`
- ADD PRIMARY KEY (`id`), ADD KEY `email` (`email`);
+ ADD PRIMARY KEY (`id`), ADD KEY `email` (`email`) USING HASH;
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
