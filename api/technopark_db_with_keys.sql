@@ -154,7 +154,7 @@ ALTER TABLE `followers`
 -- Индексы таблицы `forum`
 --
 ALTER TABLE `forum`
- ADD PRIMARY KEY (`id`), ADD KEY `short_name` (`short_name`,`name`,`user`) USING HASH, ADD KEY `user` (`user`) USING HASH, ADD KEY `name` (`name`) USING HASH;
+ ADD PRIMARY KEY (`id`), ADD KEY `short_name` (`short_name`,`name`,`user`), ADD KEY `user` (`user`) USING HASH, ADD KEY `name` (`name`) USING HASH;
 
 --
 -- Индексы таблицы `post`
