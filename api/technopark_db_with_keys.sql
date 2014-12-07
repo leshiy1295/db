@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 26 2014 г., 20:57
+-- Время создания: Дек 07 2014 г., 19:57
 -- Версия сервера: 5.6.20-log
 -- Версия PHP: 5.3.28
 
@@ -19,20 +19,6 @@ SET time_zone = "+00:00";
 --
 -- База данных: `technopark_db`
 --
-
-DELIMITER $$
---
--- Процедуры
---
-$$
-
-$$
-
-$$
-
-$$
-
-DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -168,13 +154,13 @@ ALTER TABLE `followers`
 -- Индексы таблицы `forum`
 --
 ALTER TABLE `forum`
- ADD PRIMARY KEY (`id`), ADD KEY `short_name` (`short_name`,`name`,`user`), ADD KEY `user` (`user`), ADD KEY `name` (`name`);
+ ADD PRIMARY KEY (`id`), ADD KEY `short_name` (`short_name`,`name`,`user`) USING HASH, ADD KEY `user` (`user`) USING HASH, ADD KEY `name` (`name`) USING HASH;
 
 --
 -- Индексы таблицы `post`
 --
 ALTER TABLE `post`
- ADD PRIMARY KEY (`id`), ADD KEY `parent` (`parent`), ADD KEY `forum` (`forum`,`date`,`likes`,`dislikes`), ADD KEY `thread` (`thread`,`date`,`likes`,`dislikes`), ADD KEY `user` (`user`,`date`,`likes`,`dislikes`);
+ ADD PRIMARY KEY (`id`), ADD KEY `parent` (`parent`), ADD KEY `forum` (`forum`,`date`,`likes`,`dislikes`), ADD KEY `thread` (`thread`,`date`,`likes`,`dislikes`), ADD KEY `user` (`user`,`date`,`likes`,`dislikes`), ADD KEY `post_path` (`id`,`path`,`childs_count`);
 
 --
 -- Индексы таблицы `production`
@@ -192,13 +178,13 @@ ALTER TABLE `subscriptions`
 -- Индексы таблицы `thread`
 --
 ALTER TABLE `thread`
- ADD PRIMARY KEY (`id`), ADD KEY `forum` (`forum`), ADD KEY `likes-dislikes` (`likes`,`dislikes`), ADD KEY `user` (`user`);
+ ADD PRIMARY KEY (`id`), ADD KEY `forum` (`forum`) USING HASH, ADD KEY `user` (`user`) USING HASH;
 
 --
 -- Индексы таблицы `user`
 --
 ALTER TABLE `user`
- ADD PRIMARY KEY (`id`), ADD KEY `email` (`email`);
+ ADD PRIMARY KEY (`id`), ADD KEY `email` (`email`) USING HASH;
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц

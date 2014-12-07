@@ -28852,3 +28852,81 @@ in C:\YII_sites\db\api\index.php (13)
 2014/11/18 04:45:07 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
 in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
 in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:56:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 04:56:47 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '4-3' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (601)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 05:00:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:00:42 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:00:42 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '4-4' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (601)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:00:43 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '4-4' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (601)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:03:43 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:04:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:05:21 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:05:22 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '4-3' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (601)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:06:18 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:08:32 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:09:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:11:22 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:13:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:19:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:20:04 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '3-1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (601)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:32:15 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:32:24 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '3-3' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (601)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:32:26 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '3-3' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (601)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:35:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:35:48 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '3-4' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (601)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 13:37:56 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 15:19:30 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 15:21:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (737)
+in C:\YII_sites\db\api\index.php (13)
+2014/11/18 15:22:08 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '4-1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in C:\YII_sites\db\api\protected\controllers\ThreadController.php (601)
+in C:\YII_sites\db\api\index.php (13)
