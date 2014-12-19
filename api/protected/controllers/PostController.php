@@ -61,7 +61,7 @@ class PostController extends Controller
                     $command = $connection->createCommand($sql);
                     $command->bindParam(":parent", $parent);
                     $res = $command->queryAll();
-                    $path = $res[0]["path"].'.'.$path;
+                    $path = $res[0]["path"].".".$path;
                 }
 
                 $sql = "INSERT INTO post (date, thread, message, user, forum, parent, isApproved, isHighlighted,
