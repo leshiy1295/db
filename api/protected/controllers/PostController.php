@@ -49,23 +49,21 @@ class PostController extends Controller
                     $isDeleted = $request['isDeleted'] == false ? 0 : 1;
                 
                 $connection = Yii::app()->db;
-                                                
+
+                $sql = "select posts as cnt from thread where thread.id = :id";
+                $command = $connection->createCommand($sql);
+                $command->bindParam(":id", $thread);
+                $res = $command->queryAll();
+                $path = strval($res[0]["cnt"] + 1);
+
                 if ($parent != NULL) {
-                    $sql = "update post set childs_count = childs_count + 1 where post.id = :parent;";
-                    $command = $connection->createCommand($sql);
-                    $command->bindParam(":parent", $parent);
-                    $command->execute();
-                    $sql = "select concat(path, '.', childs_count) as path from post where post.id = :parent;";
+                    $sql = "select path from post where post.id = :parent;";
                     $command = $connection->createCommand($sql);
                     $command->bindParam(":parent", $parent);
                     $res = $command->queryAll();
-                    $path = $res[0]["path"];
-                } else {
-                    $sql = "select count(*) as cnt from post where parent is NULL";
-                    $command = $connection->createCommand($sql);
-                    $res = $command->queryAll();
-                    $path = strval($res[0]["cnt"] + 1);
+                    $path = $res[0]["path"] + '.' + $path;
                 }
+
                 $sql = "INSERT INTO post (date, thread, message, user, forum, parent, isApproved, isHighlighted,
                                             isEdited, isSpam, isDeleted, path) 
                         VALUES (:date, :thread, :message, :user, :forum, :parent, :isApproved, :isHighlighted,
