@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Дек 07 2014 г., 19:57
+-- Время создания: Дек 19 2014 г., 10:02
 -- Версия сервера: 5.6.20-log
 -- Версия PHP: 5.3.28
 
@@ -77,8 +77,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   `isDeleted` tinyint(1) NOT NULL DEFAULT '0',
   `likes` int(11) NOT NULL DEFAULT '0',
   `dislikes` int(11) NOT NULL DEFAULT '0',
-  `path` varchar(255) NOT NULL,
-  `childs_count` int(11) NOT NULL DEFAULT '0'
+  `path` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
 
 -- --------------------------------------------------------
@@ -154,13 +153,13 @@ ALTER TABLE `followers`
 -- Индексы таблицы `forum`
 --
 ALTER TABLE `forum`
- ADD PRIMARY KEY (`id`), ADD KEY `short_name` (`short_name`,`name`,`user`), ADD KEY `user` (`user`) USING HASH, ADD KEY `name` (`name`) USING HASH;
+ ADD PRIMARY KEY (`id`), ADD KEY `short_name` (`short_name`,`name`,`user`) USING HASH, ADD KEY `user` (`user`) USING HASH, ADD KEY `name` (`name`) USING HASH;
 
 --
 -- Индексы таблицы `post`
 --
 ALTER TABLE `post`
- ADD PRIMARY KEY (`id`), ADD KEY `parent` (`parent`), ADD KEY `forum` (`forum`,`date`,`likes`,`dislikes`), ADD KEY `thread` (`thread`,`date`,`likes`,`dislikes`), ADD KEY `user` (`user`,`date`,`likes`,`dislikes`), ADD KEY `post_path` (`id`,`path`,`childs_count`);
+ ADD PRIMARY KEY (`id`), ADD KEY `forum` (`forum`,`date`,`likes`,`dislikes`), ADD KEY `thread` (`thread`,`date`,`likes`,`dislikes`), ADD KEY `user` (`user`,`date`,`likes`,`dislikes`);
 
 --
 -- Индексы таблицы `production`
