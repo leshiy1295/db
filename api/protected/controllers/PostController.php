@@ -16,9 +16,9 @@ class PostController extends Controller
 //        $fp = fopen("C:\\file.txt", "a+");
 //        fwrite($fp, file_get_contents('php://input')."\n");
 //        fclose($fp);
-        $request = json_decode($_POST["a"], true);
+//        $request = json_decode($_POST["a"], true);
 
-//        $request = json_decode(file_get_contents('php://input'), true);
+        $request = json_decode(file_get_contents('php://input'), true);
         if (count($request) >= 5 && count($request) <= 11) {
             if (array_key_exists('date', $request) && array_key_exists('thread', $request) &&
                 array_key_exists('message', $request) && array_key_exists('user', $request) &&
