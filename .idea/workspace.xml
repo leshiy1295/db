@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca5508a4-4ada-41fd-adf0-0cbc10ab7c64" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/protected/controllers/PostController.php" afterPath="$PROJECT_DIR$/api/protected/controllers/PostController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/protected/runtime/application.log" afterPath="$PROJECT_DIR$/api/protected/runtime/application.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="db.iws" />
@@ -30,24 +33,27 @@
       <file leaf-file-name="PostController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/protected/controllers/PostController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.1097121" vertical-offset="0" max-vertical-offset="9622">
-              <caret line="72" column="52" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.60251796" vertical-offset="736" max-vertical-offset="9690">
+              <caret line="63" column="54" selection-start-line="63" selection-start-column="54" selection-end-line="63" selection-end-column="54" />
               <folding>
-                <marker date="1418972056344" expanded="true" signature="2115:2168" placeholder="select posts..thread..." />
-                <marker date="1418972056344" expanded="true" signature="2451:2496" placeholder="select path ..post..." />
-                <marker date="1418972056344" expanded="true" signature="2773:3123" placeholder="INSERT INTO ..." />
-                <marker date="1418972056344" expanded="true" signature="3149:3210" placeholder="UPDATE threa..." />
-                <marker date="1418972056344" expanded="true" signature="14372:14426" placeholder="select *, (l..post..." />
-                <marker date="1418972056344" expanded="true" signature="17477:17523" placeholder="UPDATE post ..." />
-                <marker date="1418972056344" expanded="true" signature="17549:17645" placeholder="UPDATE threa..." />
-                <marker date="1418972056344" expanded="true" signature="17604:17644" placeholder="select threa..post..." />
-                <marker date="1418972056344" expanded="true" signature="18684:18730" placeholder="UPDATE post ..." />
-                <marker date="1418972056344" expanded="true" signature="18756:18852" placeholder="UPDATE threa..." />
-                <marker date="1418972056344" expanded="true" signature="18811:18851" placeholder="select threa..post..." />
-                <marker date="1418972056344" expanded="true" signature="20032:20083" placeholder="update post ..." />
-                <marker date="1418972056344" expanded="true" signature="20351:20416" placeholder="select *, (l..post..." />
-                <marker date="1418972056344" expanded="true" signature="23069:23174" placeholder="update post ..." />
-                <marker date="1418972056344" expanded="true" signature="23383:23448" placeholder="select *, (l..post..." />
+                <element signature="e#7#55#0#PHP" expanded="true" />
+                <marker date="1421434454475" expanded="true" signature="2115:2122" placeholder="select posts..thread..." />
+                <marker date="1421434454475" expanded="true" signature="2115:2122" placeholder="select count..post..." />
+                <marker date="1421434454475" expanded="true" signature="2115:2168" placeholder="select posts..thread..." />
+                <marker date="1421434454475" expanded="true" signature="2451:2496" placeholder="select path ..post..." />
+                <marker date="1421434454475" expanded="true" signature="2833:3183" placeholder="INSERT INTO ..." />
+                <marker date="1421434454475" expanded="true" signature="3209:3270" placeholder="UPDATE threa..." />
+                <marker date="1421434454475" expanded="true" signature="14432:14486" placeholder="select *, (l..post..." />
+                <marker date="1421434454475" expanded="true" signature="17537:17583" placeholder="UPDATE post ..." />
+                <marker date="1421434454475" expanded="true" signature="17609:17705" placeholder="UPDATE threa..." />
+                <marker date="1421434454475" expanded="true" signature="17664:17704" placeholder="select threa..post..." />
+                <marker date="1421434454475" expanded="true" signature="18744:18790" placeholder="UPDATE post ..." />
+                <marker date="1421434454475" expanded="true" signature="18816:18912" placeholder="UPDATE threa..." />
+                <marker date="1421434454475" expanded="true" signature="18871:18911" placeholder="select threa..post..." />
+                <marker date="1421434454475" expanded="true" signature="20092:20143" placeholder="update post ..." />
+                <marker date="1421434454475" expanded="true" signature="20411:20476" placeholder="select *, (l..post..." />
+                <marker date="1421434454475" expanded="true" signature="23129:23234" placeholder="update post ..." />
+                <marker date="1421434454475" expanded="true" signature="23443:23508" placeholder="select *, (l..post..." />
               </folding>
             </state>
           </provider>
@@ -56,7 +62,7 @@
       <file leaf-file-name="technopark_db_with_keys.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/technopark_db_with_keys.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="57.46" vertical-offset="3213" max-vertical-offset="4488">
+            <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="4488">
               <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
               <folding />
             </state>
@@ -237,27 +243,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25340393" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -288,9 +294,44 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/api/protected/controllers/PostController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9622">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#7#55#0#PHP" expanded="true" />
+            <marker date="1421434454475" expanded="true" signature="2115:2122" placeholder="select posts..thread..." />
+            <marker date="1421434454475" expanded="true" signature="2115:2122" placeholder="select count..post..." />
+            <marker date="1421434454475" expanded="true" signature="2115:2168" placeholder="select posts..thread..." />
+            <marker date="1421434454475" expanded="true" signature="2451:2496" placeholder="select path ..post..." />
+            <marker date="1421434454475" expanded="true" signature="2833:3183" placeholder="INSERT INTO ..." />
+            <marker date="1421434454475" expanded="true" signature="3209:3270" placeholder="UPDATE threa..." />
+            <marker date="1421434454475" expanded="true" signature="14432:14486" placeholder="select *, (l..post..." />
+            <marker date="1421434454475" expanded="true" signature="17537:17583" placeholder="UPDATE post ..." />
+            <marker date="1421434454475" expanded="true" signature="17609:17705" placeholder="UPDATE threa..." />
+            <marker date="1421434454475" expanded="true" signature="17664:17704" placeholder="select threa..post..." />
+            <marker date="1421434454475" expanded="true" signature="18744:18790" placeholder="UPDATE post ..." />
+            <marker date="1421434454475" expanded="true" signature="18816:18912" placeholder="UPDATE threa..." />
+            <marker date="1421434454475" expanded="true" signature="18871:18911" placeholder="select threa..post..." />
+            <marker date="1421434454475" expanded="true" signature="20092:20143" placeholder="update post ..." />
+            <marker date="1421434454475" expanded="true" signature="20411:20476" placeholder="select *, (l..post..." />
+            <marker date="1421434454475" expanded="true" signature="23129:23234" placeholder="update post ..." />
+            <marker date="1421434454475" expanded="true" signature="23443:23508" placeholder="select *, (l..post..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/technopark_db_with_keys.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="57.46" vertical-offset="3213" max-vertical-offset="4488">
+        <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="4488">
+          <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/technopark_db_with_keys.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="4488">
           <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
           <folding />
         </state>
@@ -298,24 +339,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/protected/controllers/PostController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.1097121" vertical-offset="0" max-vertical-offset="9622">
-          <caret line="72" column="52" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.60251796" vertical-offset="736" max-vertical-offset="9690">
+          <caret line="63" column="54" selection-start-line="63" selection-start-column="54" selection-end-line="63" selection-end-column="54" />
           <folding>
-            <marker date="1418972056344" expanded="true" signature="2115:2168" placeholder="select posts..thread..." />
-            <marker date="1418972056344" expanded="true" signature="2451:2496" placeholder="select path ..post..." />
-            <marker date="1418972056344" expanded="true" signature="2773:3123" placeholder="INSERT INTO ..." />
-            <marker date="1418972056344" expanded="true" signature="3149:3210" placeholder="UPDATE threa..." />
-            <marker date="1418972056344" expanded="true" signature="14372:14426" placeholder="select *, (l..post..." />
-            <marker date="1418972056344" expanded="true" signature="17477:17523" placeholder="UPDATE post ..." />
-            <marker date="1418972056344" expanded="true" signature="17549:17645" placeholder="UPDATE threa..." />
-            <marker date="1418972056344" expanded="true" signature="17604:17644" placeholder="select threa..post..." />
-            <marker date="1418972056344" expanded="true" signature="18684:18730" placeholder="UPDATE post ..." />
-            <marker date="1418972056344" expanded="true" signature="18756:18852" placeholder="UPDATE threa..." />
-            <marker date="1418972056344" expanded="true" signature="18811:18851" placeholder="select threa..post..." />
-            <marker date="1418972056344" expanded="true" signature="20032:20083" placeholder="update post ..." />
-            <marker date="1418972056344" expanded="true" signature="20351:20416" placeholder="select *, (l..post..." />
-            <marker date="1418972056344" expanded="true" signature="23069:23174" placeholder="update post ..." />
-            <marker date="1418972056344" expanded="true" signature="23383:23448" placeholder="select *, (l..post..." />
+            <element signature="e#7#55#0#PHP" expanded="true" />
+            <marker date="1421434454475" expanded="true" signature="2115:2122" placeholder="select posts..thread..." />
+            <marker date="1421434454475" expanded="true" signature="2115:2122" placeholder="select count..post..." />
+            <marker date="1421434454475" expanded="true" signature="2115:2168" placeholder="select posts..thread..." />
+            <marker date="1421434454475" expanded="true" signature="2451:2496" placeholder="select path ..post..." />
+            <marker date="1421434454475" expanded="true" signature="2833:3183" placeholder="INSERT INTO ..." />
+            <marker date="1421434454475" expanded="true" signature="3209:3270" placeholder="UPDATE threa..." />
+            <marker date="1421434454475" expanded="true" signature="14432:14486" placeholder="select *, (l..post..." />
+            <marker date="1421434454475" expanded="true" signature="17537:17583" placeholder="UPDATE post ..." />
+            <marker date="1421434454475" expanded="true" signature="17609:17705" placeholder="UPDATE threa..." />
+            <marker date="1421434454475" expanded="true" signature="17664:17704" placeholder="select threa..post..." />
+            <marker date="1421434454475" expanded="true" signature="18744:18790" placeholder="UPDATE post ..." />
+            <marker date="1421434454475" expanded="true" signature="18816:18912" placeholder="UPDATE threa..." />
+            <marker date="1421434454475" expanded="true" signature="18871:18911" placeholder="select threa..post..." />
+            <marker date="1421434454475" expanded="true" signature="20092:20143" placeholder="update post ..." />
+            <marker date="1421434454475" expanded="true" signature="20411:20476" placeholder="select *, (l..post..." />
+            <marker date="1421434454475" expanded="true" signature="23129:23234" placeholder="update post ..." />
+            <marker date="1421434454475" expanded="true" signature="23443:23508" placeholder="select *, (l..post..." />
           </folding>
         </state>
       </provider>
