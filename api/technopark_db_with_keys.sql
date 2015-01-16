@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Дек 19 2014 г., 10:02
+-- Время создания: Янв 16 2015 г., 23:22
 -- Версия сервера: 5.6.20-log
 -- Версия PHP: 5.3.28
 
@@ -159,7 +159,7 @@ ALTER TABLE `forum`
 -- Индексы таблицы `post`
 --
 ALTER TABLE `post`
- ADD PRIMARY KEY (`id`), ADD KEY `forum` (`forum`,`date`,`likes`,`dislikes`), ADD KEY `thread` (`thread`,`date`,`likes`,`dislikes`), ADD KEY `user` (`user`,`date`,`likes`,`dislikes`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `path` (`path`), ADD KEY `forum` (`forum`,`date`,`likes`,`dislikes`), ADD KEY `thread` (`thread`,`date`,`likes`,`dislikes`), ADD KEY `user` (`user`,`date`,`likes`,`dislikes`);
 
 --
 -- Индексы таблицы `production`
