@@ -371,7 +371,7 @@ class PostController extends Controller
                 $sql .= " and date >= :since ";
             $sql .= " order by date ".$order." ";
             if (array_key_exists('limit', $_GET))
-                $sql .= " limit ".strval($limit);
+                $sql .= " limit ".strval(intval($limit));
             $sql .= ";";
 
             $command = $connection->createCommand($sql);

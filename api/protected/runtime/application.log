@@ -28954,3 +28954,806 @@ in D:\GitHub\db\api\index.php (13)
 2015/01/16 22:59:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
 in D:\GitHub\db\api\protected\controllers\ThreadController.php (738)
 in D:\GitHub\db\api\index.php (13)
+2015/01/16 23:39:37 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (738)
+in D:\GitHub\db\api\index.php (13)
+2015/01/16 23:39:45 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '4-4' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (602)
+in D:\GitHub\db\api\index.php (13)
+2015/01/16 23:45:06 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:447)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=4&sort=tree
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (447)
+in D:\GitHub\db\api\index.php (13)
+2015/01/16 23:45:41 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:447)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=1&sort=tree
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (447)
+in D:\GitHub\db\api\index.php (13)
+2015/01/16 23:45:46 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:447)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=4&sort=tree
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (447)
+in D:\GitHub\db\api\index.php (13)
+2015/01/16 23:45:51 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:447)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=4&sort=tree
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (447)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 00:38:42 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:447)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=3&sort=tree&limit=5&order=desc
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (447)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 00:41:09 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:447)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=3&sort=tree&limit=1&order=desc
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (447)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 00:44:19 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:447)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=3&sort=tree&limit=1&order=asc
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (447)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 00:45:10 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:448)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=3&sort=tree&limit=1&order=asc
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (448)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 00:45:32 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:448)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=3&sort=tree&limit=1&order=asc
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (448)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 00:49:11 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:448)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=3&sort=tree&limit=1&order=asc
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (448)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 00:49:53 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:448)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=3&sort=tree&limit=1&order=asc
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (448)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 00:50:48 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:448)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=3&sort=tree&limit=1&order=asc
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (448)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 00:51:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/index.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('api/index.php')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/api/index.php
+---
+2015/01/17 00:51:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/index.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('api/index.php')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/api/index.php
+---
+2015/01/17 00:51:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/index.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('api/index.php')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/api/index.php
+---
+2015/01/17 00:51:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/index.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('api/index.php')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/api/index.php
+---
+2015/01/17 00:51:45 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:448)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=3&sort=tree&limit=1&order=asc
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (448)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 01:49:10 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:448)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=3&sort=tree&limit=1&order=asc
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (448)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 01:49:20 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:448)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=3&sort=tree&limit=1&order=asc
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (448)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 01:49:22 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:448)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=3&sort=tree&limit=1&order=asc
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (448)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 02:09:52 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:446)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=3&sort=tree&limit=1&order=asc
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (446)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 02:49:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 02:49:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 02:50:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 02:52:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('api/_intellij_p...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 02:52:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 02:53:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 02:58:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 02:58:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 02:58:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 02:58:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 02:58:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 02:58:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 02:58:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:00:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:00:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:00:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:00:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:00:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:00:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:03:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:15:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:15:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:15:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:15:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:15:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:15:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:18:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:33:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:35:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:35:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:35:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:35:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:35:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:35:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:35:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:35:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 03:35:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 14:54:06 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id).
+in D:\GitHub\db\api\protected\controllers\PostController.php (33)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:54:06 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id).
+in D:\GitHub\db\api\protected\controllers\PostController.php (33)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:54:55 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id).
+in D:\GitHub\db\api\protected\controllers\PostController.php (34)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:54:55 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id).
+in D:\GitHub\db\api\protected\controllers\PostController.php (34)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:56:44 [error] [php] Undefined index: thread (D:\GitHub\db\api\protected\controllers\PostController.php:24)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(286): PostController->runAction()
+#1 D:\GitHub\db\framework\web\CController.php(265): PostController->runActionWithFilters()
+#2 D:\GitHub\db\framework\web\CWebApplication.php(282): PostController->run()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/post/fixPaths
+in D:\GitHub\db\api\protected\controllers\PostController.php (24)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:57:00 [error] [php] Undefined index: path (D:\GitHub\db\api\protected\controllers\PostController.php:24)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(286): PostController->runAction()
+#1 D:\GitHub\db\framework\web\CController.php(265): PostController->runActionWithFilters()
+#2 D:\GitHub\db\framework\web\CWebApplication.php(282): PostController->run()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/post/fixPaths
+in D:\GitHub\db\api\protected\controllers\PostController.php (24)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:57:34 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id).
+in D:\GitHub\db\api\protected\controllers\PostController.php (34)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:57:34 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id).
+in D:\GitHub\db\api\protected\controllers\PostController.php (34)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:57:41 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id).
+in D:\GitHub\db\api\protected\controllers\PostController.php (34)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:57:41 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id).
+in D:\GitHub\db\api\protected\controllers\PostController.php (34)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:58:29 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id).
+in D:\GitHub\db\api\protected\controllers\PostController.php (34)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:58:29 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id).
+in D:\GitHub\db\api\protected\controllers\PostController.php (34)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:58:37 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id).
+in D:\GitHub\db\api\protected\controllers\PostController.php (34)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:58:37 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id).
+in D:\GitHub\db\api\protected\controllers\PostController.php (34)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:59:23 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id).
+in D:\GitHub\db\api\protected\controllers\PostController.php (34)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:59:23 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id).
+in D:\GitHub\db\api\protected\controllers\PostController.php (34)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:59:37 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id).
+in D:\GitHub\db\api\protected\controllers\PostController.php (34)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 14:59:37 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id).
+in D:\GitHub\db\api\protected\controllers\PostController.php (34)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:00:38 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id) where id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (35)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:00:38 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id) where id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (35)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:00:56 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id) where id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (35)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:00:56 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id) where id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (35)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:03:32 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id) where id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (37)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:03:32 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id) where id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (37)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:06:26 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id) where id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (38)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:06:26 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id) where id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (38)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:09:01 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id) where id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (36)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:09:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((select path from post where id = :parent_id), '.', id) where id = :id' in D:\GitHub\db\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\GitHub\db\framework\db\CDbCommand.php(377): CDbCommand->queryInternal('', 0, Array)
+#1 D:\GitHub\db\api\protected\controllers\PostController.php(36): CDbCommand->query()
+#2 D:\GitHub\db\framework\web\actions\CInlineAction.php(49): PostController->actionFixPaths()
+#3 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\GitHub\db\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 D:\GitHub\db\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\GitHub\db\framework\web\CWebApplication.php(282): CController->run('fixPaths')
+#7 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('post/fixPaths')
+#8 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 D:\GitHub\db\api\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/db/api/post/fixPaths
+---
+2015/01/17 15:09:09 [error] [php] Missing argument 1 for CDbCommand::buildQuery(), called in D:\GitHub\db\api\protected\controllers\PostController.php on line 36 and defined (D:\GitHub\db\framework\db\CDbCommand.php:558)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): PostController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): PostController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): PostController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/post/fixPaths
+in D:\GitHub\db\api\protected\controllers\PostController.php (36)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:12:58 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((SELECT path FROM post WHERE id = :parent_id), '.', id) WHERE id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (38)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:12:58 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((SELECT path FROM post WHERE id = :parent_id), '.', id) WHERE id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (38)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:14:22 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((SELECT path FROM post WHERE id = :parent_id), '.', id) WHERE id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (37)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:14:22 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((SELECT path FROM post WHERE id = :parent_id), '.', id) WHERE id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (37)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:14:58 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((SELECT path FROM post WHERE id = :parent_id), '.', id) WHERE id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (37)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:14:58 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((SELECT path FROM post WHERE id = :parent_id), '.', id) WHERE id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (37)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:15:51 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((SELECT path FROM post WHERE post.id = :parent_id), '.', id) WHERE id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (37)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:15:51 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((SELECT path FROM post WHERE post.id = :parent_id), '.', id) WHERE id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (37)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:16:00 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((SELECT path FROM post as p WHERE p.id = :parent_id), '.', id) WHERE id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (37)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:16:00 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((SELECT path FROM post as p WHERE p.id = :parent_id), '.', id) WHERE id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (37)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:16:02 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((SELECT path FROM post as p WHERE p.id = :parent_id), '.', id) WHERE id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (37)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:16:02 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((SELECT path FROM post as p WHERE p.id = :parent_id), '.', id) WHERE id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (37)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:16:34 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((SELECT path FROM post as p WHERE p.id = :parent_id), '.', id) WHERE id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (37)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:16:34 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1093 You can't specify target table 'post' for update in FROM clause. The SQL statement executed was: UPDATE post SET path = concat((SELECT path FROM post as p WHERE p.id = :parent_id), '.', id) WHERE id = :id.
+in D:\GitHub\db\api\protected\controllers\PostController.php (37)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:21:16 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY093]: Invalid parameter number: no parameters were bound. The SQL statement executed was: UPDATE post SET path = concat(thread, '.', id) WHERE id = :id;.
+in D:\GitHub\db\api\protected\controllers\PostController.php (41)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:21:16 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY093]: Invalid parameter number: no parameters were bound. The SQL statement executed was: UPDATE post SET path = concat(thread, '.', id) WHERE id = :id;.
+in D:\GitHub\db\api\protected\controllers\PostController.php (41)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:21:16 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY093]: Invalid parameter number: no parameters were bound. The SQL statement executed was: UPDATE post SET path = concat(thread, '.', id) WHERE id = :id;.
+in D:\GitHub\db\api\protected\controllers\PostController.php (41)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:22:27 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY093]: Invalid parameter number: no parameters were bound. The SQL statement executed was: UPDATE post SET path = concat(thread, '.', id) WHERE id = :id;.
+in D:\GitHub\db\api\protected\controllers\PostController.php (41)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:22:28 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY093]: Invalid parameter number: no parameters were bound. The SQL statement executed was: UPDATE post SET path = concat(thread, '.', id) WHERE id = :id;.
+in D:\GitHub\db\api\protected\controllers\PostController.php (41)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 15:22:28 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY093]: Invalid parameter number: no parameters were bound. The SQL statement executed was: UPDATE post SET path = concat(thread, '.', id) WHERE id = :id;.
+in D:\GitHub\db\api\protected\controllers\PostController.php (41)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 17:22:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 17:22:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 17:25:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 17:30:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 17:40:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "_intellij_phpdebug_validator.php".' in D:\GitHub\db\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController('_intellij_phpde...')
+#1 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\GitHub\db\api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/db/api/_intellij_phpdebug_validator.php
+---
+2015/01/17 17:51:38 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:447)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=3&sort=tree&limit=1&order=asc
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (447)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 17:51:46 [error] [php] array_push() expects parameter 1 to be array, null given (D:\GitHub\db\api\protected\controllers\ThreadController.php:446)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=3&sort=tree&limit=1&order=asc
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (446)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 17:52:24 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: select *, (likes - dislikes) as points from post where thread = :thread  order by  path  limit ;.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (400)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 17:52:29 [error] [php] Undefined index: cur_path (D:\GitHub\db\api\protected\controllers\ThreadController.php:443)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#1 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#2 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts?thread=3&sort=tree&limit=2&order=asc
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (443)
+in D:\GitHub\db\api\index.php (13)
+2015/01/17 18:32:59 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (747)
+in D:\GitHub\db\api\index.php (13)

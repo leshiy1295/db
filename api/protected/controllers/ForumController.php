@@ -289,7 +289,7 @@ class ForumController extends Controller
             $sql .= " order by post.date ".$order." ";
 
             if (array_key_exists('limit', $_GET))
-                $sql .= " limit ".strval($limit);
+                $sql .= " limit ".strval(intval($limit));
             $sql .= ";";
 
             $command = $connection->createCommand($sql);
@@ -477,7 +477,7 @@ class ForumController extends Controller
             $sql .= " order by thread.date ".$order." ";
 
             if (array_key_exists('limit', $_GET))
-                $sql .= " limit ".strval($limit);
+                $sql .= " limit ".strval(intval($limit));
             $sql .= ";";
 
             $command = $connection->createCommand($sql);
@@ -613,7 +613,7 @@ class ForumController extends Controller
             $sql .= " order by self.name ".$order." ";
 
             if (array_key_exists('limit', $_GET))
-                $sql .= " limit ".strval($limit);
+                $sql .= " limit ".strval(intval($limit));
             $sql .= ";";
             $command = $connection->createCommand($sql);
             $command->bindParam(":forum", $forum);

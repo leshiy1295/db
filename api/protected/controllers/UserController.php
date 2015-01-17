@@ -307,7 +307,7 @@ class UserController extends Controller
             $sql .= " order by self.name ".$order." ";
 
             if (array_key_exists('limit', $_GET))
-                $sql .= " limit ".strval($limit);
+                $sql .= " limit ".strval(intval($limit));
             $sql .= ";";
 
             $command = $connection->createCommand($sql);
@@ -417,7 +417,7 @@ class UserController extends Controller
             $sql .= " order by self.name ".$order." ";
 
             if (array_key_exists('limit', $_GET))
-                $sql .= " limit ".strval($limit);
+                $sql .= " limit ".strval(intval($limit));
             $sql .= ";";
 
             $command = $connection->createCommand($sql);
@@ -491,7 +491,7 @@ class UserController extends Controller
             $sql .= " order by date ".$order." ";
 
             if (array_key_exists('limit', $_GET))
-                $sql .= " limit ".strval($limit);
+                $sql .= " limit ".strval(intval($limit));
             $sql .= ";";
 
             $command = $connection->createCommand($sql);

@@ -284,7 +284,7 @@ class ThreadController extends Controller
                 $sql .= " and date >= :since ";
             $sql .= " order by date ".$order." ";
             if (array_key_exists('limit', $_GET))
-                $sql .= " limit ".strval($limit);
+                $sql .= " limit ".strval(intval($limit));
             $sql .= ";";
 
             $command = $connection->createCommand($sql);
@@ -366,28 +366,28 @@ class ThreadController extends Controller
             if (strcmp($sort, "flat") == 0) {
                 $sql .= " order by date " . $order . " ";
                 if (array_key_exists('limit', $_GET))
-                    $sql .= " limit " . strval($limit);
+                    $sql .= " limit " . strval(intval($limit));
             }
             elseif (strcmp($sort, "tree") == 0) {
-                $sql .= " order by " . (strcmp($order, "desc") == 0 ? (" substring_index(path, '.', 1) " . $order . ", trim(leading substring_index(path, '.', 1) from path) ") : " path ");
+                $sql .= " order by " . (strcmp($order, "desc") == 0 ? (" substring_index(path, '.', 2) " . $order . ", trim(leading substring_index(path, '.', 2) from path) ") : " path ");
                 if (array_key_exists('limit', $_GET))
-                    $sql .= " limit " . strval($limit);
+                    $sql .= " limit " . strval(intval($limit));
             } else {
-                $sql .= " and substring_index(path, '.', 1) between
-                    (select min(t.path) from
+                $sql .= " and substring_index(path, '.', 2) between
+                    (select substring_index(min(t.path), '.', 2) from
                         (select path from post where thread = :thread and parent is NULL order by path ".$order." ";
                 if (array_key_exists('limit', $_GET))
-                    $sql .= " limit " . strval($limit)." ";
+                    $sql .= " limit " . strval(intval($limit))." ";
                 $sql .= ") as t
                     )
                     and
                     (select max(t.path) from
                         (select path from post where thread = :thread and parent is NULL order by path ".$order." ";
                 if (array_key_exists('limit', $_GET))
-                    $sql .= " limit " . strval($limit)." ";
+                    $sql .= " limit " . strval(intval($limit))." ";
                 $sql .= ") as t
                     ) ";
-                $sql .= " order by " . (strcmp($order, "desc") == 0 ? (" substring_index(path, '.', 1) " .$order. ", trim(leading substring_index(path, '.', 1) from path) ") : " path ");
+                $sql .= " order by " . (strcmp($order, "desc") == 0 ? (" substring_index(path, '.', 2) " .$order. ", trim(leading substring_index(path, '.', 2) from path) ") : " path ");
             }
 
             $sql .= ";";
@@ -426,32 +426,37 @@ class ThreadController extends Controller
                             $buf["user"] = $row["user"];
                             array_push($response["response"], $buf);
                         }
-                    } else {
-                        $response["response"] = array();
+                    } else if (!strcmp($sort, "tree") || !strcmp($sort, "parent_tree")) {
                         $paths = array();
                         foreach ($result as $row) {
                             $path = explode('.', $row['path']);
                             $buf = &$response["response"];
                             $temp_paths = &$paths;
-                            $i = 0;
+                            $flag1 = false; // skipping thread.id
+                            $flag2 = false; // for root nodes
                             foreach ($path as $cur_path) {
-                                if ($i != 0) {
-                                    $buf = &$buf["childs"];
-                                    $temp_paths = &$temp_paths["childs"];
-                                }
-                                $j = 0;
-                                $len = count($temp_paths);
-                                while ($j < $len && strcmp($temp_paths[$j]["cur_path"], $cur_path))
-                                    ++$j;
-                                if ($j == $len) {
-                                    array_push($buf, array());
-                                    array_push($temp_paths, array());
-                                }
-                                $buf = &$buf[$j];
-                                $temp_paths = &$temp_paths[$j];
-                                ++$i;
+                                if ($flag1) {
+                                    if ($flag2) {
+                                        $buf = &$buf["childs"];
+                                        $temp_paths = &$temp_paths["childs"];
+                                    } else
+                                        $flag2 = true;
+                                    $j = 0;
+                                    $len = count($temp_paths);
+                                    while ($j < $len && strcmp($temp_paths[$j]["cur_path"], $cur_path))
+                                        ++$j;
+                                    if ($j == $len) {
+                                        array_push($buf, array());
+                                        array_push($temp_paths, array());
+                                    }
+                                    $buf = &$buf[$j];
+                                    $temp_paths = &$temp_paths[$j];
+                                } else
+                                    $flag1 = true;
+
                             }
                             $temp_paths["cur_path"] = $cur_path;
+                            $buf["path"] = $row["path"];
                             $buf["date"] = $row["date"];
                             $buf["dislikes"] = (int)$row["dislikes"];
                             $buf["forum"] = $row["forum"];
@@ -470,6 +475,10 @@ class ThreadController extends Controller
                             $buf["childs"] = array();
                             $temp_paths["childs"] = array();
                         }
+                    } else {
+                        $code = 3;
+                        $status = "Invalid query";
+                        $response = array('code' => $code, 'response' => $status);
                     }
                 }
             }
