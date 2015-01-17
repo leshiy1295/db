@@ -7,6 +7,52 @@
 
 class PostController extends Controller
 {
+    public function actionFixPaths() {
+        $connection = Yii::app()->db;
+
+        $sql = "select count(*) as cnt from post;";
+        $command = $connection->createCommand($sql);
+        try {
+            $res = $command->queryAll();
+            $cnt = strval($res[0]["cnt"]);
+
+            for ($i = 1; $i <= $cnt; ++$i) {
+                $sql = "SELECT parent, thread, id, path from post where id = :id";
+                $command = $connection->createCommand($sql);
+                $command->bindParam(":id", $i);
+                $res = $command->queryAll();
+                $parent = $res[0]["parent"];
+                echo "BEFORE: ";
+                echo "thread:" . $res[0]["thread"] . " id:" . $res[0]["id"] . " path:" . $res[0]["path"] . " parent:" . ($parent == NULL ? "NULL" : $parent) . "<br>";
+                if ($parent == NULL) {
+                    $sql = "UPDATE post SET path = concat(thread, '.', id) WHERE id = :id;";
+                    $command = $connection->createCommand($sql);
+                } else {
+                    $sql = "SELECT path FROM post WHERE id = :parent_id;";
+                    $command = $connection->createCommand($sql);
+                    $command->bindParam(":parent_id", $parent);
+                    $res = $command->queryAll();
+                    $path = $res[0]["path"];
+                    $sql = "UPDATE post SET path = concat(:path, '.', id) WHERE id = :id;";
+                    $command = $connection->createCommand($sql);
+                    $command->bindParam(":path", $path);
+                }
+                $command->bindParam(":id", $i);
+                $command->execute();
+                $sql = "SELECT path FROM post WHERE id = :id;";
+                $command = $connection->createCommand($sql);
+                $command->bindParam(":id", $i);
+                $res = $command->queryAll();
+                echo "AFTER: ";
+                echo " path:" . $res[0]["path"] . "<br>";
+            }
+        }
+        catch (Exception $e) {
+            echo $e->getMessage()."<br>";
+        }
+    }
+
+
     public function actionCreate()
     {
         $code = 2;
