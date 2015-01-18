@@ -134,51 +134,20 @@ class ThreadController extends Controller
             $thread = $_GET['thread'];
             
             $connection = Yii::app()->db;
-            $correct = true;            
             $rel_type = 0;
-            $sql_user_part = "user.id as u_id, user.name as u_name, about, email, isAnonymous, username,
-                   (
-                   select group_concat(u2.email)
-                   from user as u1
-                   join followers as f
-                   on u1.id = f.u_to
-                   join user as u2
-                   on f.u_from = u2.id
-                   where u1.id = u_id
-                   group by f.u_to
-                   ) as followers
-                   ,
-                   (
-                   select group_concat(u2.email)
-                   from user as u1
-                   join followers as f
-                   on u1.id = f.u_from
-                   join user as u2
-                   on f.u_to = u2.id
-                   where u1.id = u_id
-                   group by f.u_from
-                   ) as following
-                   ,
-                   (
-                   select group_concat(t_id)
-                   from user as u
-                   join subscriptions as s
-                   on u.id = s.u_id
-                   where u.id = u_id
-                   group by u.id
-                   ) as subscriptions ";
+
             if (array_key_exists('user', $related) && array_key_exists('forum', $related)) {
                 $sql = "select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
                     thread.*, (likes - dislikes) as points, ".
-                    $sql_user_part.
-                    "from thread join user on thread.user = user.email
+                    ControllersHelper::getSqlBlockForUser().
+                    " from thread join user as self on thread.user = self.email
                     join forum on thread.forum = forum.short_name 
                     where thread.id = :thread_id;";
                 $rel_type = 1;
             } else if (array_key_exists('user', $related)) {
                 $sql = "select thread.*, (likes - dislikes) as points, ".
-                    $sql_user_part.
-                    "from thread join user on thread.user = user.email
+                    ControllersHelper::getSqlBlockForUser().
+                    " from thread join user as self on thread.user = self.email
                     where thread.id = :thread_id;";
                 $rel_type = 2;
             } else if (array_key_exists('forum', $related)) {
@@ -228,9 +197,9 @@ class ThreadController extends Controller
                         $buf2["followers"] = $row["followers"] == null ? array() : explode(", ", $row["followers"]);
                         $buf2["following"] = $row["following"] == null ? array() : explode(", ", $row["following"]);
                         
-                        $buf2["id"] = $row["u_id"];
+                        $buf2["id"] = $row["user_id"];
                         $buf2["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                        $buf2["name"] = $row["u_name"];
+                        $buf2["name"] = $row["user_name"];
                         
                         $buf2["subscriptions"] = $row["subscriptions"] == null ? array() : explode(", ", $row["subscriptions"]);
                         

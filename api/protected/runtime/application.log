@@ -29757,3 +29757,179 @@ in D:\GitHub\db\api\index.php (13)
 2015/01/17 18:32:59 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
 in D:\GitHub\db\api\protected\controllers\ThreadController.php (747)
 in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:17:43 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'self.id' in 'field list'. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points,  self.id as u_id, self.name as u_name, about, email, isAnonymous, username, (select group_concat(email)
+                                from user
+                                join followers
+                                on id = u_from
+                                where u_to = u_id) as followers , (select group_concat(email)
+                                from user
+                                join followers
+                                on id = u_to
+                                where u_from = u_id) as following , (select group_concat(t_id)
+                                    from subscriptions
+                                    where u_id = u_id) as subscriptions   from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (164)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:17:45 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'self.id' in 'field list'. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points,  self.id as u_id, self.name as u_name, about, email, isAnonymous, username, (select group_concat(email)
+                                from user
+                                join followers
+                                on id = u_from
+                                where u_to = u_id) as followers , (select group_concat(email)
+                                from user
+                                join followers
+                                on id = u_to
+                                where u_from = u_id) as following , (select group_concat(t_id)
+                                    from subscriptions
+                                    where u_id = u_id) as subscriptions   from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (164)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:17:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'self.id' in 'field list'. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points,  self.id as u_id, self.name as u_name, about, email, isAnonymous, username, (select group_concat(email)
+                                from user
+                                join followers
+                                on id = u_from
+                                where u_to = u_id) as followers , (select group_concat(email)
+                                from user
+                                join followers
+                                on id = u_to
+                                where u_from = u_id) as following , (select group_concat(t_id)
+                                    from subscriptions
+                                    where u_id = u_id) as subscriptions   from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (164)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:17:49 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'self.id' in 'field list'. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points,  self.id as u_id, self.name as u_name, about, email, isAnonymous, username, (select group_concat(email)
+                                from user
+                                join followers
+                                on id = u_from
+                                where u_to = u_id) as followers , (select group_concat(email)
+                                from user
+                                join followers
+                                on id = u_to
+                                where u_from = u_id) as following , (select group_concat(t_id)
+                                    from subscriptions
+                                    where u_id = u_id) as subscriptions   from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (164)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:18:41 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (716)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:44:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'self.id' in 'field list'. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points,  self.id as user_id, self.name as user_name, about, email, isAnonymous, username, (select group_concat(email)
+                                from user
+                                join followers
+                                on id = u_from
+                                where u_to = user_id) as followers , (select group_concat(email)
+                                from user
+                                join followers
+                                on id = u_to
+                                where u_from = user_id) as following , (select group_concat(t_id)
+                                    from subscriptions
+                                    where u_id = user_id) as subscriptions   from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (164)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:44:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'self.id' in 'field list'. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points,  self.id as user_id, self.name as user_name, about, email, isAnonymous, username, (select group_concat(email)
+                                from user
+                                join followers
+                                on id = u_from
+                                where u_to = user_id) as followers , (select group_concat(email)
+                                from user
+                                join followers
+                                on id = u_to
+                                where u_from = user_id) as following , (select group_concat(t_id)
+                                    from subscriptions
+                                    where u_id = user_id) as subscriptions   from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (164)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:44:08 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'self.id' in 'field list'. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points,  self.id as user_id, self.name as user_name, about, email, isAnonymous, username, (select group_concat(email)
+                                from user
+                                join followers
+                                on id = u_from
+                                where u_to = user_id) as followers , (select group_concat(email)
+                                from user
+                                join followers
+                                on id = u_to
+                                where u_from = user_id) as following , (select group_concat(t_id)
+                                    from subscriptions
+                                    where u_id = user_id) as subscriptions   from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (164)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:44:10 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'self.id' in 'field list'. The SQL statement executed was: select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
+                    thread.*, (likes - dislikes) as points,  self.id as user_id, self.name as user_name, about, email, isAnonymous, username, (select group_concat(email)
+                                from user
+                                join followers
+                                on id = u_from
+                                where u_to = user_id) as followers , (select group_concat(email)
+                                from user
+                                join followers
+                                on id = u_to
+                                where u_from = user_id) as following , (select group_concat(t_id)
+                                    from subscriptions
+                                    where u_id = user_id) as subscriptions   from thread join user on thread.user = user.email
+                    join forum on thread.forum = forum.short_name 
+                    where thread.id = :thread_id;.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (164)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:45:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (716)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:45:06 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'field list'. The SQL statement executed was: INSERT INTO subscriptions (t_id, user_id) values (:thread,(select id from user where email = :user));.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (580)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:45:08 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'field list'. The SQL statement executed was: INSERT INTO subscriptions (t_id, user_id) values (:thread,(select id from user where email = :user));.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (580)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:45:10 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'field list'. The SQL statement executed was: INSERT INTO subscriptions (t_id, user_id) values (:thread,(select id from user where email = :user));.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (580)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:45:12 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'field list'. The SQL statement executed was: INSERT INTO subscriptions (t_id, user_id) values (:thread,(select id from user where email = :user));.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (580)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:45:14 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'field list'. The SQL statement executed was: INSERT INTO subscriptions (t_id, user_id) values (:thread,(select id from user where email = :user));.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (580)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:45:16 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'. The SQL statement executed was: delete from subscriptions where t_id = :thread and user_id = (select id from user where email = :user);.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (614)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:51:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (716)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:51:38 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'field list'. The SQL statement executed was: INSERT INTO subscriptions (t_id, user_id) values (:thread,(select id from user where email = :user));.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (580)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:51:40 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'field list'. The SQL statement executed was: INSERT INTO subscriptions (t_id, user_id) values (:thread,(select id from user where email = :user));.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (580)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:51:42 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'field list'. The SQL statement executed was: INSERT INTO subscriptions (t_id, user_id) values (:thread,(select id from user where email = :user));.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (580)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:51:44 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'field list'. The SQL statement executed was: INSERT INTO subscriptions (t_id, user_id) values (:thread,(select id from user where email = :user));.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (580)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:51:46 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'field list'. The SQL statement executed was: INSERT INTO subscriptions (t_id, user_id) values (:thread,(select id from user where email = :user));.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (580)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 20:51:48 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause'. The SQL statement executed was: delete from subscriptions where t_id = :thread and user_id = (select id from user where email = :user);.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (614)
+in D:\GitHub\db\api\index.php (13)
+2015/01/18 21:12:32 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (716)
+in D:\GitHub\db\api\index.php (13)

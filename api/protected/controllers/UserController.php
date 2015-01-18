@@ -74,38 +74,8 @@ class UserController extends Controller
         if (array_key_exists('user', $_GET)) {
             $user = $_GET['user'];
             $connection = Yii::app()->db;
-            $sql = "select *,
-               (
-                select group_concat(u2.email)
-                from user as u1
-                join followers as f
-                on u1.id = f.u_to
-                join user as u2
-                on f.u_from = u2.id
-                where u1.id = u0.id
-                group by f.u_to
-               ) as followers
-               ,
-               (
-                select group_concat(u2.email)
-                from user as u1
-                join followers as f
-                on u1.id = f.u_from
-                join user as u2
-                on f.u_to = u2.id
-                where u1.id = u0.id
-                group by f.u_from
-               ) as following
-               ,
-               (
-                select group_concat(t_id)
-                from user as u
-                join subscriptions as s
-                on u.id = s.u_id
-                where u.id = u0.id
-                group by u.id
-               ) as subscriptions
-               from user as u0
+            $sql = "select ".ControllersHelper::getSqlBlockForUser().
+               " from user as self
                where email = :email;";
             $command = $connection->createCommand($sql);
             $command->bindParam(":email", $user); 
@@ -124,9 +94,9 @@ class UserController extends Controller
                     $buf["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
                     $buf["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
                     
-                    $buf["id"] = $row["id"];
+                    $buf["id"] = $row["user_id"];
                     $buf["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                    $buf["name"] = $row["name"];
+                    $buf["name"] = $row["user_name"];
                     
                     $buf["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
                     
@@ -172,39 +142,10 @@ class UserController extends Controller
                 $command->bindParam(":followee", $followee);
                 try {
                     $command->execute();
-                    $sql = "select *,
-                       (
-                        select group_concat(u2.email)
-                        from user as u1
-                        join followers as f
-                        on u1.id = f.u_to
-                        join user as u2
-                        on f.u_from = u2.id
-                        where u1.id = u0.id
-                        group by f.u_to
-                       ) as followers
-                       ,
-                       (
-                        select group_concat(u2.email)
-                        from user as u1
-                        join followers as f
-                        on u1.id = f.u_from
-                        join user as u2
-                        on f.u_to = u2.id
-                        where u1.id = u0.id
-                        group by f.u_from
-                       ) as following
-                       ,
-                       (
-                        select group_concat(t_id)
-                        from user as u
-                        join subscriptions as s
-                        on u.id = s.u_id
-                        where u.id = u0.id
-                        group by u.id
-                       ) as subscriptions
-                       from user as u0
-                       where email = :email;";
+                    $sql = "select ".
+                            ControllersHelper::getSqlBlockForUser().
+                           " from user as self
+                           where email = :email;";
                     $command = $connection->createCommand($sql);
                     $command->bindParam(":email", $follower);
 
@@ -222,9 +163,9 @@ class UserController extends Controller
                         $buf["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
                         $buf["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
 
-                        $buf["id"] = $row["id"];
+                        $buf["id"] = $row["user_id"];
                         $buf["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                        $buf["name"] = $row["name"];
+                        $buf["name"] = $row["user_name"];
 
                         $buf["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
 
@@ -263,38 +204,9 @@ class UserController extends Controller
 
             $connection = Yii::app()->db;
 
-            $sql = "select id as u_id, name as u_name, about, email, isAnonymous, username,
-                    (
-                    select group_concat(u2.email)
-                    from user as u1
-                    join followers as f
-                    on u1.id = f.u_to
-                    join user as u2
-                    on f.u_from = u2.id
-                    where u1.id = self.id
-                    group by f.u_to
-                    ) as followers
-                    ,
-                    (
-                    select group_concat(u2.email)
-                    from user as u1
-                    join followers as f
-                    on u1.id = f.u_from
-                    join user as u2
-                    on f.u_to = u2.id
-                    where u1.id = self.id
-                    group by f.u_from
-                    ) as following
-                    ,
-                    (
-                    select group_concat(t_id)
-                    from user as u
-                    join subscriptions as s
-                    on u.id = s.u_id
-                    where u.id = self.id
-                    group by u.id
-                    ) as subscriptions
-                    from user as self join
+            $sql = "select ".
+                    ControllersHelper::getSqlBlockForUser().
+                    " from user as self join
                     (select u_from as res_id from followers
                     join user as u on u.id = u_to
                     where u.email = :user
@@ -332,9 +244,9 @@ class UserController extends Controller
                         $buf["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
                         $buf["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
 
-                        $buf["id"] = $row["u_id"];
+                        $buf["id"] = $row["user_id"];
                         $buf["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                        $buf["name"] = $row["u_name"];
+                        $buf["name"] = $row["user_name"];
 
                         $buf["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
 
@@ -373,38 +285,9 @@ class UserController extends Controller
 
             $connection = Yii::app()->db;
 
-            $sql = "select id as u_id, name as u_name, about, email, isAnonymous, username,
-                    (
-                    select group_concat(u2.email)
-                    from user as u1
-                    join followers as f
-                    on u1.id = f.u_to
-                    join user as u2
-                    on f.u_from = u2.id
-                    where u1.id = self.id
-                    group by f.u_to
-                    ) as followers
-                    ,
-                    (
-                    select group_concat(u2.email)
-                    from user as u1
-                    join followers as f
-                    on u1.id = f.u_from
-                    join user as u2
-                    on f.u_to = u2.id
-                    where u1.id = self.id
-                    group by f.u_from
-                    ) as following
-                    ,
-                    (
-                    select group_concat(t_id)
-                    from user as u
-                    join subscriptions as s
-                    on u.id = s.u_id
-                    where u.id = self.id
-                    group by u.id
-                    ) as subscriptions
-                    from user as self join
+            $sql = "select ".
+                    ControllersHelper::getSqlBlockForUser().
+                    " from user as self join
                     (select u_to as res_id from followers
                     join user as u on u.id = u_from
                     where u.email = :user
@@ -442,9 +325,9 @@ class UserController extends Controller
                         $buf["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
                         $buf["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
 
-                        $buf["id"] = $row["u_id"];
+                        $buf["id"] = $row["user_id"];
                         $buf["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                        $buf["name"] = $row["u_name"];
+                        $buf["name"] = $row["user_name"];
 
                         $buf["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
 
@@ -565,39 +448,10 @@ class UserController extends Controller
                 $command->bindParam(":followee", $followee);
                 try {
                     $command->execute();
-                    $sql = "select *,
-                       (
-                        select group_concat(u2.email)
-                        from user as u1
-                        join followers as f
-                        on u1.id = f.u_to
-                        join user as u2
-                        on f.u_from = u2.id
-                        where u1.id = u0.id
-                        group by f.u_to
-                       ) as followers
-                       ,
-                       (
-                        select group_concat(u2.email)
-                        from user as u1
-                        join followers as f
-                        on u1.id = f.u_from
-                        join user as u2
-                        on f.u_to = u2.id
-                        where u1.id = u0.id
-                        group by f.u_from
-                       ) as following
-                       ,
-                       (
-                        select group_concat(t_id)
-                        from user as u
-                        join subscriptions as s
-                        on u.id = s.u_id
-                        where u.id = u0.id
-                        group by u.id
-                       ) as subscriptions
-                       from user as u0
-                       where email = :email;";
+                    $sql = "select ".
+                            ControllersHelper::getSqlBlockForUser().
+                           " from user as self
+                           where email = :email;";
                     $command = $connection->createCommand($sql);
                     $command->bindParam(":email", $follower);
 
@@ -615,9 +469,9 @@ class UserController extends Controller
                         $buf["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
                         $buf["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
 
-                        $buf["id"] = $row["id"];
+                        $buf["id"] = $row["user_id"];
                         $buf["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                        $buf["name"] = $row["name"];
+                        $buf["name"] = $row["user_name"];
 
                         $buf["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
 
@@ -657,39 +511,10 @@ class UserController extends Controller
                 $command->bindParam(":name", $name);
                 try {
                     $command->execute();
-                    $sql = "select *,
-                       (
-                        select group_concat(u2.email)
-                        from user as u1
-                        join followers as f
-                        on u1.id = f.u_to
-                        join user as u2
-                        on f.u_from = u2.id
-                        where u1.id = u0.id
-                        group by f.u_to
-                       ) as followers
-                       ,
-                       (
-                        select group_concat(u2.email)
-                        from user as u1
-                        join followers as f
-                        on u1.id = f.u_from
-                        join user as u2
-                        on f.u_to = u2.id
-                        where u1.id = u0.id
-                        group by f.u_from
-                       ) as following
-                       ,
-                       (
-                        select group_concat(t_id)
-                        from user as u
-                        join subscriptions as s
-                        on u.id = s.u_id
-                        where u.id = u0.id
-                        group by u.id
-                       ) as subscriptions
-                       from user as u0
-                       where email = :email;";
+                    $sql = "select ".
+                            ControllersHelper::getSqlBlockForUser().
+                            " from user as self
+                            where email = :email;";
                     $command = $connection->createCommand($sql);
                     $command->bindParam(":email", $user);
 
@@ -707,9 +532,9 @@ class UserController extends Controller
                         $buf["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
                         $buf["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
 
-                        $buf["id"] = $row["id"];
+                        $buf["id"] = $row["user_id"];
                         $buf["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                        $buf["name"] = $row["name"];
+                        $buf["name"] = $row["user_name"];
 
                         $buf["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
 

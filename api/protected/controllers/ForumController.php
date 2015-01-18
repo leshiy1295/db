@@ -92,39 +92,10 @@ class ForumController extends Controller
             $connection = Yii::app()->db;
             $correct = true;
             if (array_key_exists('user', $related)) {
-                $sql = "select forum.*, self.id as u_id, self.name as u_name, about, email, isAnonymous, username,
-                    (
-                    select group_concat(u2.email)
-                    from user as u1
-                    join followers as f
-                    on u1.id = f.u_to
-                    join user as u2
-                    on f.u_from = u2.id
-                    where u1.id = self.id
-                    group by f.u_to
-                    ) as followers
-                    ,
-                    (
-                    select group_concat(u2.email)
-                    from user as u1
-                    join followers as f
-                    on u1.id = f.u_from
-                    join user as u2
-                    on f.u_to = u2.id
-                    where u1.id = self.id
-                    group by f.u_from
-                    ) as following
-                    ,
-                    (
-                    select group_concat(t_id)
-                    from user as u
-                    join subscriptions as s
-                    on u.id = s.u_id
-                    where u.id = self.id
-                    group by u.id
-                    ) as subscriptions
-                   from forum join user as self on user = self.email
-                   where short_name = :short_name;";
+                $sql = "select forum.*, ".
+                        ControllersHelper::getSqlBlockForUser().
+                        " from forum join user as self on user = self.email
+                        where short_name = :short_name;";
                 $correct = true;
             }
             else
@@ -152,9 +123,9 @@ class ForumController extends Controller
                             $buf2["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
                             $buf2["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
                             
-                            $buf2["id"] = $row["u_id"];
+                            $buf2["id"] = $row["user_id"];
                             $buf2["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                            $buf2["name"] = $row["u_name"];
+                            $buf2["name"] = $row["user_name"];
                             
                             $buf2["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
                             
@@ -219,37 +190,6 @@ class ForumController extends Controller
                 $order = $_GET['order'];
 
             $connection = Yii::app()->db;
-            $sql_user_part = " self.id as u_id, self.name as u_name, about, email, isAnonymous, username,
-                    (
-                    select group_concat(u2.email)
-                    from user as u1
-                    join followers as f
-                    on u1.id = f.u_to
-                    join user as u2
-                    on f.u_from = u2.id
-                    where u1.id = self.id
-                    group by f.u_to
-                    ) as followers
-                    ,
-                    (
-                    select group_concat(u2.email)
-                    from user as u1
-                    join followers as f
-                    on u1.id = f.u_from
-                    join user as u2
-                    on f.u_to = u2.id
-                    where u1.id = self.id
-                    group by f.u_from
-                    ) as following
-                    ,
-                    (
-                    select group_concat(t_id)
-                    from user as u
-                    join subscriptions as s
-                    on u.id = s.u_id
-                    where u.id = self.id
-                    group by u.id
-                    ) as subscriptions ";
             $sql_forum_part = " forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user ";
             $sql_thread_part = " thread.date as t_date, thread.dislikes as t_dislikes, thread.forum as t_forum,
                     thread.id as t_id, isClosed, thread.isDeleted as t_isDeleted, thread.likes as t_likes,
@@ -260,7 +200,7 @@ class ForumController extends Controller
             $flag2 = 0;
             $flag3 = 0;
             if (array_key_exists('user', $related)) {
-                $sql .= ", ".$sql_user_part;
+                $sql .= ", ".ControllersHelper::getSqlBlockForUser();
                 $flag1 = 1;
             }
             if (array_key_exists('forum', $related)) {
@@ -355,9 +295,9 @@ class ForumController extends Controller
                             $buf2["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
                             $buf2["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
 
-                            $buf2["id"] = $row["u_id"];
+                            $buf2["id"] = $row["user_id"];
                             $buf2["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                            $buf2["name"] = $row["u_name"];
+                            $buf2["name"] = $row["user_name"];
 
                             $buf2["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
 
@@ -419,43 +359,12 @@ class ForumController extends Controller
                 $order = $_GET['order'];
 
             $connection = Yii::app()->db;
-            $sql_user_part = " self.id as u_id, self.name as u_name, about, email, isAnonymous, username,
-                    (
-                    select group_concat(u2.email)
-                    from user as u1
-                    join followers as f
-                    on u1.id = f.u_to
-                    join user as u2
-                    on f.u_from = u2.id
-                    where u1.id = self.id
-                    group by f.u_to
-                    ) as followers
-                    ,
-                    (
-                    select group_concat(u2.email)
-                    from user as u1
-                    join followers as f
-                    on u1.id = f.u_from
-                    join user as u2
-                    on f.u_to = u2.id
-                    where u1.id = self.id
-                    group by f.u_from
-                    ) as following
-                    ,
-                    (
-                    select group_concat(t_id)
-                    from user as u
-                    join subscriptions as s
-                    on u.id = s.u_id
-                    where u.id = self.id
-                    group by u.id
-                    ) as subscriptions ";
             $sql_forum_part = " forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user ";
             $sql = "select thread.*, (thread.likes - thread.dislikes) as points ";
             $flag1 = 0;
             $flag2 = 0;
             if (array_key_exists('user', $related)) {
-                $sql .= ", ".$sql_user_part;
+                $sql .= ", ".ControllersHelper::getSqlBlockForUser();
                 $flag1 = 1;
             }
             if (array_key_exists('forum', $related)) {
@@ -524,9 +433,9 @@ class ForumController extends Controller
                             $buf2["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
                             $buf2["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
 
-                            $buf2["id"] = $row["u_id"];
+                            $buf2["id"] = $row["user_id"];
                             $buf2["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                            $buf2["name"] = $row["u_name"];
+                            $buf2["name"] = $row["user_name"];
 
                             $buf2["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
 
@@ -569,43 +478,14 @@ class ForumController extends Controller
 
             $connection = Yii::app()->db;
 
-            $sql = "select id as u_id, name as u_name, about, email, isAnonymous, username,
-                    (
-                    select group_concat(u2.email)
-                    from user as u1
-                    join followers as f
-                    on u1.id = f.u_to
-                    join user as u2
-                    on f.u_from = u2.id
-                    where u1.id = self.id
-                    group by f.u_to
-                    ) as followers
-                    ,
-                    (
-                    select group_concat(u2.email)
-                    from user as u1
-                    join followers as f
-                    on u1.id = f.u_from
-                    join user as u2
-                    on f.u_to = u2.id
-                    where u1.id = self.id
-                    group by f.u_from
-                    ) as following
-                    ,
-                    (
-                    select group_concat(t_id)
-                    from user as u
-                    join subscriptions as s
-                    on u.id = s.u_id
-                    where u.id = self.id
-                    group by u.id
-                    ) as subscriptions
-                    from user as self join
-                    (select u.id as u_id from post
+            $sql = "select ".
+                    ControllersHelper::getSqlBlockForUser().
+                    " from user as self join
+                    (select u.id as user_id from post
                     join user as u on u.email = post.user
                     where post.forum = :forum
                     group by u.id) as t
-                    on self.id = t.u_id ";
+                    on self.id = t.user_id ";
             if (array_key_exists('since_id', $_GET))
                 $sql .= " where self.id >= :since_id ";
 
@@ -637,9 +517,9 @@ class ForumController extends Controller
                         $buf["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
                         $buf["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
 
-                        $buf["id"] = $row["u_id"];
+                        $buf["id"] = $row["user_id"];
                         $buf["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                        $buf["name"] = $row["u_name"];
+                        $buf["name"] = $row["user_name"];
 
                         $buf["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
 
