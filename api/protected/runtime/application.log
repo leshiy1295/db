@@ -29933,3 +29933,111 @@ in D:\GitHub\db\api\index.php (13)
 2015/01/18 21:12:32 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
 in D:\GitHub\db\api\protected\controllers\ThreadController.php (716)
 in D:\GitHub\db\api\index.php (13)
+2015/01/19 00:33:25 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (716)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 00:33:35 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (580)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 00:33:48 [error] [php] Only variables should be passed by reference (D:\GitHub\db\api\protected\controllers\UserController.php:137)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(286): UserController->runAction()
+#1 D:\GitHub\db\framework\web\CController.php(265): UserController->runActionWithFilters()
+#2 D:\GitHub\db\framework\web\CWebApplication.php(282): UserController->run()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/user/follow/
+in D:\GitHub\db\api\protected\controllers\UserController.php (137)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 00:33:52 [error] [php] Only variables should be passed by reference (D:\GitHub\db\api\protected\controllers\UserController.php:137)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(286): UserController->runAction()
+#1 D:\GitHub\db\framework\web\CController.php(265): UserController->runActionWithFilters()
+#2 D:\GitHub\db\framework\web\CWebApplication.php(282): UserController->run()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/user/follow/
+in D:\GitHub\db\api\protected\controllers\UserController.php (137)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 00:33:55 [error] [php] Only variables should be passed by reference (D:\GitHub\db\api\protected\controllers\UserController.php:217)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(286): UserController->runAction()
+#1 D:\GitHub\db\framework\web\CController.php(265): UserController->runActionWithFilters()
+#2 D:\GitHub\db\framework\web\CWebApplication.php(282): UserController->run()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/user/listFollowers/?limit=3&user=example3%40mail.ru&since_id=0&order=desc
+in D:\GitHub\db\api\protected\controllers\UserController.php (217)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 00:33:56 [error] [php] Only variables should be passed by reference (D:\GitHub\db\api\protected\controllers\UserController.php:217)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(286): UserController->runAction()
+#1 D:\GitHub\db\framework\web\CController.php(265): UserController->runActionWithFilters()
+#2 D:\GitHub\db\framework\web\CWebApplication.php(282): UserController->run()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/user/listFollowers/?user=example%40mail.ru&order=asc
+in D:\GitHub\db\api\protected\controllers\UserController.php (217)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 00:33:57 [error] [php] Only variables should be passed by reference (D:\GitHub\db\api\protected\controllers\UserController.php:293)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(286): UserController->runAction()
+#1 D:\GitHub\db\framework\web\CController.php(265): UserController->runActionWithFilters()
+#2 D:\GitHub\db\framework\web\CWebApplication.php(282): UserController->run()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/user/listFollowing/?limit=3&user=example3%40mail.ru&since_id=1&order=desc
+in D:\GitHub\db\api\protected\controllers\UserController.php (293)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 00:33:58 [error] [php] Only variables should be passed by reference (D:\GitHub\db\api\protected\controllers\UserController.php:293)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(286): UserController->runAction()
+#1 D:\GitHub\db\framework\web\CController.php(265): UserController->runActionWithFilters()
+#2 D:\GitHub\db\framework\web\CWebApplication.php(282): UserController->run()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/user/listFollowing/?user=example%40mail.ru&order=asc
+in D:\GitHub\db\api\protected\controllers\UserController.php (293)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 00:33:59 [error] [php] Only variables should be passed by reference (D:\GitHub\db\api\protected\controllers\UserController.php:431)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(286): UserController->runAction()
+#1 D:\GitHub\db\framework\web\CController.php(265): UserController->runActionWithFilters()
+#2 D:\GitHub\db\framework\web\CWebApplication.php(282): UserController->run()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/user/unfollow/
+in D:\GitHub\db\api\protected\controllers\UserController.php (431)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 00:34:02 [error] [php] Only variables should be passed by reference (D:\GitHub\db\api\protected\controllers\UserController.php:431)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(286): UserController->runAction()
+#1 D:\GitHub\db\framework\web\CController.php(265): UserController->runActionWithFilters()
+#2 D:\GitHub\db\framework\web\CWebApplication.php(282): UserController->run()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/user/unfollow/
+in D:\GitHub\db\api\protected\controllers\UserController.php (431)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 00:38:17 [error] [php] Only variables should be passed by reference (D:\GitHub\db\api\protected\controllers\UserController.php:137)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(286): UserController->runAction()
+#1 D:\GitHub\db\framework\web\CController.php(265): UserController->runActionWithFilters()
+#2 D:\GitHub\db\framework\web\CWebApplication.php(282): UserController->run()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/user/follow/
+in D:\GitHub\db\api\protected\controllers\UserController.php (137)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 00:43:25 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (716)
+in D:\GitHub\db\api\index.php (13)

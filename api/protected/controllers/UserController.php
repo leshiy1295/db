@@ -23,7 +23,7 @@ class UserController extends Controller
                 $email = $request['email'];
                 
                 $connection = Yii::app()->db;
-                $sql = "SELECT 1 FROM user WHERE email = :email;";
+                $sql = "SELECT 1 FROM user WHERE email = :email limit 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":email", $email);
                 $dataReader = $command->queryAll();
@@ -76,7 +76,7 @@ class UserController extends Controller
             $connection = Yii::app()->db;
             $sql = "select ".ControllersHelper::getSqlBlockForUser().
                " from user as self
-               where email = :email;";
+               where email = :email limit 1;";
             $command = $connection->createCommand($sql);
             $command->bindParam(":email", $user); 
             try {
@@ -130,22 +130,21 @@ class UserController extends Controller
                 $follower = $request['follower'];
                 $followee = $request['followee'];
 
+                $follower_id = ControllersHelper::getUserIdByEmail($follower);
+                $followee_id = ControllersHelper::getUserIdByEmail($followee);
+
                 $connection = Yii::app()->db;
 
-                $sql = "INSERT INTO followers (u_from, u_to)
-                        VALUES (
-                        (select id from user where email = :follower),
-                        (select id from user where email = :followee)
-                        );";
+                $sql = "INSERT INTO followers (u_from, u_to) VALUES (:follower_id, :followee_id);";
                 $command = $connection->createCommand($sql);
-                $command->bindParam(":follower", $follower);
-                $command->bindParam(":followee", $followee);
+                $command->bindParam(":follower_id", $follower_id);
+                $command->bindParam(":followee_id", $followee_id);
                 try {
                     $command->execute();
                     $sql = "select ".
                             ControllersHelper::getSqlBlockForUser().
                            " from user as self
-                           where email = :email;";
+                           where email = :email limit 1;";
                     $command = $connection->createCommand($sql);
                     $command->bindParam(":email", $follower);
 
@@ -202,28 +201,25 @@ class UserController extends Controller
             if (array_key_exists('order', $_GET))
                 $order = $_GET['order'];
 
+            $id = ControllersHelper::getUserIdByEmail($user);
+
             $connection = Yii::app()->db;
 
             $sql = "select ".
                     ControllersHelper::getSqlBlockForUser().
                     " from user as self join
-                    (select u_from as res_id from followers
-                    join user as u on u.id = u_to
-                    where u.email = :user
-                    ) as t
-                    on self.id = t.res_id ";
+                    (select u_from from followers
+                     where u_to = :id ";
             if (array_key_exists('since_id', $_GET))
-                $sql .= " where self.id >= :since_id ";
-
-            //$sql .= " order by self.username ".$order." ";
-            $sql .= " order by self.name ".$order." ";
-
+                $sql .= " and u_from >= :since_id ";
             if (array_key_exists('limit', $_GET))
                 $sql .= " limit ".strval(intval($limit));
-            $sql .= ";";
+            $sql .= ") as t
+                    on self.id = t.u_from
+                    order by self.name ".$order.";";
 
             $command = $connection->createCommand($sql);
-            $command->bindParam(":user", $user);
+            $command->bindParam(":id", $id);
             if (array_key_exists('since_id', $_GET))
                 $command->bindParam(":since_id", $since_id);
             try {
@@ -283,28 +279,25 @@ class UserController extends Controller
             if (array_key_exists('order', $_GET))
                 $order = $_GET['order'];
 
+            $id = ControllersHelper::getUserIdByEmail($user);
+
             $connection = Yii::app()->db;
 
             $sql = "select ".
-                    ControllersHelper::getSqlBlockForUser().
-                    " from user as self join
-                    (select u_to as res_id from followers
-                    join user as u on u.id = u_from
-                    where u.email = :user
-                    ) as t
-                    on self.id = t.res_id ";
+                ControllersHelper::getSqlBlockForUser().
+                " from user as self join
+                    (select u_to from followers
+                     where u_from = :id ";
             if (array_key_exists('since_id', $_GET))
-                $sql .= " where self.id >= :since_id ";
-
-            //$sql .= " order by -self.username ".(strcmp($order, "desc") == 0 ? "" : "desc")." ";
-            $sql .= " order by self.name ".$order." ";
-
+                $sql .= " and u_to >= :since_id ";
             if (array_key_exists('limit', $_GET))
                 $sql .= " limit ".strval(intval($limit));
-            $sql .= ";";
+            $sql .= ") as t
+                    on self.id = t.u_to
+                    order by self.name ".$order.";";
 
             $command = $connection->createCommand($sql);
-            $command->bindParam(":user", $user);
+            $command->bindParam(":id", $id);
             if (array_key_exists('since_id', $_GET))
                 $command->bindParam(":since_id", $since_id);
             try {
@@ -438,14 +431,15 @@ class UserController extends Controller
                 $follower = $request['follower'];
                 $followee = $request['followee'];
 
+                $follower_id = ControllersHelper::getUserIdByEmail($follower);
+                $followee_id = ControllersHelper::getUserIdByEmail($followee);
+
                 $connection = Yii::app()->db;
 
-                $sql = "delete from followers
-                        where u_from = (select id from user where email = :follower) and
-                        u_to = (select id from user where email = :followee);";
+                $sql = "delete from followers where u_from = :follower_id and u_to = :followee_id;";
                 $command = $connection->createCommand($sql);
-                $command->bindParam(":follower", $follower);
-                $command->bindParam(":followee", $followee);
+                $command->bindParam(":follower_id", $follower_id);
+                $command->bindParam(":followee_id", $followee_id);
                 try {
                     $command->execute();
                     $sql = "select ".
@@ -504,7 +498,7 @@ class UserController extends Controller
                 $name = $request['name'];
 
                 $connection = Yii::app()->db;
-                $sql = "update user set about = :about, name = :name  where email = :user;";
+                $sql = "update user set about = :about, name = :name where email = :user;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":about", $about);
                 $command->bindParam(":user", $user);

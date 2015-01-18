@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca5508a4-4ada-41fd-adf0-0cbc10ab7c64" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/protected/helpers/ControllersHelper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/protected/controllers/ForumController.php" afterPath="$PROJECT_DIR$/api/protected/controllers/ForumController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/protected/controllers/PostController.php" afterPath="$PROJECT_DIR$/api/protected/controllers/PostController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/protected/controllers/ThreadController.php" afterPath="$PROJECT_DIR$/api/protected/controllers/ThreadController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/protected/helpers/ControllersHelper.php" afterPath="$PROJECT_DIR$/api/protected/helpers/ControllersHelper.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/protected/controllers/UserController.php" afterPath="$PROJECT_DIR$/api/protected/controllers/UserController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/protected/runtime/application.log" afterPath="$PROJECT_DIR$/api/protected/runtime/application.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/protected/config/main.php" afterPath="$PROJECT_DIR$/api/protected/config/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="db.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +32,8 @@
       <file leaf-file-name="PostController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/protected/controllers/PostController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.8846154" vertical-offset="305" max-vertical-offset="9962">
-              <caret line="30" column="71" selection-start-line="30" selection-start-column="67" selection-end-line="30" selection-end-column="71" />
+            <state vertical-scroll-proportion="9.153846" vertical-offset="357" max-vertical-offset="9962">
+              <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
               <folding>
                 <element signature="e#7#55#0#PHP" expanded="true" />
                 <marker date="1421599356294" expanded="true" signature="193:225" placeholder="select count..post..." />
@@ -70,8 +65,8 @@
       <file leaf-file-name="ThreadController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/protected/controllers/ThreadController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.230769" vertical-offset="9553" max-vertical-offset="12818">
-              <caret line="573" column="0" selection-start-line="573" selection-start-column="0" selection-end-line="573" selection-end-column="0" />
+            <state vertical-scroll-proportion="-127.5" vertical-offset="0" max-vertical-offset="12818">
+              <caret line="195" column="24" selection-start-line="195" selection-start-column="24" selection-end-line="195" selection-end-column="24" />
               <folding>
                 <element signature="e#7#55#0#PHP" expanded="true" />
                 <marker date="1421601006743" expanded="true" signature="544:593" placeholder="UPDATE threa..." />
@@ -100,46 +95,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/protected/controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.6153846" vertical-offset="1495" max-vertical-offset="9486">
-              <caret line="95" column="20" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.08438061" vertical-offset="7450" max-vertical-offset="9384">
+              <caret line="441" column="64" selection-start-line="441" selection-start-column="64" selection-end-line="441" selection-end-column="64" />
               <folding>
-                <marker date="1421599356283" expanded="true" signature="976:1015" placeholder="SELECT 1 FRO..user..." />
-                <marker date="1421599356283" expanded="true" signature="1448:1593" placeholder="INSERT INTO ..." />
-                <marker date="1421599356283" expanded="true" signature="3343:3349" placeholder="select *, ( ..." />
-                <marker date="1421599356283" expanded="true" signature="3343:3463" placeholder="select *, ( ..user..." />
-                <marker date="1421599356283" expanded="true" signature="5717:5953" placeholder="INSERT INTO ..." />
-                <marker date="1421599356283" expanded="true" signature="5812:5855" placeholder="select id fr..user..." />
-                <marker date="1421599356283" expanded="true" signature="5883:5926" placeholder="select id fr..user..." />
-                <marker date="1421599356283" expanded="true" signature="7276:7477" placeholder="INSERT INTO ..." />
-                <marker date="1421599356283" expanded="true" signature="7332:7375" placeholder="select id fr..user..." />
-                <marker date="1421599356283" expanded="true" signature="7419:7462" placeholder="select id fr..user..." />
-                <marker date="1421599356283" expanded="true" signature="6231:6239" placeholder="select *, ( ..." />
-                <marker date="1421599356283" expanded="true" signature="6231:6404" placeholder="select *, ( ..user..." />
-                <marker date="1421599356283" expanded="true" signature="8597:8933" placeholder="select id as..user..." />
-                <marker date="1421599356283" expanded="true" signature="12198:12318" placeholder="select u_fro..followers..." />
-                <marker date="1421599356283" expanded="true" signature="11728:12064" placeholder="select id as..user..." />
-                <marker date="1421599356283" expanded="true" signature="14884:14951" placeholder="select *, (l..post..." />
-                <marker date="1421599356283" expanded="true" signature="16817:16956" placeholder="select u_to ..followers..." />
-                <marker date="1421599356283" expanded="true" signature="18010:18197" placeholder="delete from ..." />
-                <marker date="1421599356283" expanded="true" signature="18072:18115" placeholder="select id fr..user..." />
-                <marker date="1421599356283" expanded="true" signature="18153:18196" placeholder="select id fr..user..." />
-                <marker date="1421599356283" expanded="true" signature="20162:20229" placeholder="select *, (l..post..." />
-                <marker date="1421599356283" expanded="true" signature="18475:18648" placeholder="select *, ( ..user..." />
-                <marker date="1421599356283" expanded="true" signature="20871:20936" placeholder="update user ..." />
-                <marker date="1421599356283" expanded="true" signature="21253:21428" placeholder="select *, ( ..user..." />
+                <marker date="1421613704000" expanded="true" signature="976:1023" placeholder="SELECT 1 FRO..user..." />
+                <marker date="1421613704000" expanded="true" signature="1456:1601" placeholder="INSERT INTO ..." />
+                <marker date="1421613704000" expanded="true" signature="3351:3357" placeholder="select *, ( ..." />
+                <marker date="1421613704000" expanded="true" signature="3351:3471" placeholder="select *, ( ..user..." />
+                <marker date="1421613704000" expanded="true" signature="5892:5964" placeholder="INSERT INTO ..." />
+                <marker date="1421613704000" expanded="true" signature="7307:7508" placeholder="INSERT INTO ..." />
+                <marker date="1421613704000" expanded="true" signature="7363:7406" placeholder="select id fr..user..." />
+                <marker date="1421613704000" expanded="true" signature="7450:7493" placeholder="select id fr..user..." />
+                <marker date="1421613704000" expanded="true" signature="6254:6262" placeholder="select *, ( ..." />
+                <marker date="1421613704000" expanded="true" signature="6254:6427" placeholder="select *, ( ..user..." />
+                <marker date="1421613704000" expanded="true" signature="8691:9175" placeholder="select id as..user..." />
+                <marker date="1421613704000" expanded="true" signature="11725:11863" placeholder="select id as..user..." />
+                <marker date="1421613704000" expanded="true" signature="14671:14738" placeholder="select *, (l..post..." />
+                <marker date="1421613704000" expanded="true" signature="16604:16743" placeholder="select u_to ..followers..." />
+                <marker date="1421613704000" expanded="true" signature="17956:18017" placeholder="delete from ..." />
+                <marker date="1421613704000" expanded="true" signature="17956:18029" placeholder="delete from ..." />
+                <marker date="1421613704000" expanded="true" signature="20006:20073" placeholder="select *, (l..post..." />
+                <marker date="1421613704000" expanded="true" signature="18319:18492" placeholder="select *, ( ..user..." />
+                <marker date="1421613704000" expanded="true" signature="20715:20779" placeholder="update user ..." />
+                <marker date="1421613704000" expanded="true" signature="21096:21271" placeholder="select *, ( ..user..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ForumController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ForumController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/protected/controllers/ForumController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3680431" vertical-offset="1937" max-vertical-offset="9214">
-              <caret line="129" column="27" selection-start-line="129" selection-start-column="27" selection-end-line="129" selection-end-column="27" />
+            <state vertical-scroll-proportion="-1.9615384" vertical-offset="204" max-vertical-offset="9214">
+              <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
               <folding>
                 <marker date="1421599288989" expanded="true" signature="752:826" placeholder="SELECT id, u..forum..." />
                 <marker date="1421599288989" expanded="true" signature="1136:1213" placeholder="INSERT INTO ..." />
@@ -155,12 +146,13 @@
       <file leaf-file-name="ControllersHelper.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/protected/helpers/ControllersHelper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="1479">
-              <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+            <state vertical-scroll-proportion="-5.8076925" vertical-offset="223" max-vertical-offset="1785">
+              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding>
-                <marker date="1421599222471" expanded="true" signature="1132:1308" placeholder="select group..user..." />
-                <marker date="1421599222471" expanded="true" signature="1725:1901" placeholder="select group..user..." />
-                <marker date="1421599222471" expanded="true" signature="2322:2440" placeholder="select group..subscriptions..." />
+                <marker date="1421612906760" expanded="true" signature="1139:1211" placeholder="select id fr..user..." />
+                <marker date="1421612906760" expanded="true" signature="1622:1798" placeholder="select group..user..." />
+                <marker date="1421612906760" expanded="true" signature="2215:2391" placeholder="select group..user..." />
+                <marker date="1421612906760" expanded="true" signature="2812:2930" placeholder="select group..subscriptions..." />
               </folding>
             </state>
           </provider>
@@ -180,11 +172,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/api/protected/config/main.php" />
-        <option value="$PROJECT_DIR$/api/protected/controllers/ForumController.php" />
-        <option value="$PROJECT_DIR$/api/protected/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/api/protected/controllers/PostController.php" />
-        <option value="$PROJECT_DIR$/api/protected/helpers/ControllersHelper.php" />
         <option value="$PROJECT_DIR$/api/protected/controllers/ThreadController.php" />
+        <option value="$PROJECT_DIR$/api/protected/controllers/ForumController.php" />
+        <option value="$PROJECT_DIR$/api/protected/helpers/ControllersHelper.php" />
+        <option value="$PROJECT_DIR$/api/protected/controllers/UserController.php" />
       </list>
     </option>
   </component>
@@ -582,7 +574,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -980,22 +972,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/protected/helpers/ControllersHelper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="1479">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-          <folding>
-            <marker date="1421599222471" expanded="true" signature="1132:1308" placeholder="select group..user..." />
-            <marker date="1421599222471" expanded="true" signature="1725:1901" placeholder="select group..user..." />
-            <marker date="1421599222471" expanded="true" signature="2322:2440" placeholder="select group..subscriptions..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/protected/controllers/PostController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8846154" vertical-offset="305" max-vertical-offset="9962">
-          <caret line="30" column="71" selection-start-line="30" selection-start-column="67" selection-end-line="30" selection-end-column="71" />
+        <state vertical-scroll-proportion="9.153846" vertical-offset="357" max-vertical-offset="9962">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
           <folding>
             <element signature="e#7#55#0#PHP" expanded="true" />
             <marker date="1421599356294" expanded="true" signature="193:225" placeholder="select count..post..." />
@@ -1025,8 +1005,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/protected/controllers/ThreadController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.230769" vertical-offset="9553" max-vertical-offset="12818">
-          <caret line="573" column="0" selection-start-line="573" selection-start-column="0" selection-end-line="573" selection-end-column="0" />
+        <state vertical-scroll-proportion="-127.5" vertical-offset="0" max-vertical-offset="12818">
+          <caret line="195" column="24" selection-start-line="195" selection-start-column="24" selection-end-line="195" selection-end-column="24" />
           <folding>
             <element signature="e#7#55#0#PHP" expanded="true" />
             <marker date="1421601006743" expanded="true" signature="544:593" placeholder="UPDATE threa..." />
@@ -1054,43 +1034,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/protected/controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6153846" vertical-offset="1495" max-vertical-offset="9486">
-          <caret line="95" column="20" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
-          <folding>
-            <marker date="1421599356283" expanded="true" signature="976:1015" placeholder="SELECT 1 FRO..user..." />
-            <marker date="1421599356283" expanded="true" signature="1448:1593" placeholder="INSERT INTO ..." />
-            <marker date="1421599356283" expanded="true" signature="3343:3349" placeholder="select *, ( ..." />
-            <marker date="1421599356283" expanded="true" signature="3343:3463" placeholder="select *, ( ..user..." />
-            <marker date="1421599356283" expanded="true" signature="5717:5953" placeholder="INSERT INTO ..." />
-            <marker date="1421599356283" expanded="true" signature="5812:5855" placeholder="select id fr..user..." />
-            <marker date="1421599356283" expanded="true" signature="5883:5926" placeholder="select id fr..user..." />
-            <marker date="1421599356283" expanded="true" signature="7276:7477" placeholder="INSERT INTO ..." />
-            <marker date="1421599356283" expanded="true" signature="7332:7375" placeholder="select id fr..user..." />
-            <marker date="1421599356283" expanded="true" signature="7419:7462" placeholder="select id fr..user..." />
-            <marker date="1421599356283" expanded="true" signature="6231:6239" placeholder="select *, ( ..." />
-            <marker date="1421599356283" expanded="true" signature="6231:6404" placeholder="select *, ( ..user..." />
-            <marker date="1421599356283" expanded="true" signature="8597:8933" placeholder="select id as..user..." />
-            <marker date="1421599356283" expanded="true" signature="12198:12318" placeholder="select u_fro..followers..." />
-            <marker date="1421599356283" expanded="true" signature="11728:12064" placeholder="select id as..user..." />
-            <marker date="1421599356283" expanded="true" signature="14884:14951" placeholder="select *, (l..post..." />
-            <marker date="1421599356283" expanded="true" signature="16817:16956" placeholder="select u_to ..followers..." />
-            <marker date="1421599356283" expanded="true" signature="18010:18197" placeholder="delete from ..." />
-            <marker date="1421599356283" expanded="true" signature="18072:18115" placeholder="select id fr..user..." />
-            <marker date="1421599356283" expanded="true" signature="18153:18196" placeholder="select id fr..user..." />
-            <marker date="1421599356283" expanded="true" signature="20162:20229" placeholder="select *, (l..post..." />
-            <marker date="1421599356283" expanded="true" signature="18475:18648" placeholder="select *, ( ..user..." />
-            <marker date="1421599356283" expanded="true" signature="20871:20936" placeholder="update user ..." />
-            <marker date="1421599356283" expanded="true" signature="21253:21428" placeholder="select *, ( ..user..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/protected/controllers/ForumController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3680431" vertical-offset="1937" max-vertical-offset="9214">
-          <caret line="129" column="27" selection-start-line="129" selection-start-column="27" selection-end-line="129" selection-end-column="27" />
+        <state vertical-scroll-proportion="-1.9615384" vertical-offset="204" max-vertical-offset="9214">
+          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
           <folding>
             <marker date="1421599288989" expanded="true" signature="752:826" placeholder="SELECT id, u..forum..." />
             <marker date="1421599288989" expanded="true" signature="1136:1213" placeholder="INSERT INTO ..." />
@@ -1098,6 +1045,48 @@
             <marker date="1421599288989" expanded="true" signature="3976:4026" placeholder="select * fro..forum..." />
             <marker date="1421599288989" expanded="true" signature="20830:21183" placeholder="select id as..user..." />
             <marker date="1421599288989" expanded="true" signature="21021:21177" placeholder="select u.id ..post..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/protected/helpers/ControllersHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8076925" vertical-offset="223" max-vertical-offset="1785">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding>
+            <marker date="1421612906760" expanded="true" signature="1139:1211" placeholder="select id fr..user..." />
+            <marker date="1421612906760" expanded="true" signature="1622:1798" placeholder="select group..user..." />
+            <marker date="1421612906760" expanded="true" signature="2215:2391" placeholder="select group..user..." />
+            <marker date="1421612906760" expanded="true" signature="2812:2930" placeholder="select group..subscriptions..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/protected/controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08438061" vertical-offset="7450" max-vertical-offset="9384">
+          <caret line="441" column="64" selection-start-line="441" selection-start-column="64" selection-end-line="441" selection-end-column="64" />
+          <folding>
+            <marker date="1421613704000" expanded="true" signature="976:1023" placeholder="SELECT 1 FRO..user..." />
+            <marker date="1421613704000" expanded="true" signature="1456:1601" placeholder="INSERT INTO ..." />
+            <marker date="1421613704000" expanded="true" signature="3351:3357" placeholder="select *, ( ..." />
+            <marker date="1421613704000" expanded="true" signature="3351:3471" placeholder="select *, ( ..user..." />
+            <marker date="1421613704000" expanded="true" signature="5892:5964" placeholder="INSERT INTO ..." />
+            <marker date="1421613704000" expanded="true" signature="7307:7508" placeholder="INSERT INTO ..." />
+            <marker date="1421613704000" expanded="true" signature="7363:7406" placeholder="select id fr..user..." />
+            <marker date="1421613704000" expanded="true" signature="7450:7493" placeholder="select id fr..user..." />
+            <marker date="1421613704000" expanded="true" signature="6254:6262" placeholder="select *, ( ..." />
+            <marker date="1421613704000" expanded="true" signature="6254:6427" placeholder="select *, ( ..user..." />
+            <marker date="1421613704000" expanded="true" signature="8691:9175" placeholder="select id as..user..." />
+            <marker date="1421613704000" expanded="true" signature="11725:11863" placeholder="select id as..user..." />
+            <marker date="1421613704000" expanded="true" signature="14671:14738" placeholder="select *, (l..post..." />
+            <marker date="1421613704000" expanded="true" signature="16604:16743" placeholder="select u_to ..followers..." />
+            <marker date="1421613704000" expanded="true" signature="17956:18017" placeholder="delete from ..." />
+            <marker date="1421613704000" expanded="true" signature="17956:18029" placeholder="delete from ..." />
+            <marker date="1421613704000" expanded="true" signature="20006:20073" placeholder="select *, (l..post..." />
+            <marker date="1421613704000" expanded="true" signature="18319:18492" placeholder="select *, ( ..user..." />
+            <marker date="1421613704000" expanded="true" signature="20715:20779" placeholder="update user ..." />
+            <marker date="1421613704000" expanded="true" signature="21096:21271" placeholder="select *, ( ..user..." />
           </folding>
         </state>
       </provider>

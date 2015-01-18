@@ -22,6 +22,24 @@ class ControllersHelper
             $sql_for_subscriptions." ";
     }
 
+    public static function getUserIdByEmail($email)
+    {
+        $connection = Yii::app()->db;
+        $sql = "select id
+                from user
+                where email = :email;";
+        $command = $connection->createCommand($sql);
+        $command->bindParam(":email", $email);
+        try {
+            $result = $command->queryAll();
+            return $result[0]["id"];
+        }
+        catch (Exception $e) {
+            $e->getMessage();
+        }
+        return -1;
+    }
+
     public static function getFollowers($id)
     {
         $connection = Yii::app()->db;
