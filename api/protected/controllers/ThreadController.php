@@ -19,7 +19,7 @@ class ThreadController extends Controller
                 $thread = $request['thread'];
                 $connection = Yii::app()->db;
 
-                $sql = "UPDATE thread SET isClosed = 1 WHERE id = :thread;";
+                $sql = "UPDATE thread SET isClosed = 1 WHERE id = :thread LIMIT 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":thread", $thread);
                 try {
@@ -44,12 +44,6 @@ class ThreadController extends Controller
         $code = 2;
         $status = "Invalid JSON";
         $response = array('code' => $code, 'response' => $status);
-    
-//        $fp = fopen("C:\\file.txt", "w");
-//        fwrite($fp, file_get_contents('php://input'));
-//        fclose($fp);
-//        $request = json_decode($_POST["a"], true);
-
         $request = json_decode(file_get_contents('php://input'), true);
         if (count($request) >= 7 && count($request) <= 8) {
             if (array_key_exists('forum', $request) && array_key_exists('title', $request) && 
@@ -138,26 +132,29 @@ class ThreadController extends Controller
 
             if (array_key_exists('user', $related) && array_key_exists('forum', $related)) {
                 $sql = "select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
-                    thread.*, (likes - dislikes) as points, ".
-                    ControllersHelper::getSqlBlockForUser().
-                    " from thread join user as self on thread.user = self.email
+                    thread.*, (likes - dislikes) as points,
+                    user.id as user_id, user.name as user_name, username, about, email, isAnonymous
+                    from thread
+                    join user on thread.user = email
                     join forum on thread.forum = forum.short_name 
-                    where thread.id = :thread_id;";
+                    where thread.id = :thread_id LIMIT 1;";
                 $rel_type = 1;
             } else if (array_key_exists('user', $related)) {
-                $sql = "select thread.*, (likes - dislikes) as points, ".
-                    ControllersHelper::getSqlBlockForUser().
-                    " from thread join user as self on thread.user = self.email
-                    where thread.id = :thread_id;";
+                $sql = "select thread.*, (likes - dislikes) as points,
+                    user.id as user_id, user.name as user_name, username, about, email, isAnonymous
+                    from thread
+                    join user on thread.user = email
+                    where thread.id = :thread_id LIMIT 1;";
                 $rel_type = 2;
             } else if (array_key_exists('forum', $related)) {
                 $sql = "select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
                     thread.*, (likes - dislikes) as points
-                    from thread join forum on thread.forum = forum.short_name 
-                    where thread.id = :thread_id;";
+                    from thread
+                    join forum on thread.forum = forum.short_name
+                    where thread.id = :thread_id LIMIT 1;";
                 $rel_type = 3;
             } else
-                $sql = "select *, (likes - dislikes) as points from thread where thread.id = :thread_id;";
+                $sql = "select *, (likes - dislikes) as points from thread where thread.id = :thread_id LIMIT 1;";
             $command = $connection->createCommand($sql);
             $command->bindParam(":thread_id", $thread); 
             try {
@@ -193,16 +190,15 @@ class ThreadController extends Controller
                         $buf2 = array();
                         $buf2["about"] = $row["about"];
                         $buf2["email"] = $row["email"];
-                        
-                        $buf2["followers"] = $row["followers"] == null ? array() : explode(", ", $row["followers"]);
-                        $buf2["following"] = $row["following"] == null ? array() : explode(", ", $row["following"]);
-                        
+                        $followers = ControllersHelper::getFollowers($row["user_id"]);
+                        $buf2["followers"] = $followers == null ? array() : explode(",", $followers);
+                        $following = ControllersHelper::getFollowing($row["user_id"]);
+                        $buf2["following"] = $following == null ? array() : explode(",", $following);
                         $buf2["id"] = $row["user_id"];
                         $buf2["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
                         $buf2["name"] = $row["user_name"];
-                        
-                        $buf2["subscriptions"] = $row["subscriptions"] == null ? array() : explode(", ", $row["subscriptions"]);
-                        
+                        $subscriptions = ControllersHelper::getSubscriptions($row["user_id"]);
+                        $buf2["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
                         $buf2["username"] = $row["username"];
                         $buf["user"] = $buf2;
                     } else {
@@ -244,16 +240,16 @@ class ThreadController extends Controller
                 $order = $_GET['order'];
 
             $connection = Yii::app()->db;
-            $sql = "select *, (likes - dislikes) as points from thread where ";
+            $sql = "SELECT *, (likes - dislikes) AS points FROM thread WHERE ";
             if (array_key_exists('forum', $_GET))
                 $sql .= " forum = :forum ";
             else
                 $sql .= " user = :user ";
             if (array_key_exists('since', $_GET))
-                $sql .= " and date >= :since ";
-            $sql .= " order by date ".$order." ";
+                $sql .= " AND date >= :since ";
+            $sql .= " ORDER BY date ".$order." ";
             if (array_key_exists('limit', $_GET))
-                $sql .= " limit ".strval(intval($limit));
+                $sql .= " LIMIT ".strval(intval($limit));
             $sql .= ";";
 
             $command = $connection->createCommand($sql);
@@ -269,8 +265,6 @@ class ThreadController extends Controller
                 if (count($result) == 0) {
                     $response["code"] = 0;
                     $response["response"] = array();
-//                    $response["code"] = 1;
-//                    $response["response"] = "Threads were not found";
                 } else {
                     $response["code"] = 0;
                     $response["response"] = array();
@@ -327,18 +321,20 @@ class ThreadController extends Controller
 
             $connection = Yii::app()->db;
 
-            $sql = "select *, (likes - dislikes) as points from post where thread = :thread ";
+            $sql = "SELECT *, (likes - dislikes) AS points FROM post WHERE thread = :thread ";
 
             if (array_key_exists('since', $_GET))
-                $sql .= " and date >= :since ";
+                $sql .= " AND date >= :since ";
 
             if (strcmp($sort, "flat") == 0) {
-                $sql .= " order by date " . $order . " ";
+                $sql .= " ORDER BY date " . $order . " ";
                 if (array_key_exists('limit', $_GET))
-                    $sql .= " limit " . strval(intval($limit));
+                    $sql .= " LIMIT " . strval(intval($limit));
             }
             elseif (strcmp($sort, "tree") == 0) {
-                $sql .= " order by " . (strcmp($order, "desc") == 0 ? (" substring_index(path, '.', 2) " . $order . ", trim(leading substring_index(path, '.', 2) from path) ") : " path ");
+                $sql .= " ORDER BY " . (strcmp($order, "desc") == 0 ?
+                        (" substring_index(path, '.', 2) " . $order . ", trim(leading substring_index(path, '.', 2) from path) ") :
+                        " path ");
                 if (array_key_exists('limit', $_GET))
                     $sql .= " limit " . strval(intval($limit));
             } else {
@@ -370,8 +366,6 @@ class ThreadController extends Controller
                 if (count($result) == 0) {
                     $response["code"] = 0;
                     $response["response"] = array();
-//                    $response["code"] = 1;
-//                    $response["response"] = "Posts were not found";
                 } else {
                     $response["code"] = 0;
                     $response["response"] = array();
@@ -472,7 +466,7 @@ class ThreadController extends Controller
                 $thread = $request['thread'];
                 $connection = Yii::app()->db;
 
-                $sql = "UPDATE thread SET isClosed = 0 WHERE id = :thread;";
+                $sql = "UPDATE thread SET isClosed = 0 WHERE id = :thread LIMIT 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":thread", $thread);
                 try {
@@ -504,7 +498,7 @@ class ThreadController extends Controller
                 $thread = $request['thread'];
                 $connection = Yii::app()->db;
 
-                $sql = "UPDATE thread SET isDeleted = 1, posts = 0 WHERE id = :thread;
+                $sql = "UPDATE thread SET isDeleted = 1, posts = 0 WHERE id = :thread LIMIT 1;
                         UPDATE post SET isDeleted = 1 WHERE thread = :thread;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":thread", $thread);
@@ -535,12 +529,14 @@ class ThreadController extends Controller
         if (count($request) == 1) {
             if (array_key_exists('thread', $request)) {
                 $thread = $request['thread'];
+
+                $cnt = ControllersHelper::getPostCountByThreadId($thread);
                 $connection = Yii::app()->db;
 
-                $sql = "UPDATE thread SET isDeleted = 0, posts = (select count(post.id) from post where post.thread = thread.id)
-                          WHERE id = :thread;
+                $sql = "UPDATE thread SET isDeleted = 0, posts = :cnt WHERE id = :thread LIMIT 1;
                         UPDATE post SET isDeleted = 0 WHERE thread = :thread;";
                 $command = $connection->createCommand($sql);
+                $command->bindParam(":cnt", $cnt);
                 $command->bindParam(":thread", $thread);
                 try {
                     $command->execute();
@@ -570,12 +566,14 @@ class ThreadController extends Controller
             if (array_key_exists('user', $request) && array_key_exists('thread', $request)) {
                 $user = $request['user'];
                 $thread = $request['thread'];
+
+                $user_id = ControllersHelper::getUserIdByEmail($user);
                 $connection = Yii::app()->db;
 
-                $sql = "INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));";
+                $sql = "INSERT INTO subscriptions (t_id, u_id) VALUES (:thread,:user_id);";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":thread", $thread);
-                $command->bindParam(":user", $user);
+                $command->bindParam(":user_id", $user_id);
                 try {
                     $command->execute();
                     $response["code"] = 0;
@@ -604,12 +602,14 @@ class ThreadController extends Controller
             if (array_key_exists('user', $request) && array_key_exists('thread', $request)) {
                 $user = $request['user'];
                 $thread = $request['thread'];
+
+                $user_id = ControllersHelper::getUserIdByEmail($user);
                 $connection = Yii::app()->db;
 
-                $sql = "delete from subscriptions where t_id = :thread and u_id = (select id from user where email = :user);";
+                $sql = "DELETE FROM subscriptions WHERE t_id = :thread and u_id = :user_id LIMIT 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":thread", $thread);
-                $command->bindParam(":user", $user);
+                $command->bindParam(":user_id", $user_id);
                 try {
                     $command->execute();
                     $response["code"] = 0;
@@ -632,24 +632,23 @@ class ThreadController extends Controller
         $code = 2;
         $status = "Invalid JSON";
         $response = array('code' => $code, 'response' => $status);
-
-//        $request = json_decode($_POST["a"], true);
         $request = json_decode(file_get_contents('php://input'), true);
         if (count($request) == 3) {
-            if (array_key_exists('thread', $request) && array_key_exists('message', $request) && array_key_exists('slug', $request)) {
+            if (array_key_exists('thread', $request) && array_key_exists('message', $request) &&
+                array_key_exists('slug', $request)) {
                 $thread = $request['thread'];
                 $message = $request['message'];
                 $slug = $request['slug'];
 
                 $connection = Yii::app()->db;
-                $sql = "update thread set message = :message, slug = :slug where id = :thread;";
+                $sql = "UPDATE thread SET message = :message, slug = :slug WHERE id = :thread LIMIT 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":message", $message);
                 $command->bindParam(":slug", $slug);
                 $command->bindParam(":thread", $thread);
                 try {
                     $command->execute();
-                    $sql = "select *, (likes - dislikes) as points from thread where id = :thread";
+                    $sql = "SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :thread LIMIT 1";
                     $command = $connection->createCommand($sql);
                     $command->bindParam(":thread", $thread);
                     $result = $command->queryAll();
@@ -690,8 +689,6 @@ class ThreadController extends Controller
         $code = 2;
         $status = "Invalid JSON";
         $response = array('code' => $code, 'response' => $status);
-
-//        $request = json_decode($_POST["a"], true);
         $request = json_decode(file_get_contents('php://input'), true);
         if (count($request) == 2) {
             if (array_key_exists('thread', $request) && array_key_exists('vote', $request)) {
@@ -705,12 +702,13 @@ class ThreadController extends Controller
                     exit;
                 }
                 $connection = Yii::app()->db;
-                $sql = "update thread set " . ($vote == 1 ? " likes = likes + 1 " : "dislikes = dislikes + 1") . " where id = :thread;";
+                $sql = "UPDATE thread SET " . ($vote == 1 ? " likes = likes + 1 " : "dislikes = dislikes + 1") .
+                                    " WHERE id = :thread LIMIT 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":thread", $thread);
                 try {
                     $command->execute();
-                    $sql = "select *, (likes - dislikes) as points from thread where id = :post";
+                    $sql = "SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1";
                     $command = $connection->createCommand($sql);
                     $command->bindParam(":thread", $thread);
                     $result = $command->queryAll();

@@ -7,6 +7,6 @@
     <file url="file://$PROJECT_DIR$/api/protected/controllers/SiteController.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/api/protected/controllers/ThreadController.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/api/protected/controllers/UserController.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/api/protected/helpers/ControllersHelper.php" dialect="MySQL" />
   </component>
 </project>
-

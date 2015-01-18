@@ -10,14 +10,14 @@ class PostController extends Controller
     public function actionFixPaths() {
         $connection = Yii::app()->db;
 
-        $sql = "select count(*) as cnt from post;";
+        $sql = "SELECT COUNT(*) AS cnt FROM post;";
         $command = $connection->createCommand($sql);
         try {
             $res = $command->queryAll();
             $cnt = strval($res[0]["cnt"]);
 
             for ($i = 1; $i <= $cnt; ++$i) {
-                $sql = "SELECT parent, thread, id, path from post where id = :id";
+                $sql = "SELECT parent, thread, id, path FROM post WHERE id = :id";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":id", $i);
                 $res = $command->queryAll();
@@ -58,12 +58,6 @@ class PostController extends Controller
         $code = 2;
         $status = "Invalid JSON";
         $response = array('code' => $code, 'response' => $status);
-        
-//        $fp = fopen("C:\\file.txt", "a+");
-//        fwrite($fp, file_get_contents('php://input')."\n");
-//        fclose($fp);
-//        $request = json_decode($_POST["a"], true);
-
         $request = json_decode(file_get_contents('php://input'), true);
         if (count($request) >= 5 && count($request) <= 11) {
             if (array_key_exists('date', $request) && array_key_exists('thread', $request) &&
@@ -93,17 +87,17 @@ class PostController extends Controller
                 $isDeleted = 0;
                 if (array_key_exists('isDeleted', $request))
                     $isDeleted = $request['isDeleted'] == false ? 0 : 1;
-                
+
                 $connection = Yii::app()->db;
 
-                $sql = "select posts as cnt from thread where thread.id = :id;";
+                $sql = "SELECT posts AS cnt FROM thread WHERE thread.id = :id LIMIT 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":id", $thread);
                 $res = $command->queryAll();
                 $path = strval($res[0]["cnt"] + 1);
 
                 if ($parent != NULL) {
-                    $sql = "select path from post where post.id = :parent;";
+                    $sql = "SELECT path FROM post WHERE post.id = :parent LIMIT 1;";
                     $command = $connection->createCommand($sql);
                     $command->bindParam(":parent", $parent);
                     $res = $command->queryAll();
@@ -115,7 +109,7 @@ class PostController extends Controller
                                             isEdited, isSpam, isDeleted, path) 
                         VALUES (:date, :thread, :message, :user, :forum, :parent, :isApproved, :isHighlighted,
                                 :isEdited, :isSpam, :isDeleted, :path);
-                        UPDATE thread SET posts = posts + 1 WHERE thread.id = :thread; ";
+                        UPDATE thread SET posts = posts + 1 WHERE thread.id = :thread LIMIT 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":date", $date);
                 $command->bindParam(":thread", $thread);
@@ -177,11 +171,13 @@ class PostController extends Controller
         }
 
         if (!(count($related) == 0 ||
-            count($related) == 1 && (array_key_exists("user", $related) || array_key_exists("thread", $related) || array_key_exists("forum", $related)) ||
+            count($related) == 1 && (array_key_exists("user", $related) || array_key_exists("thread", $related) ||
+                                     array_key_exists("forum", $related)) ||
             count($related) == 2 && (array_key_exists("user", $related) && array_key_exists("forum", $related) ||
                                      array_key_exists("user", $related) && array_key_exists("thread", $related) ||
                                      array_key_exists("thread", $related) && array_key_exists("forum", $related)) ||
-            count($related) == 3 && array_key_exists("user", $related) && array_key_exists("thread", $related) && array_key_exists("forum", $related))) {
+            count($related) == 3 && array_key_exists("user", $related) && array_key_exists("thread", $related) &&
+                                    array_key_exists("forum", $related))) {
             echo json_encode($response);
             exit;
         }
@@ -194,14 +190,15 @@ class PostController extends Controller
             $sql_forum_part = " forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user ";
             $sql_thread_part = " thread.date as t_date, thread.dislikes as t_dislikes, thread.forum as t_forum, 
                     thread.id as t_id, isClosed, thread.isDeleted as t_isDeleted, thread.likes as t_likes,
-                    thread.message as t_message, (thread.likes - thread.dislikes) as t_points, posts, slug, title, thread.user as t_user ";
+                    thread.message as t_message, (thread.likes - thread.dislikes) as t_points, posts, slug, title,
+                    thread.user as t_user ";
             
             $sql = "select post.*, (post.likes - post.dislikes) as points ";
             $flag1 = 0;
             $flag2 = 0;
             $flag3 = 0;
             if (array_key_exists('user', $related)) {
-                $sql .= ", ".ControllersHelper::getSqlBlockForUser();
+                $sql .= ", user.id as user_id, user.name as user_name, username, about, email, isAnonymous ";
                 $flag1 = 1;
             }
             if (array_key_exists('forum', $related)) {
@@ -214,7 +211,7 @@ class PostController extends Controller
             }       
             $sql .= " from post ";
             if (array_key_exists('user', $related)) {
-                $sql .= " join user as self on post.user = self.email ";
+                $sql .= " join user on post.user = user.email ";
             }
             if (array_key_exists('forum', $related)) {
                 $sql .= " join forum on post.forum = forum.short_name ";
@@ -222,7 +219,7 @@ class PostController extends Controller
             if (array_key_exists('thread', $related)) {
                 $sql .= " join thread on post.thread = thread.id ";
             }
-            $sql .= " where post.id = :post_id;";
+            $sql .= " where post.id = :post_id LIMIT 1;";
             
             $command = $connection->createCommand($sql);
             $command->bindParam(":post_id", $post);
@@ -280,16 +277,15 @@ class PostController extends Controller
                         $buf2 = array();
                         $buf2["about"] = $row["about"];
                         $buf2["email"] = $row["email"];
-                        
-                        $buf2["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
-                        $buf2["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
-                        
+                        $followers = ControllersHelper::getFollowers($row["user_id"]);
+                        $buf2["followers"] = $followers == null ? array() : explode(",", $followers);
+                        $following = ControllersHelper::getFollowing($row["user_id"]);
+                        $buf2["following"] = $following == null ? array() : explode(",", $following);
                         $buf2["id"] = $row["user_id"];
                         $buf2["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
                         $buf2["name"] = $row["user_name"];
-                        
-                        $buf2["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
-                        
+                        $subscriptions = ControllersHelper::getSubscriptions($row["user_id"]);
+                        $buf2["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
                         $buf2["username"] = $row["username"];
                         $buf["user"] = $buf2;
                     } else {
@@ -332,16 +328,16 @@ class PostController extends Controller
                 $order = $_GET['order'];
 
             $connection = Yii::app()->db;
-            $sql = "select *, (likes - dislikes) as points from post where ";
+            $sql = "SELECT *, (likes - dislikes) AS points FROM post WHERE ";
             if (array_key_exists('forum', $_GET))
                 $sql .= " forum = :forum ";
             else
                 $sql .= " thread = :thread ";
             if (array_key_exists('since', $_GET))
-                $sql .= " and date >= :since ";
-            $sql .= " order by date ".$order." ";
+                $sql .= " AND date >= :since ";
+            $sql .= " ORDER BY date ".$order." ";
             if (array_key_exists('limit', $_GET))
-                $sql .= " limit ".strval(intval($limit));
+                $sql .= " LIMIT ".strval(intval($limit));
             $sql .= ";";
 
             $command = $connection->createCommand($sql);
@@ -357,8 +353,6 @@ class PostController extends Controller
                 if (count($result) == 0) {
                     $response["code"] = 0;
                     $response["response"] = array();
-//                    $response["code"] = 1;
-//                    $response["response"] = "Posts were not found";
                 } else {
                     $response["code"] = 0;
                     $response["response"] = array();
@@ -402,12 +396,15 @@ class PostController extends Controller
         if (count($request) == 1) {
             if (array_key_exists('post', $request)) {
                 $post = $request['post'];
+
+                $thread = ControllersHelper::getPostThreadById($post);
                 $connection = Yii::app()->db;
 
-                $sql = "UPDATE post SET isDeleted = 1 WHERE id = :post;
-                        UPDATE thread SET posts = posts - 1 WHERE thread.id = (select thread from post where id = :post);";
+                $sql = "UPDATE post SET isDeleted = 1 WHERE id = :post LIMIT 1;
+                        UPDATE thread SET posts = posts - 1 WHERE id = :thread LIMIT 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":post", $post);
+                $command->bindParam(":thread", $thread);
                 try {
                     $command->execute();
                     $response["code"] = 0;
@@ -435,12 +432,14 @@ class PostController extends Controller
         if (count($request) == 1) {
             if (array_key_exists('post', $request)) {
                 $post = $request['post'];
+                $thread = ControllersHelper::getPostThreadById($post);
                 $connection = Yii::app()->db;
 
-                $sql = "UPDATE post SET isDeleted = 0 WHERE id = :post;
-                        UPDATE thread SET posts = posts + 1 WHERE thread.id = (select thread from post where id = :post);";
+                $sql = "UPDATE post SET isDeleted = 0 WHERE id = :post LIMIT 1;
+                        UPDATE thread SET posts = posts + 1 WHERE id = :thread LIMIT 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":post", $post);
+                $command->bindParam(":thread", $thread);
                 try {
                     $command->execute();
                     $response["code"] = 0;
@@ -463,8 +462,6 @@ class PostController extends Controller
         $code = 2;
         $status = "Invalid JSON";
         $response = array('code' => $code, 'response' => $status);
-
-//        $request = json_decode($_POST["a"], true);
         $request = json_decode(file_get_contents('php://input'), true);
         if (count($request) == 2) {
             if (array_key_exists('post', $request) && array_key_exists('message', $request)) {
@@ -472,13 +469,13 @@ class PostController extends Controller
                 $message = $request['message'];
 
                 $connection = Yii::app()->db;
-                $sql = "update post set message = :message where id = :post;";
+                $sql = "UPDATE post SET message = :message WHERE id = :post LIMIT 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":message", $message);
                 $command->bindParam(":post", $post);
                 try {
                     $command->execute();
-                    $sql = "select *, (likes - dislikes) as points from post where id = :post";
+                    $sql = "SELECT *, (likes - dislikes) AS points FROM post WHERE id = :post LIMIT 1;";
                     $command = $connection->createCommand($sql);
                     $command->bindParam(":post", $post);
                     $result = $command->queryAll();
@@ -521,8 +518,6 @@ class PostController extends Controller
         $code = 2;
         $status = "Invalid JSON";
         $response = array('code' => $code, 'response' => $status);
-
-//        $request = json_decode($_POST["a"], true);
         $request = json_decode(file_get_contents('php://input'), true);
         if (count($request) == 2) {
             if (array_key_exists('post', $request) && array_key_exists('vote', $request)) {
@@ -536,12 +531,13 @@ class PostController extends Controller
                     exit;
                 }
                 $connection = Yii::app()->db;
-                $sql = "update post set " . ($vote == 1 ? " likes = likes + 1 " : "dislikes = dislikes + 1") . " where id = :post;";
+                $sql = "UPDATE post SET " . ($vote == 1 ? " likes = likes + 1 " : "dislikes = dislikes + 1") .
+                       " WHERE id = :post LIMIT 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":post", $post);
                 try {
                     $command->execute();
-                    $sql = "select *, (likes - dislikes) as points from post where id = :post";
+                    $sql = "SELECT *, (likes - dislikes) AS points FROM post WHERE id = :post LIMIT 1;";
                     $command = $connection->createCommand($sql);
                     $command->bindParam(":post", $post);
                     $result = $command->queryAll();
@@ -578,4 +574,3 @@ class PostController extends Controller
         echo json_encode($response);
     }
 }
-?>

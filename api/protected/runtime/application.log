@@ -30041,3 +30041,117 @@ in D:\GitHub\db\api\index.php (13)
 2015/01/19 00:43:25 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
 in D:\GitHub\db\api\protected\controllers\ThreadController.php (716)
 in D:\GitHub\db\api\index.php (13)
+2015/01/19 01:25:43 [error] [php] Undefined index: followers (D:\GitHub\db\api\protected\helpers\ControllersHelper.php:55)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): UserController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): UserController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): UserController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/user/details/?user=example%40mail.ru
+in D:\GitHub\db\api\protected\helpers\ControllersHelper.php (55)
+in D:\GitHub\db\api\protected\controllers\UserController.php (87)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 01:25:46 [error] [php] Undefined index: followers (D:\GitHub\db\api\protected\helpers\ControllersHelper.php:55)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): UserController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): UserController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): UserController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/user/details/?user=richard.nixon%40example.com
+in D:\GitHub\db\api\protected\helpers\ControllersHelper.php (55)
+in D:\GitHub\db\api\protected\controllers\UserController.php (87)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 01:28:59 [error] [php] Undefined index: followers (D:\GitHub\db\api\protected\helpers\ControllersHelper.php:53)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): UserController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): UserController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): UserController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/user/details/?user=example%40mail.ru
+in D:\GitHub\db\api\protected\helpers\ControllersHelper.php (53)
+in D:\GitHub\db\api\protected\controllers\UserController.php (87)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 01:29:47 [error] [php] Undefined index: followers (D:\GitHub\db\api\protected\helpers\ControllersHelper.php:53)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): UserController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): UserController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): UserController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/user/details/?user=example@mail.ru
+in D:\GitHub\db\api\protected\helpers\ControllersHelper.php (53)
+in D:\GitHub\db\api\protected\controllers\UserController.php (87)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 01:32:49 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: select *, (likes - dislikes) as points from thread where id = :post.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (716)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 01:32:57 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (580)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 01:32:59 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '4-3' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) values (:thread,(select id from user where email = :user));.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (580)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 03:03:11 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (711)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 03:17:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (711)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 03:17:17 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '3-3' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) VALUES (:thread,:user_id);.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (575)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 03:19:40 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (711)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 03:28:17 [error] [php] Undefined index: id (D:\GitHub\db\api\protected\helpers\ControllersHelper.php:28)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/restore/
+in D:\GitHub\db\api\protected\helpers\ControllersHelper.php (28)
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (533)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 03:28:27 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (714)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 03:33:09 [error] [php] Undefined index: id (D:\GitHub\db\api\protected\helpers\ControllersHelper.php:28)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/restore/
+in D:\GitHub\db\api\protected\helpers\ControllersHelper.php (28)
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (534)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 03:35:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (714)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 03:38:07 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (714)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 03:38:13 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '4-1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) VALUES (:thread,:user_id);.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (578)
+in D:\GitHub\db\api\index.php (13)
+2015/01/19 03:40:53 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (714)
+in D:\GitHub\db\api\index.php (13)

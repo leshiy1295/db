@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - technopark_db@localhost" uuid="4386384b-fbc1-4612-9b52-59acb10cb787">
+    <database-info product="MySQL" version="5.6.20-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="technopark_db"/>
+    <table name="development" schema="" catalog="technopark_db" type="TABLE">
+      <column name="a" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="b" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="c" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+    </table>
+    <table name="followers" schema="" catalog="technopark_db" type="TABLE">
+      <column name="u_from" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="u_to" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="u_from,u_to"/>
+      <foreign-key name="followers_ibfk_1" columns="u_from" ref-table="user" ref-schema="" ref-catalog="technopark_db" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="followers_ibfk_2" columns="u_to" ref-table="user" ref-schema="" ref-catalog="technopark_db" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="forum" schema="" catalog="technopark_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="short_name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="user" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="forum_ibfk_1" columns="user" ref-table="user" ref-schema="" ref-catalog="technopark_db" ref-columns="email" update-rule="0" delete-rule="0" deferrability="2"/>
+      <exported-key name="post_ibfk_1" table="post" schema="" catalog="technopark_db" columns="forum"/>
+      <exported-key name="thread_ibfk_1" table="thread" schema="" catalog="technopark_db" columns="forum"/>
+      <index name="name" unique="false" columns="name"/>
+      <index name="short_name" unique="false" columns="short_name,name,user"/>
+    </table>
+    <table name="post" schema="" catalog="technopark_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="thread" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="message" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="user" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="forum" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="parent" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="isApproved" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="isHighlighted" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="isEdited" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="isSpam" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="isDeleted" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="likes" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="dislikes" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="path" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="post_ibfk_1" columns="forum" ref-table="forum" ref-schema="" ref-catalog="technopark_db" ref-columns="short_name" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="post_ibfk_2" columns="thread" ref-table="thread" ref-schema="" ref-catalog="technopark_db" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="post_ibfk_3" columns="user" ref-table="user" ref-schema="" ref-catalog="technopark_db" ref-columns="email" update-rule="0" delete-rule="0" deferrability="2"/>
+      <index name="path" unique="true" columns="path"/>
+      <index name="forum" unique="false" columns="date,likes,dislikes"/>
+      <index name="thread" unique="false" columns="date,likes,dislikes"/>
+      <index name="user" unique="false" columns="date,likes,dislikes"/>
+    </table>
+    <table name="production" schema="" catalog="technopark_db" type="TABLE">
+      <column name="a" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="b" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="c" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="a"/>
+      <index name="b" unique="false" columns="b"/>
+    </table>
+    <table name="subscriptions" schema="" catalog="technopark_db" type="TABLE">
+      <column name="t_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="u_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="t_id,u_id"/>
+      <foreign-key name="subscriptions_ibfk_1" columns="t_id" ref-table="thread" ref-schema="" ref-catalog="technopark_db" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="subscriptions_ibfk_2" columns="u_id" ref-table="user" ref-schema="" ref-catalog="technopark_db" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="thread" schema="" catalog="technopark_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="forum" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="isClosed" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="user" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="message" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="slug" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="isDeleted" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="likes" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="dislikes" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="posts" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="thread_ibfk_1" columns="forum" ref-table="forum" ref-schema="" ref-catalog="technopark_db" ref-columns="short_name" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="thread_ibfk_2" columns="user" ref-table="user" ref-schema="" ref-catalog="technopark_db" ref-columns="email" update-rule="0" delete-rule="0" deferrability="2"/>
+      <exported-key name="post_ibfk_2" table="post" schema="" catalog="technopark_db" columns="thread"/>
+      <exported-key name="subscriptions_ibfk_1" table="subscriptions" schema="" catalog="technopark_db" columns="t_id"/>
+    </table>
+    <table name="user" schema="" catalog="technopark_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="about" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="isAnonymous" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="followers_ibfk_1" table="followers" schema="" catalog="technopark_db" columns="u_from"/>
+      <exported-key name="followers_ibfk_2" table="followers" schema="" catalog="technopark_db" columns="u_to"/>
+      <exported-key name="forum_ibfk_1" table="forum" schema="" catalog="technopark_db" columns="user"/>
+      <exported-key name="post_ibfk_3" table="post" schema="" catalog="technopark_db" columns="user"/>
+      <exported-key name="subscriptions_ibfk_2" table="subscriptions" schema="" catalog="technopark_db" columns="u_id"/>
+      <exported-key name="thread_ibfk_2" table="thread" schema="" catalog="technopark_db" columns="user"/>
+      <index name="email" unique="false" columns="email"/>
+    </table>
+  </data-source>
+</component>

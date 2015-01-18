@@ -22,7 +22,7 @@ class ForumController extends Controller
                 $user = $request['user'];
                 
                 $connection = Yii::app()->db;
-                $sql = "SELECT id, user FROM forum WHERE name = :name AND short_name = :short_name;";
+                $sql = "SELECT id, user FROM forum WHERE name = :name AND short_name = :short_name LIMIT 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":name", $name);
                 $command->bindParam(":short_name", $short_name);
@@ -92,14 +92,15 @@ class ForumController extends Controller
             $connection = Yii::app()->db;
             $correct = true;
             if (array_key_exists('user', $related)) {
-                $sql = "select forum.*, ".
-                        ControllersHelper::getSqlBlockForUser().
-                        " from forum join user as self on user = self.email
-                        where short_name = :short_name;";
+                $sql = "SELECT forum.*, user.id AS user_id, user.name AS user_name, username, about, email, isAnonymous
+                        FROM forum
+                        JOIN user
+                        ON user = email
+                        WHERE short_name = :short_name LIMIT 1;";
                 $correct = true;
             }
             else
-                $sql = "select * from forum where short_name = :short_name;";
+                $sql = "SELECT * FROM forum WHERE short_name = :short_name LIMIT 1;";
             if ($correct) {
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":short_name", $forum); 
@@ -119,16 +120,15 @@ class ForumController extends Controller
                             $buf2 = array();
                             $buf2["about"] = $row["about"];
                             $buf2["email"] = $row["email"];
-                            
-                            $buf2["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
-                            $buf2["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
-                            
+                            $followers = ControllersHelper::getFollowers($row["user_id"]);
+                            $buf2["followers"] = $followers == null ? array() : explode(",", $followers);
+                            $following = ControllersHelper::getFollowing($row["user_id"]);
+                            $buf2["following"] = $following == null ? array() : explode(",", $following);
                             $buf2["id"] = $row["user_id"];
                             $buf2["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
                             $buf2["name"] = $row["user_name"];
-                            
-                            $buf2["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
-                            
+                            $subscriptions = ControllersHelper::getSubscriptions($row["user_id"]);
+                            $buf2["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
                             $buf2["username"] = $row["username"];
                             $buf["user"] = $buf2;
                         } else {
@@ -167,11 +167,13 @@ class ForumController extends Controller
         }
 
         if (!(count($related) == 0 ||
-            count($related) == 1 && (array_key_exists("user", $related) || array_key_exists("thread", $related) || array_key_exists("forum", $related)) ||
+            count($related) == 1 && (array_key_exists("user", $related) || array_key_exists("thread", $related) ||
+                                     array_key_exists("forum", $related)) ||
             count($related) == 2 && (array_key_exists("user", $related) && array_key_exists("forum", $related) ||
-                array_key_exists("user", $related) && array_key_exists("thread", $related) ||
-                array_key_exists("thread", $related) && array_key_exists("forum", $related)) ||
-            count($related) == 3 && array_key_exists("user", $related) && array_key_exists("thread", $related) && array_key_exists("forum", $related))) {
+                                     array_key_exists("user", $related) && array_key_exists("thread", $related) ||
+                                     array_key_exists("thread", $related) && array_key_exists("forum", $related)) ||
+            count($related) == 3 && array_key_exists("user", $related) && array_key_exists("thread", $related) &&
+                                    array_key_exists("forum", $related))) {
             echo json_encode($response);
             exit;
         }
@@ -200,7 +202,7 @@ class ForumController extends Controller
             $flag2 = 0;
             $flag3 = 0;
             if (array_key_exists('user', $related)) {
-                $sql .= ", ".ControllersHelper::getSqlBlockForUser();
+                $sql .= ", user.id as user_id, user.name as user_name, username, about, email, isAnonymous ";
                 $flag1 = 1;
             }
             if (array_key_exists('forum', $related)) {
@@ -213,7 +215,7 @@ class ForumController extends Controller
             }
             $sql .= " from post ";
             if (array_key_exists('user', $related)) {
-                $sql .= " join user as self on post.user = self.email ";
+                $sql .= " join user on post.user = email ";
             }
             if (array_key_exists('forum', $related)) {
                 $sql .= " join forum on post.forum = forum.short_name ";
@@ -241,8 +243,6 @@ class ForumController extends Controller
                 if (count($result) == 0) {
                     $response["code"] = 0;
                     $response["response"] = array();
-//                    $response["code"] = 1;
-//                    $response["response"] = "Posts were not found";
                 } else {
                     $response["code"] = 0;
                     $response["response"] = array();
@@ -291,16 +291,15 @@ class ForumController extends Controller
                             $buf2 = array();
                             $buf2["about"] = $row["about"];
                             $buf2["email"] = $row["email"];
-
-                            $buf2["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
-                            $buf2["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
-
+                            $followers = ControllersHelper::getFollowers($row["user_id"]);
+                            $buf2["followers"] = $followers == null ? array() : explode(",", $followers);
+                            $following = ControllersHelper::getFollowing($row["user_id"]);
+                            $buf2["following"] = $following == null ? array() : explode(",", $following);
                             $buf2["id"] = $row["user_id"];
                             $buf2["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
                             $buf2["name"] = $row["user_name"];
-
-                            $buf2["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
-
+                            $subscriptions = ControllersHelper::getSubscriptions($row["user_id"]);
+                            $buf2["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
                             $buf2["username"] = $row["username"];
                             $buf["user"] = $buf2;
                         } else {
@@ -364,7 +363,7 @@ class ForumController extends Controller
             $flag1 = 0;
             $flag2 = 0;
             if (array_key_exists('user', $related)) {
-                $sql .= ", ".ControllersHelper::getSqlBlockForUser();
+                $sql .= ", user.id as user_id, user.name as user_name, username, about, email, isAnonymous ";
                 $flag1 = 1;
             }
             if (array_key_exists('forum', $related)) {
@@ -373,7 +372,7 @@ class ForumController extends Controller
             }
             $sql .= " from thread ";
             if (array_key_exists('user', $related)) {
-                $sql .= " join user as self on thread.user = self.email ";
+                $sql .= " join user on thread.user = email ";
             }
             if (array_key_exists('forum', $related)) {
                 $sql .= " join forum on thread.forum = forum.short_name ";
@@ -398,8 +397,6 @@ class ForumController extends Controller
                 if (count($result) == 0) {
                     $response["code"] = 0;
                     $response["response"] = array();
-//                    $response["code"] = 1;
-//                    $response["response"] = "Threads were not found";
                 } else {
                     $response["code"] = 0;
                     $response["response"] = array();
@@ -429,16 +426,15 @@ class ForumController extends Controller
                             $buf2 = array();
                             $buf2["about"] = $row["about"];
                             $buf2["email"] = $row["email"];
-
-                            $buf2["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
-                            $buf2["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
-
+                            $followers = ControllersHelper::getFollowers($row["user_id"]);
+                            $buf2["followers"] = $followers == null ? array() : explode(",", $followers);
+                            $following = ControllersHelper::getFollowing($row["user_id"]);
+                            $buf2["following"] = $following == null ? array() : explode(",", $following);
                             $buf2["id"] = $row["user_id"];
                             $buf2["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
                             $buf2["name"] = $row["user_name"];
-
-                            $buf2["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
-
+                            $subscriptions = ControllersHelper::getSubscriptions($row["user_id"]);
+                            $buf2["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
                             $buf2["username"] = $row["username"];
                             $buf["user"] = $buf2;
                         } else {
@@ -478,22 +474,23 @@ class ForumController extends Controller
 
             $connection = Yii::app()->db;
 
-            $sql = "select ".
-                    ControllersHelper::getSqlBlockForUser().
-                    " from user as self join
-                    (select u.id as user_id from post
-                    join user as u on u.email = post.user
-                    where post.forum = :forum
-                    group by u.id) as t
-                    on self.id = t.user_id ";
+            $sql = "SELECT *
+                    FROM user
+                    JOIN
+                        (SELECT u.id AS u_id
+                         FROM user AS u
+                         JOIN post
+                         ON u.email = post.user
+                         WHERE post.forum = :forum
+                         GROUP BY u.id) AS t
+                    ON id = t.u_id ";
             if (array_key_exists('since_id', $_GET))
-                $sql .= " where self.id >= :since_id ";
+                $sql .= " WHERE id >= :since_id ";
 
-            //$sql .= " order by -self.username ".(strcmp($order, "desc") == 0 ? "" : "desc")." ";
-            $sql .= " order by self.name ".$order." ";
+            $sql .= " ORDER BY name ".$order." ";
 
             if (array_key_exists('limit', $_GET))
-                $sql .= " limit ".strval(intval($limit));
+                $sql .= " LIMIT ".strval(intval($limit));
             $sql .= ";";
             $command = $connection->createCommand($sql);
             $command->bindParam(":forum", $forum);
@@ -504,8 +501,6 @@ class ForumController extends Controller
                 if (count($result) == 0) {
                     $response["code"] = 0;
                     $response["response"] = array();
-//                    $response["code"] = 1;
-//                    $response["response"] = "Users were not found";
                 } else {
                     $response["code"] = 0;
                     $response["response"] = array();
@@ -513,16 +508,15 @@ class ForumController extends Controller
                         $buf = array();
                         $buf["about"] = $row["about"];
                         $buf["email"] = $row["email"];
-
-                        $buf["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
-                        $buf["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
-
-                        $buf["id"] = $row["user_id"];
+                        $followers = ControllersHelper::getFollowers($row["id"]);
+                        $buf["followers"] = $followers == null ? array() : explode(",", $followers);
+                        $following = ControllersHelper::getFollowing($row["id"]);
+                        $buf["following"] = $following == null ? array() : explode(",", $following);
+                        $buf["id"] = $row["id"];
                         $buf["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                        $buf["name"] = $row["user_name"];
-
-                        $buf["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
-
+                        $buf["name"] = $row["name"];
+                        $subscriptions = ControllersHelper::getSubscriptions($row["id"]);
+                        $buf["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
                         $buf["username"] = $row["username"];
                         array_push($response["response"], $buf);
                     }

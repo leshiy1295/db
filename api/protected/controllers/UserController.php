@@ -7,12 +7,6 @@ class UserController extends Controller
         $code = 2;
         $status = "Invalid JSON";
         $response = array('code' => $code, 'response' => $status);
-
-//        $fp = fopen("C:\\file.txt", "w");
-//        fwrite($fp, file_get_contents('php://input'));
-//        fclose($fp);
-//        $request = json_decode($_POST["a"], true);
-
         $request = json_decode(file_get_contents('php://input'), true);
         if (count($request) >= 4 && count($request) <= 5) {
             if (array_key_exists('username', $request) && array_key_exists('about', $request) && 
@@ -23,7 +17,7 @@ class UserController extends Controller
                 $email = $request['email'];
                 
                 $connection = Yii::app()->db;
-                $sql = "SELECT 1 FROM user WHERE email = :email limit 1;";
+                $sql = "SELECT 1 FROM user WHERE email = :email LIMIT 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":email", $email);
                 $dataReader = $command->queryAll();
@@ -74,9 +68,7 @@ class UserController extends Controller
         if (array_key_exists('user', $_GET)) {
             $user = $_GET['user'];
             $connection = Yii::app()->db;
-            $sql = "select ".ControllersHelper::getSqlBlockForUser().
-               " from user as self
-               where email = :email limit 1;";
+            $sql = "SELECT * FROM user WHERE email = :email LIMIT 1;";
             $command = $connection->createCommand($sql);
             $command->bindParam(":email", $user); 
             try {
@@ -90,16 +82,15 @@ class UserController extends Controller
                     $buf = array();
                     $buf["about"] = $row["about"];
                     $buf["email"] = $row["email"];
-                    
-                    $buf["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
-                    $buf["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
-                    
-                    $buf["id"] = $row["user_id"];
+                    $followers = ControllersHelper::getFollowers($row["id"]);
+                    $buf["followers"] = $followers == null ? array() : explode(",", $followers);
+                    $following = ControllersHelper::getFollowing($row["id"]);
+                    $buf["following"] = $following == null ? array() : explode(",", $following);
+                    $buf["id"] = $row["id"];
                     $buf["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                    $buf["name"] = $row["user_name"];
-                    
-                    $buf["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
-                    
+                    $buf["name"] = $row["name"];
+                    $subscriptions = ControllersHelper::getSubscriptions($row["id"]);
+                    $buf["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
                     $buf["username"] = $row["username"];
                     $response["response"] = $buf;
                 }
@@ -118,12 +109,6 @@ class UserController extends Controller
         $code = 2;
         $status = "Invalid JSON";
         $response = array('code' => $code, 'response' => $status);
-
-//        $fp = fopen("C:\\file.txt", "w");
-//        fwrite($fp, file_get_contents('php://input'));
-//        fclose($fp);
-//        $request = json_decode($_POST["a"], true);
-
         $request = json_decode(file_get_contents('php://input'), true);
         if (count($request) == 2) {
             if (array_key_exists('follower', $request) && array_key_exists('followee', $request)) {
@@ -141,10 +126,7 @@ class UserController extends Controller
                 $command->bindParam(":followee_id", $followee_id);
                 try {
                     $command->execute();
-                    $sql = "select ".
-                            ControllersHelper::getSqlBlockForUser().
-                           " from user as self
-                           where email = :email limit 1;";
+                    $sql = "SELECT * FROM user WHERE email = :email LIMIT 1;";
                     $command = $connection->createCommand($sql);
                     $command->bindParam(":email", $follower);
 
@@ -158,16 +140,15 @@ class UserController extends Controller
                         $buf = array();
                         $buf["about"] = $row["about"];
                         $buf["email"] = $row["email"];
-
-                        $buf["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
-                        $buf["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
-
-                        $buf["id"] = $row["user_id"];
+                        $followers = ControllersHelper::getFollowers($row["id"]);
+                        $buf["followers"] = $followers == null ? array() : explode(",", $followers);
+                        $following = ControllersHelper::getFollowing($row["id"]);
+                        $buf["following"] = $following == null ? array() : explode(",", $following);
+                        $buf["id"] = $row["id"];
                         $buf["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                        $buf["name"] = $row["user_name"];
-
-                        $buf["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
-
+                        $buf["name"] = $row["name"];
+                        $subscriptions = ControllersHelper::getSubscriptions($row["id"]);
+                        $buf["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
                         $buf["username"] = $row["username"];
                         $response["response"] = $buf;
                     }
@@ -205,18 +186,17 @@ class UserController extends Controller
 
             $connection = Yii::app()->db;
 
-            $sql = "select ".
-                    ControllersHelper::getSqlBlockForUser().
-                    " from user as self join
-                    (select u_from from followers
-                     where u_to = :id ";
+            $sql = "SELECT *
+                    FROM user JOIN
+                    (SELECT u_from FROM followers
+                     WHERE u_to = :id ";
             if (array_key_exists('since_id', $_GET))
-                $sql .= " and u_from >= :since_id ";
+                $sql .= " AND u_from >= :since_id ";
             if (array_key_exists('limit', $_GET))
-                $sql .= " limit ".strval(intval($limit));
-            $sql .= ") as t
-                    on self.id = t.u_from
-                    order by self.name ".$order.";";
+                $sql .= " LIMIT ".strval(intval($limit));
+            $sql .= ") AS t
+                    ON id = t.u_from
+                    ORDER BY name ".$order.";";
 
             $command = $connection->createCommand($sql);
             $command->bindParam(":id", $id);
@@ -227,8 +207,6 @@ class UserController extends Controller
                 if (count($result) == 0) {
                     $response["code"] = 0;
                     $response["response"] = array();
-//                    $response["code"] = 1;
-//                    $response["response"] = "Users were not found";
                 } else {
                     $response["code"] = 0;
                     $response["response"] = array();
@@ -236,16 +214,15 @@ class UserController extends Controller
                         $buf = array();
                         $buf["about"] = $row["about"];
                         $buf["email"] = $row["email"];
-
-                        $buf["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
-                        $buf["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
-
-                        $buf["id"] = $row["user_id"];
+                        $followers = ControllersHelper::getFollowers($row["id"]);
+                        $buf["followers"] = $followers == null ? array() : explode(",", $followers);
+                        $following = ControllersHelper::getFollowing($row["id"]);
+                        $buf["following"] = $following == null ? array() : explode(",", $following);
+                        $buf["id"] = $row["id"];
                         $buf["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                        $buf["name"] = $row["user_name"];
-
-                        $buf["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
-
+                        $buf["name"] = $row["name"];
+                        $subscriptions = ControllersHelper::getSubscriptions($row["id"]);
+                        $buf["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
                         $buf["username"] = $row["username"];
                         array_push($response["response"], $buf);
                     }
@@ -283,18 +260,17 @@ class UserController extends Controller
 
             $connection = Yii::app()->db;
 
-            $sql = "select ".
-                ControllersHelper::getSqlBlockForUser().
-                " from user as self join
-                    (select u_to from followers
-                     where u_from = :id ";
+            $sql = "SELECT *
+                    FROM user JOIN
+                    (SELECT u_to FROM followers
+                    WHERE u_from = :id ";
             if (array_key_exists('since_id', $_GET))
-                $sql .= " and u_to >= :since_id ";
+                $sql .= " AND u_to >= :since_id ";
             if (array_key_exists('limit', $_GET))
-                $sql .= " limit ".strval(intval($limit));
-            $sql .= ") as t
-                    on self.id = t.u_to
-                    order by self.name ".$order.";";
+                $sql .= " LIMIT ".strval(intval($limit));
+            $sql .= ") AS t
+                    ON id = t.u_to
+                    ORDER BY name ".$order.";";
 
             $command = $connection->createCommand($sql);
             $command->bindParam(":id", $id);
@@ -303,8 +279,6 @@ class UserController extends Controller
             try {
                 $result = $command->queryAll();
                 if (count($result) == 0) {
-//                    $response["code"] = 1;
-//                    $response["response"] = "Users were not found";
                     $response["code"] = 0;
                     $response["response"] = array();
                 } else {
@@ -314,16 +288,15 @@ class UserController extends Controller
                         $buf = array();
                         $buf["about"] = $row["about"];
                         $buf["email"] = $row["email"];
-
-                        $buf["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
-                        $buf["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
-
-                        $buf["id"] = $row["user_id"];
+                        $followers = ControllersHelper::getFollowers($row["id"]);
+                        $buf["followers"] = $followers == null ? array() : explode(",", $followers);
+                        $following = ControllersHelper::getFollowing($row["id"]);
+                        $buf["following"] = $following == null ? array() : explode(",", $following);
+                        $buf["id"] = $row["id"];
                         $buf["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                        $buf["name"] = $row["user_name"];
-
-                        $buf["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
-
+                        $buf["name"] = $row["name"];
+                        $subscriptions = ControllersHelper::getSubscriptions($row["id"]);
+                        $buf["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
                         $buf["username"] = $row["username"];
                         array_push($response["response"], $buf);
                     }
@@ -359,15 +332,15 @@ class UserController extends Controller
 
             $connection = Yii::app()->db;
 
-            $sql = "select *, (likes - dislikes) as points from post where user = :user ";
+            $sql = "SELECT *, (likes - dislikes) AS points FROM post WHERE user = :user ";
 
             if (array_key_exists('since', $_GET))
-                $sql .= " and date >= :since ";
+                $sql .= " AND date >= :since ";
 
-            $sql .= " order by date ".$order." ";
+            $sql .= " ORDER BY date ".$order." ";
 
             if (array_key_exists('limit', $_GET))
-                $sql .= " limit ".strval(intval($limit));
+                $sql .= " LIMIT ".strval(intval($limit));
             $sql .= ";";
 
             $command = $connection->createCommand($sql);
@@ -377,8 +350,6 @@ class UserController extends Controller
             try {
                 $result = $command->queryAll();
                 if (count($result) == 0) {
-//                    $response["code"] = 1;
-//                    $response["response"] = "Posts were not found";
                     $response["code"] = 0;
                     $response["response"] = array();
                 } else {
@@ -419,12 +390,6 @@ class UserController extends Controller
         $code = 2;
         $status = "Invalid JSON";
         $response = array('code' => $code, 'response' => $status);
-
-//        $fp = fopen("C:\\file.txt", "w");
-//        fwrite($fp, file_get_contents('php://input'));
-//        fclose($fp);
-//        $request = json_decode($_POST["a"], true);
-
         $request = json_decode(file_get_contents('php://input'), true);
         if (count($request) == 2) {
             if (array_key_exists('follower', $request) && array_key_exists('followee', $request)) {
@@ -436,16 +401,13 @@ class UserController extends Controller
 
                 $connection = Yii::app()->db;
 
-                $sql = "delete from followers where u_from = :follower_id and u_to = :followee_id;";
+                $sql = "DELETE FROM followers WHERE u_from = :follower_id AND u_to = :followee_id LIMIT 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":follower_id", $follower_id);
                 $command->bindParam(":followee_id", $followee_id);
                 try {
                     $command->execute();
-                    $sql = "select ".
-                            ControllersHelper::getSqlBlockForUser().
-                           " from user as self
-                           where email = :email;";
+                    $sql = "SELECT * FROM user WHERE email = :email LIMIT 1;";
                     $command = $connection->createCommand($sql);
                     $command->bindParam(":email", $follower);
 
@@ -459,16 +421,15 @@ class UserController extends Controller
                         $buf = array();
                         $buf["about"] = $row["about"];
                         $buf["email"] = $row["email"];
-
-                        $buf["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
-                        $buf["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
-
-                        $buf["id"] = $row["user_id"];
+                        $followers = ControllersHelper::getFollowers($row["id"]);
+                        $buf["followers"] = $followers == null ? array() : explode(",", $followers);
+                        $following = ControllersHelper::getFollowing($row["id"]);
+                        $buf["following"] = $following == null ? array() : explode(",", $following);
+                        $buf["id"] = $row["id"];
                         $buf["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                        $buf["name"] = $row["user_name"];
-
-                        $buf["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
-
+                        $buf["name"] = $row["name"];
+                        $subscriptions = ControllersHelper::getSubscriptions($row["id"]);
+                        $buf["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
                         $buf["username"] = $row["username"];
                         $response["response"] = $buf;
                     }
@@ -488,8 +449,6 @@ class UserController extends Controller
         $code = 2;
         $status = "Invalid JSON";
         $response = array('code' => $code, 'response' => $status);
-
-//        $request = json_decode($_POST["a"], true);
         $request = json_decode(file_get_contents('php://input'), true);
         if (count($request) == 3) {
             if (array_key_exists('about', $request) && array_key_exists('user', $request) && array_key_exists('name', $request)) {
@@ -498,17 +457,14 @@ class UserController extends Controller
                 $name = $request['name'];
 
                 $connection = Yii::app()->db;
-                $sql = "update user set about = :about, name = :name where email = :user;";
+                $sql = "UPDATE user SET about = :about, name = :name WHERE email = :user LIMIT 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":about", $about);
                 $command->bindParam(":user", $user);
                 $command->bindParam(":name", $name);
                 try {
                     $command->execute();
-                    $sql = "select ".
-                            ControllersHelper::getSqlBlockForUser().
-                            " from user as self
-                            where email = :email;";
+                    $sql = "SELECT * FROM user WHERE email = :email LIMIT 1;";
                     $command = $connection->createCommand($sql);
                     $command->bindParam(":email", $user);
 
@@ -522,16 +478,15 @@ class UserController extends Controller
                         $buf = array();
                         $buf["about"] = $row["about"];
                         $buf["email"] = $row["email"];
-
-                        $buf["followers"] = $row["followers"] == null ? array() : explode(",", $row["followers"]);
-                        $buf["following"] = $row["following"] == null ? array() : explode(",", $row["following"]);
-
-                        $buf["id"] = $row["user_id"];
+                        $followers = ControllersHelper::getFollowers($row["id"]);
+                        $buf["followers"] = $followers == null ? array() : explode(",", $followers);
+                        $following = ControllersHelper::getFollowing($row["id"]);
+                        $buf["following"] = $following == null ? array() : explode(",", $following);
+                        $buf["id"] = $row["id"];
                         $buf["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                        $buf["name"] = $row["user_name"];
-
-                        $buf["subscriptions"] = $row["subscriptions"] == null ? array() : explode(",", $row["subscriptions"]);
-
+                        $buf["name"] = $row["name"];
+                        $subscriptions = ControllersHelper::getSubscriptions($row["id"]);
+                        $buf["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
                         $buf["username"] = $row["username"];
                         $response["response"] = $buf;
                     }
