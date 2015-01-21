@@ -435,13 +435,14 @@ class ForumController extends Controller
 
             $connection = Yii::app()->db;
 
-            $sql = "SELECT DISTINCT user.*
+            $sql = "SELECT *
                     FROM user
-                    JOIN post USE KEY (forum_user)
-                    ON email = post.user
-                    WHERE post.forum = :forum ";
-            if (array_key_exists('since_id', $_GET))
-                $sql .= " AND user.id >= :since_id ";
+                    WHERE email IN
+                    (SELECT DISTINCT user
+                    FROM post USE KEY (forum_user)
+                    WHERE forum = :forum) ";
+              if (array_key_exists('since_id', $_GET))
+                  $sql .= " AND id >= :since_id ";
             $sql .= " ORDER BY name ".$order." ";
             if (array_key_exists('limit', $_GET))
                 $sql .= " LIMIT ".strval(intval($limit));

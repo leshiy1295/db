@@ -30274,3 +30274,18 @@ in D:\GitHub\db\api\index.php (13)
 2015/01/21 21:55:53 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-4' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) VALUES (:thread,:user_id);.
 in D:\GitHub\db\api\protected\controllers\ThreadController.php (561)
 in D:\GitHub\db\api\index.php (13)
+2015/01/21 22:17:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (697)
+in D:\GitHub\db\api\index.php (13)
+2015/01/21 22:17:42 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-2' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) VALUES (:thread,:user_id);.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (561)
+in D:\GitHub\db\api\index.php (13)
+2015/01/21 23:47:26 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (697)
+in D:\GitHub\db\api\index.php (13)
+2015/01/21 23:47:34 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2-4' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) VALUES (:thread,:user_id);.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (561)
+in D:\GitHub\db\api\index.php (13)
+2015/01/21 23:47:36 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2-4' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) VALUES (:thread,:user_id);.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (561)
+in D:\GitHub\db\api\index.php (13)
