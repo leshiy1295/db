@@ -90,57 +90,47 @@ class ForumController extends Controller
         if (array_key_exists('forum', $_GET)) {
             $forum = $_GET['forum'];
             $connection = Yii::app()->db;
-            $correct = true;
-            if (array_key_exists('user', $related)) {
-                $sql = "SELECT forum.*, user.id AS user_id, user.name AS user_name, username, about, email, isAnonymous
-                        FROM forum
-                        JOIN user
-                        ON user = email
-                        WHERE short_name = :short_name LIMIT 1;";
-                $correct = true;
-            }
-            else
-                $sql = "SELECT * FROM forum WHERE short_name = :short_name LIMIT 1;";
-            if ($correct) {
-                $command = $connection->createCommand($sql);
-                $command->bindParam(":short_name", $forum); 
-                try {
-                    $result = $command->queryAll();
-                    if (count($result) == 0) {
-                        $response["code"] = 1;
-                        $response["response"] = "Forum was not found";
+
+            $sql = "SELECT * FROM forum WHERE short_name = :forum LIMIT 1;";
+            $command = $connection->createCommand($sql);
+            $command->bindParam(":forum", $forum);
+            try {
+                $result = $command->queryAll();
+                if (count($result) == 0) {
+                    $response["code"] = 1;
+                    $response["response"] = "Forum was not found";
+                } else {
+                    $response["code"] = 0;
+                    $row = $result[0];
+                    $buf = array();
+                    $buf["id"] = $row["id"];
+                    $buf["name"] = $row["name"];
+                    $buf["short_name"] = $row["short_name"];
+                    if (array_key_exists('user', $related)) {
+                        $user_row = ControllersHelper::getUserByForumShortName($forum);
+                        $buf2 = array();
+                        $buf2["about"] = $user_row["about"];
+                        $buf2["email"] = $user_row["email"];
+                        $followers = ControllersHelper::getFollowers($user_row["id"]);
+                        $buf2["followers"] = $followers == null ? array() : explode(",", $followers);
+                        $following = ControllersHelper::getFollowing($user_row["id"]);
+                        $buf2["following"] = $following == null ? array() : explode(",", $following);
+                        $buf2["id"] = $user_row["id"];
+                        $buf2["isAnonymous"] = $user_row["isAnonymous"] == 0 ? false : true;
+                        $buf2["name"] = $user_row["name"];
+                        $subscriptions = ControllersHelper::getSubscriptions($user_row["id"]);
+                        $buf2["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
+                        $buf2["username"] = $user_row["username"];
+                        $buf["user"] = $buf2;
                     } else {
-                        $response["code"] = 0;
-                        $row = $result[0];
-                        $buf = array();
-                        $buf["id"] = $row["id"];
-                        $buf["name"] = $row["name"];
-                        $buf["short_name"] = $row["short_name"];
-                        if (array_key_exists('user', $related)) {
-                            $buf2 = array();
-                            $buf2["about"] = $row["about"];
-                            $buf2["email"] = $row["email"];
-                            $followers = ControllersHelper::getFollowers($row["user_id"]);
-                            $buf2["followers"] = $followers == null ? array() : explode(",", $followers);
-                            $following = ControllersHelper::getFollowing($row["user_id"]);
-                            $buf2["following"] = $following == null ? array() : explode(",", $following);
-                            $buf2["id"] = $row["user_id"];
-                            $buf2["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                            $buf2["name"] = $row["user_name"];
-                            $subscriptions = ControllersHelper::getSubscriptions($row["user_id"]);
-                            $buf2["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
-                            $buf2["username"] = $row["username"];
-                            $buf["user"] = $buf2;
-                        } else {
-                            $buf["user"] = $row["user"];
-                        }
-                        $response["response"] = $buf;
+                        $buf["user"] = $row["user"];
                     }
+                    $response["response"] = $buf;
                 }
-                catch (Exception $e) {
-                    $response["code"] = 4;
-                    $response["response"] = $e->getMessage();
-                }
+            }
+            catch (Exception $e) {
+                $response["code"] = 4;
+                $response["response"] = $e->getMessage();
             }
         }
         echo json_encode($response);   
@@ -191,47 +181,22 @@ class ForumController extends Controller
             if (array_key_exists('order', $_GET))
                 $order = $_GET['order'];
 
-            $connection = Yii::app()->db;
-            $sql_forum_part = " forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user ";
-            $sql_thread_part = " thread.date as t_date, thread.dislikes as t_dislikes, thread.forum as t_forum,
-                    thread.id as t_id, isClosed, thread.isDeleted as t_isDeleted, thread.likes as t_likes,
-                    thread.message as t_message, (thread.likes - thread.dislikes) as t_points, posts, slug, title, thread.user as t_user ";
+            if (strcmp($order, 'asc') && strcmp($order, 'desc')) {
+                echo json_encode($response);
+                return;
+            }
 
-            $sql = "select post.*, (post.likes - post.dislikes) as points ";
-            $flag1 = 0;
-            $flag2 = 0;
-            $flag3 = 0;
-            if (array_key_exists('user', $related)) {
-                $sql .= ", user.id as user_id, user.name as user_name, username, about, email, isAnonymous ";
-                $flag1 = 1;
-            }
-            if (array_key_exists('forum', $related)) {
-                $sql .= ", ".$sql_forum_part;
-                $flag2 = 1;
-            }
-            if (array_key_exists('thread', $related)) {
-                $sql .= ", ".$sql_thread_part;
-                $flag3 = 1;
-            }
-            $sql .= " from post ";
-            if (array_key_exists('user', $related)) {
-                $sql .= " join user on post.user = email ";
-            }
-            if (array_key_exists('forum', $related)) {
-                $sql .= " join forum on post.forum = forum.short_name ";
-            }
-            if (array_key_exists('thread', $related)) {
-                $sql .= " join thread on post.thread = thread.id ";
-            }
-            $sql .= " where post.forum = :forum ";
+            $connection = Yii::app()->db;
+
+            $sql = "SELECT *, (likes - dislikes) AS points FROM post WHERE forum = :forum ";
 
             if (array_key_exists('since', $_GET))
-                $sql .= " and post.date >= :since ";
+                $sql .= " AND date >= :since ";
 
-            $sql .= " order by post.date ".$order." ";
+            $sql .= " ORDER BY date ".$order." ";
 
             if (array_key_exists('limit', $_GET))
-                $sql .= " limit ".strval(intval($limit));
+                $sql .= " LIMIT ".strval(intval($limit));
             $sql .= ";";
 
             $command = $connection->createCommand($sql);
@@ -250,12 +215,13 @@ class ForumController extends Controller
                         $buf = array();
                         $buf["date"] = $row["date"];
                         $buf["dislikes"] = (int)$row["dislikes"];
-                        if ($flag2 == 1) {
+                        if (array_key_exists('forum', $related)) {
+                            $forum_row = ControllersHelper::getForumByShortName($forum);
                             $buf2 = array();
-                            $buf2["id"] = $row["f_id"];
-                            $buf2["name"] = $row["f_name"];
-                            $buf2["short_name"] = $row["short_name"];
-                            $buf2["user"] = $row["f_user"];
+                            $buf2["id"] = $forum_row["id"];
+                            $buf2["name"] = $forum_row["name"];
+                            $buf2["short_name"] = $forum_row["short_name"];
+                            $buf2["user"] = $forum_row["user"];
                             $buf["forum"] = $buf2;
                         } else
                             $buf["forum"] = $row["forum"];
@@ -269,38 +235,40 @@ class ForumController extends Controller
                         $buf["message"] = $row["message"];
                         $buf["parent"] = $row["parent"];
                         $buf["points"] = (int)$row["points"];
-                        if ($flag3 == 1) {
+                        if (array_key_exists('thread', $related)) {
+                            $thread_row = ControllersHelper::getThreadByPostId($row["id"]);
                             $buf2 = array();
-                            $buf2["date"] = $row["t_date"];
-                            $buf2["dislikes"] = (int)$row["t_dislikes"];
-                            $buf2["forum"] = $row["t_forum"];
-                            $buf2["id"] = $row["t_id"];
-                            $buf2["isClosed"] = $row["isClosed"] == 0 ? false : true;
-                            $buf2["isDeleted"] = $row["t_isDeleted"] == 0 ? false : true;
-                            $buf2["likes"] = (int)$row["t_likes"];
-                            $buf2["message"] = $row["t_message"];
-                            $buf2["points"] = (int)$row["t_points"];
-                            $buf2["posts"] = (int)$row["posts"];
-                            $buf2["slug"] = $row["slug"];
-                            $buf2["title"] = $row["title"];
-                            $buf2["user"] = $row["t_user"];
+                            $buf2["date"] = $thread_row["date"];
+                            $buf2["dislikes"] = (int)$thread_row["dislikes"];
+                            $buf2["forum"] = $thread_row["forum"];
+                            $buf2["id"] = $thread_row["id"];
+                            $buf2["isClosed"] = $thread_row["isClosed"] == 0 ? false : true;
+                            $buf2["isDeleted"] = $thread_row["isDeleted"] == 0 ? false : true;
+                            $buf2["likes"] = (int)$thread_row["likes"];
+                            $buf2["message"] = $thread_row["message"];
+                            $buf2["points"] = (int)$thread_row["points"];
+                            $buf2["posts"] = (int)$thread_row["posts"];
+                            $buf2["slug"] = $thread_row["slug"];
+                            $buf2["title"] = $thread_row["title"];
+                            $buf2["user"] = $thread_row["user"];
                             $buf["thread"] = $buf2;
                         } else
                             $buf["thread"] = $row["thread"];
-                        if ($flag1 == 1) {
+                        if (array_key_exists('user', $related)) {
+                            $user_row = ControllersHelper::getUserByPostId($row["id"]);
                             $buf2 = array();
-                            $buf2["about"] = $row["about"];
-                            $buf2["email"] = $row["email"];
-                            $followers = ControllersHelper::getFollowers($row["user_id"]);
+                            $buf2["about"] = $user_row["about"];
+                            $buf2["email"] = $user_row["email"];
+                            $followers = ControllersHelper::getFollowers($user_row["id"]);
                             $buf2["followers"] = $followers == null ? array() : explode(",", $followers);
-                            $following = ControllersHelper::getFollowing($row["user_id"]);
+                            $following = ControllersHelper::getFollowing($user_row["id"]);
                             $buf2["following"] = $following == null ? array() : explode(",", $following);
-                            $buf2["id"] = $row["user_id"];
-                            $buf2["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                            $buf2["name"] = $row["user_name"];
-                            $subscriptions = ControllersHelper::getSubscriptions($row["user_id"]);
+                            $buf2["id"] = $user_row["id"];
+                            $buf2["isAnonymous"] = $user_row["isAnonymous"] == 0 ? false : true;
+                            $buf2["name"] = $user_row["name"];
+                            $subscriptions = ControllersHelper::getSubscriptions($user_row["id"]);
                             $buf2["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
-                            $buf2["username"] = $row["username"];
+                            $buf2["username"] = $user_row["username"];
                             $buf["user"] = $buf2;
                         } else {
                             $buf["user"] = $row["user"];
@@ -357,35 +325,21 @@ class ForumController extends Controller
             if (array_key_exists('order', $_GET))
                 $order = $_GET['order'];
 
+            if (strcmp($order, 'asc') && strcmp($order, 'desc')) {
+                echo json_encode($response);
+                return;
+            }
+
             $connection = Yii::app()->db;
-            $sql_forum_part = " forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user ";
-            $sql = "select thread.*, (thread.likes - thread.dislikes) as points ";
-            $flag1 = 0;
-            $flag2 = 0;
-            if (array_key_exists('user', $related)) {
-                $sql .= ", user.id as user_id, user.name as user_name, username, about, email, isAnonymous ";
-                $flag1 = 1;
-            }
-            if (array_key_exists('forum', $related)) {
-                $sql .= ", ".$sql_forum_part;
-                $flag2 = 1;
-            }
-            $sql .= " from thread ";
-            if (array_key_exists('user', $related)) {
-                $sql .= " join user on thread.user = email ";
-            }
-            if (array_key_exists('forum', $related)) {
-                $sql .= " join forum on thread.forum = forum.short_name ";
-            }
-            $sql .= " where thread.forum = :forum ";
 
+            $sql = "SELECT *, (likes - dislikes) AS points FROM thread WHERE forum = :forum ";
             if (array_key_exists('since', $_GET))
-                $sql .= " and thread.date >= :since ";
+                $sql .= " AND thread.date >= :since ";
 
-            $sql .= " order by thread.date ".$order." ";
+            $sql .= " ORDER BY thread.date ".$order." ";
 
             if (array_key_exists('limit', $_GET))
-                $sql .= " limit ".strval(intval($limit));
+                $sql .= " LIMIT ".strval(intval($limit));
             $sql .= ";";
 
             $command = $connection->createCommand($sql);
@@ -404,12 +358,13 @@ class ForumController extends Controller
                         $buf = array();
                         $buf["date"] = $row["date"];
                         $buf["dislikes"] = (int)$row["dislikes"];
-                        if ($flag2 == 1) {
+                        if (array_key_exists('forum', $related)) {
+                            $forum_row = ControllersHelper::getForumByShortName($forum);
                             $buf2 = array();
-                            $buf2["id"] = $row["f_id"];
-                            $buf2["name"] = $row["f_name"];
-                            $buf2["short_name"] = $row["short_name"];
-                            $buf2["user"] = $row["f_user"];
+                            $buf2["id"] = $forum_row["id"];
+                            $buf2["name"] = $forum_row["name"];
+                            $buf2["short_name"] = $forum_row["short_name"];
+                            $buf2["user"] = $forum_row["user"];
                             $buf["forum"] = $buf2;
                         } else
                             $buf["forum"] = $row["forum"];
@@ -422,20 +377,21 @@ class ForumController extends Controller
                         $buf["posts"] = (int)$row["posts"];
                         $buf["slug"] = $row["slug"];
                         $buf["title"] = $row["title"];
-                        if ($flag1 == 1) {
+                        if (array_key_exists('user', $related)) {
+                            $user_row = ControllersHelper::getUserByThreadId($row["id"]);
                             $buf2 = array();
-                            $buf2["about"] = $row["about"];
-                            $buf2["email"] = $row["email"];
-                            $followers = ControllersHelper::getFollowers($row["user_id"]);
+                            $buf2["about"] = $user_row["about"];
+                            $buf2["email"] = $user_row["email"];
+                            $followers = ControllersHelper::getFollowers($user_row["id"]);
                             $buf2["followers"] = $followers == null ? array() : explode(",", $followers);
-                            $following = ControllersHelper::getFollowing($row["user_id"]);
+                            $following = ControllersHelper::getFollowing($user_row["id"]);
                             $buf2["following"] = $following == null ? array() : explode(",", $following);
-                            $buf2["id"] = $row["user_id"];
-                            $buf2["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                            $buf2["name"] = $row["user_name"];
-                            $subscriptions = ControllersHelper::getSubscriptions($row["user_id"]);
+                            $buf2["id"] = $user_row["id"];
+                            $buf2["isAnonymous"] = $user_row["isAnonymous"] == 0 ? false : true;
+                            $buf2["name"] = $user_row["name"];
+                            $subscriptions = ControllersHelper::getSubscriptions($user_row["id"]);
                             $buf2["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
-                            $buf2["username"] = $row["username"];
+                            $buf2["username"] = $user_row["username"];
                             $buf["user"] = $buf2;
                         } else {
                             $buf["user"] = $row["user"];
@@ -472,23 +428,21 @@ class ForumController extends Controller
             if (array_key_exists('order', $_GET))
                 $order = $_GET['order'];
 
+            if (strcmp($order, 'asc') && strcmp($order, 'desc')) {
+                echo json_encode($response);
+                return;
+            }
+
             $connection = Yii::app()->db;
 
-            $sql = "SELECT *
+            $sql = "SELECT DISTINCT user.*
                     FROM user
-                    JOIN
-                        (SELECT u.id AS u_id
-                         FROM user AS u
-                         JOIN post
-                         ON u.email = post.user
-                         WHERE post.forum = :forum
-                         GROUP BY u.id) AS t
-                    ON id = t.u_id ";
+                    JOIN post USE KEY (forum_user)
+                    ON email = post.user
+                    WHERE post.forum = :forum ";
             if (array_key_exists('since_id', $_GET))
-                $sql .= " WHERE id >= :since_id ";
-
+                $sql .= " AND user.id >= :since_id ";
             $sql .= " ORDER BY name ".$order." ";
-
             if (array_key_exists('limit', $_GET))
                 $sql .= " LIMIT ".strval(intval($limit));
             $sql .= ";";

@@ -128,35 +128,10 @@ class ThreadController extends Controller
             $thread = $_GET['thread'];
             
             $connection = Yii::app()->db;
-            $rel_type = 0;
 
-            if (array_key_exists('user', $related) && array_key_exists('forum', $related)) {
-                $sql = "select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
-                    thread.*, (likes - dislikes) as points,
-                    user.id as user_id, user.name as user_name, username, about, email, isAnonymous
-                    from thread
-                    join user on thread.user = email
-                    join forum on thread.forum = forum.short_name 
-                    where thread.id = :thread_id LIMIT 1;";
-                $rel_type = 1;
-            } else if (array_key_exists('user', $related)) {
-                $sql = "select thread.*, (likes - dislikes) as points,
-                    user.id as user_id, user.name as user_name, username, about, email, isAnonymous
-                    from thread
-                    join user on thread.user = email
-                    where thread.id = :thread_id LIMIT 1;";
-                $rel_type = 2;
-            } else if (array_key_exists('forum', $related)) {
-                $sql = "select forum.id as f_id, forum.name as f_name, short_name, forum.user as f_user, 
-                    thread.*, (likes - dislikes) as points
-                    from thread
-                    join forum on thread.forum = forum.short_name
-                    where thread.id = :thread_id LIMIT 1;";
-                $rel_type = 3;
-            } else
-                $sql = "select *, (likes - dislikes) as points from thread where thread.id = :thread_id LIMIT 1;";
+            $sql = "SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :thread LIMIT 1;";
             $command = $connection->createCommand($sql);
-            $command->bindParam(":thread_id", $thread); 
+            $command->bindParam(":thread", $thread);
             try {
                 $result = $command->queryAll();
                 if (count($result) == 0) {
@@ -168,12 +143,13 @@ class ThreadController extends Controller
                     $buf = array();
                     $buf["date"] = $row["date"];
                     $buf["dislikes"] = (int)$row["dislikes"];
-                    if ($rel_type == 1 || $rel_type == 3) {
+                    if (array_key_exists('forum', $related)) {
+                        $forum_row = ControllersHelper::getForumByThreadId($thread);
                         $buf2 = array();
-                        $buf2["id"] = $row["f_id"];
-                        $buf2["name"] = $row["f_name"];
-                        $buf2["short_name"] = $row["short_name"];
-                        $buf2["user"] = $row["f_user"];
+                        $buf2["id"] = $forum_row["id"];
+                        $buf2["name"] = $forum_row["name"];
+                        $buf2["short_name"] = $forum_row["short_name"];
+                        $buf2["user"] = $forum_row["user"];
                         $buf["forum"] = $buf2;
                     } else
                         $buf["forum"] = $row["forum"];
@@ -186,20 +162,21 @@ class ThreadController extends Controller
                     $buf["posts"] = (int)$row["posts"];
                     $buf["slug"] = $row["slug"];
                     $buf["title"] = $row["title"];                    
-                    if ($rel_type == 1 || $rel_type == 2) {
+                    if (array_key_exists('user', $related)) {
+                        $user_row = ControllersHelper::getUserByThreadId($thread);
                         $buf2 = array();
-                        $buf2["about"] = $row["about"];
-                        $buf2["email"] = $row["email"];
-                        $followers = ControllersHelper::getFollowers($row["user_id"]);
+                        $buf2["about"] = $user_row["about"];
+                        $buf2["email"] = $user_row["email"];
+                        $followers = ControllersHelper::getFollowers($user_row["id"]);
                         $buf2["followers"] = $followers == null ? array() : explode(",", $followers);
-                        $following = ControllersHelper::getFollowing($row["user_id"]);
+                        $following = ControllersHelper::getFollowing($user_row["id"]);
                         $buf2["following"] = $following == null ? array() : explode(",", $following);
-                        $buf2["id"] = $row["user_id"];
-                        $buf2["isAnonymous"] = $row["isAnonymous"] == 0 ? false : true;
-                        $buf2["name"] = $row["user_name"];
-                        $subscriptions = ControllersHelper::getSubscriptions($row["user_id"]);
+                        $buf2["id"] = $user_row["id"];
+                        $buf2["isAnonymous"] = $user_row["isAnonymous"] == 0 ? false : true;
+                        $buf2["name"] = $user_row["name"];
+                        $subscriptions = ControllersHelper::getSubscriptions($user_row["id"]);
                         $buf2["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
-                        $buf2["username"] = $row["username"];
+                        $buf2["username"] = $user_row["username"];
                         $buf["user"] = $buf2;
                     } else {
                         $buf["user"] = $row["user"];
@@ -315,9 +292,19 @@ class ThreadController extends Controller
             if (array_key_exists('order', $_GET))
                 $order = $_GET['order'];
 
+            if (strcmp($order, 'asc') && strcmp($order, 'desc')) {
+                echo json_encode($response);
+                return;
+            }
+
             $sort = 'flat';
             if (array_key_exists('sort', $_GET))
                 $sort = $_GET['sort'];
+
+            if (strcmp($sort, 'flat') && strcmp($sort, 'tree') && strcmp($sort, 'parent_tree')) {
+                echo json_encode($response);
+                return;
+            }
 
             $connection = Yii::app()->db;
 
@@ -389,7 +376,7 @@ class ThreadController extends Controller
                             $buf["user"] = $row["user"];
                             array_push($response["response"], $buf);
                         }
-                    } else if (!strcmp($sort, "tree") || !strcmp($sort, "parent_tree")) {
+                    } else {
                         $paths = array();
                         foreach ($result as $row) {
                             $path = explode('.', $row['path']);
@@ -438,10 +425,6 @@ class ThreadController extends Controller
                             $buf["childs"] = array();
                             $temp_paths["childs"] = array();
                         }
-                    } else {
-                        $code = 3;
-                        $status = "Invalid query";
-                        $response = array('code' => $code, 'response' => $status);
                     }
                 }
             }

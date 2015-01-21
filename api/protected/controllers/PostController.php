@@ -252,7 +252,7 @@ class PostController extends Controller
                         $buf2["id"] = $user_row["id"];
                         $buf2["isAnonymous"] = $user_row["isAnonymous"] == 0 ? false : true;
                         $buf2["name"] = $user_row["name"];
-                        $subscriptions = ControllersHelper::getSubscriptions($row["id"]);
+                        $subscriptions = ControllersHelper::getSubscriptions($user_row["id"]);
                         $buf2["subscriptions"] = $subscriptions == null ? array() : explode(",", $subscriptions);
                         $buf2["username"] = $user_row["username"];
                         $buf["user"] = $buf2;

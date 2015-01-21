@@ -18,6 +18,38 @@ class ControllersHelper
         return -1;
     }
 
+    public static function getForumByShortName($short_name)
+    {
+        $connection = Yii::app()->db;
+        $sql = "SELECT * FROM forum WHERE short_name = :short_name LIMIT 1;";
+        $command = $connection->createCommand($sql);
+        $command->bindParam(":short_name", $short_name);
+        try {
+            $result = $command->queryAll();
+            return $result[0];
+        }
+        catch (Exception $e) {
+            $e->getMessage();
+        }
+        return null;
+    }
+
+    public static function getThreadById($id)
+    {
+        $connection = Yii::app()->db;
+        $sql = "SELECT * FROM thread WHERE id = :id;";
+        $command = $connection->createCommand($sql);
+        $command->bindParam(":id", $id);
+        try {
+            $result = $command->queryAll();
+            return $result[0];
+        }
+        catch (Exception $e) {
+            $e->getMessage();
+        }
+        return null;
+    }
+
     public static function getPostCountByThreadId($thread) {
         $connection = Yii::app()->db;
         $sql = "SELECT COUNT(*) AS cnt FROM post WHERE thread = :thread;";
@@ -54,7 +86,7 @@ class ControllersHelper
         $connection = Yii::app()->db;
         $sql = "SELECT forum.*
                 FROM forum
-                JOIN post
+                JOIN post USE KEY (id_forum)
                 ON post.forum = forum.short_name
                 WHERE post.id = :id LIMIT 1;";
         $command = $connection->createCommand($sql);
@@ -74,7 +106,7 @@ class ControllersHelper
         $connection = Yii::app()->db;
         $sql = "SELECT user.*
                 FROM user
-                JOIN post
+                JOIN post USE KEY (id_user)
                 ON post.user = user.email
                 WHERE post.id = :id LIMIT 1;";
         $command = $connection->createCommand($sql);
@@ -94,11 +126,71 @@ class ControllersHelper
         $connection = Yii::app()->db;
         $sql = "SELECT thread.*, (thread.likes - thread.dislikes) AS points
                 FROM thread
-                JOIN post
+                JOIN post USE KEY (id_thread)
                 ON post.thread = thread.id
                 WHERE post.id = :id LIMIT 1;";
         $command = $connection->createCommand($sql);
         $command->bindParam(":id", $id);
+        try {
+            $result = $command->queryAll();
+            return $result[0];
+        }
+        catch (Exception $e) {
+            $e->getMessage();
+        }
+        return null;
+    }
+
+    public static function getForumByThreadId($id)
+    {
+        $connection = Yii::app()->db;
+        $sql = "SELECT forum.*
+                FROM forum
+                JOIN thread USE KEY (id_forum)
+                ON thread.forum = forum.short_name
+                WHERE thread.id = :id LIMIT 1;";
+        $command = $connection->createCommand($sql);
+        $command->bindParam(":id", $id);
+        try {
+            $result = $command->queryAll();
+            return $result[0];
+        }
+        catch (Exception $e) {
+            $e->getMessage();
+        }
+        return null;
+    }
+
+    public static function getUserByThreadId($id)
+    {
+        $connection = Yii::app()->db;
+        $sql = "SELECT user.*
+                FROM user
+                JOIN thread USE KEY (id_user)
+                ON thread.user = user.email
+                WHERE thread.id = :id LIMIT 1;";
+        $command = $connection->createCommand($sql);
+        $command->bindParam(":id", $id);
+        try {
+            $result = $command->queryAll();
+            return $result[0];
+        }
+        catch (Exception $e) {
+            $e->getMessage();
+        }
+        return null;
+    }
+
+    public static function getUserByForumShortName($short_name)
+    {
+        $connection = Yii::app()->db;
+        $sql = "SELECT user.*
+                FROM user
+                JOIN forum USE KEY (short_name_user)
+                ON forum.user = user.email
+                WHERE forum.short_name = :short_name LIMIT 1;";
+        $command = $connection->createCommand($sql);
+        $command->bindParam(":short_name", $short_name);
         try {
             $result = $command->queryAll();
             return $result[0];
