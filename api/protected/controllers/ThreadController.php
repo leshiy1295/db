@@ -306,6 +306,10 @@ class ThreadController extends Controller
                 return;
             }
 
+            if (strcmp($sort, "parent_tree") == 0) {
+                $bounds = ControllersHelper::getBoundsForParentTreeSort($thread, $order, $limit);
+            }
+
             $connection = Yii::app()->db;
 
             $sql = "SELECT *, (likes - dislikes) AS points FROM post WHERE thread = :thread ";
@@ -320,32 +324,22 @@ class ThreadController extends Controller
             }
             elseif (strcmp($sort, "tree") == 0) {
                 $sql .= " ORDER BY " . (strcmp($order, "desc") == 0 ?
-                        (" substring_index(path, '.', 2) " . $order . ", trim(leading substring_index(path, '.', 2) from path) ") :
+                        (" SUBSTRING_INDEX(path, '.', 2) DESC, TRIM(LEADING SUBSTRING_INDEX(path, '.', 2) FROM path) ") :
                         " path ");
                 if (array_key_exists('limit', $_GET))
-                    $sql .= " limit " . strval(intval($limit));
+                    $sql .= " LIMIT " . strval(intval($limit));
             } else {
-                $sql .= " and substring_index(path, '.', 2) between
-                    (select substring_index(min(t.path), '.', 2) from
-                        (select path from post where thread = :thread and parent is NULL order by path ".$order." ";
-                if (array_key_exists('limit', $_GET))
-                    $sql .= " limit " . strval(intval($limit))." ";
-                $sql .= ") as t
-                    )
-                    and
-                    (select max(t.path) from
-                        (select path from post where thread = :thread and parent is NULL order by path ".$order." ";
-                if (array_key_exists('limit', $_GET))
-                    $sql .= " limit " . strval(intval($limit))." ";
-                $sql .= ") as t
-                    ) ";
-                $sql .= " order by " . (strcmp($order, "desc") == 0 ? (" substring_index(path, '.', 2) " .$order. ", trim(leading substring_index(path, '.', 2) from path) ") : " path ");
+                $sql .= " AND SUBSTRING_INDEX(path, '.', 2) BETWEEN :left AND :right
+                        ORDER BY " . (strcmp($order, "desc") == 0 ? (" SUBSTRING_INDEX(path, '.', 2) DESC, TRIM(LEADING SUBSTRING_INDEX(path, '.', 2) FROM path) ") : " path ");
             }
-
             $sql .= ";";
 
             $command = $connection->createCommand($sql);
             $command->bindParam(":thread", $thread);
+            if (strcmp($sort, "parent_tree") == 0) {
+                $command->bindParam(":left", $bounds[0]);
+                $command->bindParam(":right", $bounds[1]);
+            }
             if (array_key_exists('since', $_GET))
                 $command->bindParam(":since", $since);
             try {

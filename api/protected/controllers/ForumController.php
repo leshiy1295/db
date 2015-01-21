@@ -439,7 +439,7 @@ class ForumController extends Controller
                     FROM user
                     WHERE email IN
                     (SELECT DISTINCT user
-                    FROM post USE KEY (forum_user)
+                    FROM post
                     WHERE forum = :forum) ";
               if (array_key_exists('since_id', $_GET))
                   $sql .= " AND id >= :since_id ";

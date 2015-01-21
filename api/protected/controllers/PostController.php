@@ -90,14 +90,14 @@ class PostController extends Controller
 
                 $connection = Yii::app()->db;
 
-                $sql = "SELECT posts AS cnt FROM thread USE KEY (id_posts) WHERE thread.id = :id LIMIT 1;";
+                $sql = "SELECT posts AS cnt FROM thread WHERE thread.id = :id LIMIT 1;";
                 $command = $connection->createCommand($sql);
                 $command->bindParam(":id", $thread);
                 $res = $command->queryAll();
                 $path = strval($res[0]["cnt"] + 1);
 
                 if ($parent != NULL) {
-                    $sql = "SELECT path FROM post USE KEY (id_path) WHERE post.id = :parent LIMIT 1;";
+                    $sql = "SELECT path FROM post WHERE post.id = :parent LIMIT 1;";
                     $command = $connection->createCommand($sql);
                     $command->bindParam(":parent", $parent);
                     $res = $command->queryAll();

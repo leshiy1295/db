@@ -30289,3 +30289,135 @@ in D:\GitHub\db\api\index.php (13)
 2015/01/21 23:47:36 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2-4' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) VALUES (:thread,:user_id);.
 in D:\GitHub\db\api\protected\controllers\ThreadController.php (561)
 in D:\GitHub\db\api\index.php (13)
+2015/01/22 00:24:56 [error] [php] Array to string conversion (D:\GitHub\db\framework\db\CDbCommand.php:249)
+Stack trace:
+#0 D:\GitHub\db\framework\web\actions\CInlineAction.php(49): ThreadController->actionListPosts()
+#1 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#3 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#5 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#7 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts/?order=desc&thread=1&sort=parent_tree&limit=2
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (340)
+in D:\GitHub\db\api\index.php (13)
+2015/01/22 00:25:07 [error] [php] Array to string conversion (D:\GitHub\db\framework\db\CDbCommand.php:249)
+Stack trace:
+#0 D:\GitHub\db\framework\web\actions\CInlineAction.php(49): ThreadController->actionListPosts()
+#1 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#3 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#5 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#7 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts/?order=desc&thread=1&sort=parent_tree&limit=2
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (340)
+in D:\GitHub\db\api\index.php (13)
+2015/01/22 00:31:18 [error] [php] Undefined offset: 0 (D:\GitHub\db\api\protected\controllers\ThreadController.php:341)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#1 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#2 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts/?order=desc&thread=1&sort=parent_tree&limit=2
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (341)
+in D:\GitHub\db\api\index.php (13)
+2015/01/22 00:31:40 [error] [php] Undefined offset: 0 (D:\GitHub\db\api\protected\controllers\ThreadController.php:341)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#1 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#2 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts/?order=desc&thread=1&sort=parent_tree&limit=2
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (341)
+in D:\GitHub\db\api\index.php (13)
+2015/01/22 00:33:36 [error] [php] Array to string conversion (D:\GitHub\db\framework\db\CDbCommand.php:249)
+Stack trace:
+#0 D:\GitHub\db\framework\web\actions\CInlineAction.php(49): ThreadController->actionListPosts()
+#1 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#3 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#5 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#7 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts/?order=desc&thread=1&sort=parent_tree&limit=2
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (340)
+in D:\GitHub\db\api\index.php (13)
+2015/01/22 00:34:25 [error] [php] Undefined offset: 0 (D:\GitHub\db\api\protected\helpers\ControllersHelper.php:51)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts/?order=desc&thread=1&sort=parent_tree&limit=2
+in D:\GitHub\db\api\protected\helpers\ControllersHelper.php (51)
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (310)
+in D:\GitHub\db\api\index.php (13)
+2015/01/22 00:34:40 [error] [php] Undefined offset: 1 (D:\GitHub\db\api\protected\helpers\ControllersHelper.php:50)
+Stack trace:
+#0 D:\GitHub\db\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\GitHub\db\framework\web\CController.php(286): ThreadController->runAction()
+#2 D:\GitHub\db\framework\web\CController.php(265): ThreadController->runActionWithFilters()
+#3 D:\GitHub\db\framework\web\CWebApplication.php(282): ThreadController->run()
+#4 D:\GitHub\db\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\GitHub\db\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\GitHub\db\api\index.php(13): CWebApplication->run()
+REQUEST_URI=/db/api/thread/listPosts/?order=desc&thread=1&sort=parent_tree&limit=2
+in D:\GitHub\db\api\protected\helpers\ControllersHelper.php (50)
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (310)
+in D:\GitHub\db\api\index.php (13)
+2015/01/22 00:42:03 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'left
+                FROM
+                (SELECT path
+                FROM p' at line 1. The SQL statement executed was: SELECT SUBSTRING_INDEX(MIN(t.path), '.', 2) AS left
+                FROM
+                (SELECT path
+                FROM post
+                WHERE thread = :thread AND parent IS NULL
+                ORDER BY path desc  LIMIT 2 ) AS t;.
+in D:\GitHub\db\api\protected\helpers\ControllersHelper.php (36)
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (310)
+in D:\GitHub\db\api\index.php (13)
+2015/01/22 00:43:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'left
+                FROM
+                (SELECT path
+                FROM p' at line 1. The SQL statement executed was: SELECT SUBSTRING_INDEX(MIN(t.path), '.', 2) AS left
+                FROM
+                (SELECT path
+                FROM post
+                WHERE thread = :thread AND parent IS NULL
+                ORDER BY path desc  LIMIT 2 ) AS t;.
+in D:\GitHub\db\api\protected\helpers\ControllersHelper.php (36)
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (310)
+in D:\GitHub\db\api\index.php (13)
+2015/01/22 00:43:26 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'left
+                FROM
+                (SELECT path
+                FROM p' at line 1. The SQL statement executed was: SELECT SUBSTRING_INDEX(MIN(t.path), '.', 2) AS left
+                FROM
+                (SELECT path
+                FROM post
+                WHERE thread = :thread AND parent IS NULL
+                ORDER BY path desc  LIMIT 2 ) AS t;.
+in D:\GitHub\db\api\protected\helpers\ControllersHelper.php (36)
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (310)
+in D:\GitHub\db\api\index.php (13)
+2015/01/22 01:24:15 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (691)
+in D:\GitHub\db\api\index.php (13)
+2015/01/22 01:26:49 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (691)
+in D:\GitHub\db\api\index.php (13)
+2015/01/22 01:32:05 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (691)
+in D:\GitHub\db\api\index.php (13)

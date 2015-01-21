@@ -18,6 +18,47 @@ class ControllersHelper
         return -1;
     }
 
+    public static function getBoundsForParentTreeSort($thread, $order, $limit)
+    {
+        $connection = Yii::app()->db;
+        $sql = "SELECT SUBSTRING_INDEX(MIN(t.path), '.', 2) AS left_bound
+                FROM
+                (SELECT path
+                FROM post
+                WHERE thread = :thread AND parent IS NULL
+                ORDER BY path ".$order." ";
+        if (array_key_exists('limit', $_GET))
+            $sql .= " LIMIT " . strval(intval($limit))." ";
+        $sql .= ") AS t;";
+        $command = $connection->createCommand($sql);
+        $command->bindParam(":thread", $thread);
+        try {
+            $result = $command->queryAll();
+            $left = $result[0]["left_bound"];
+            $sql = "SELECT MAX(t.path) AS right_bound
+                    FROM
+                    (SELECT path
+                    FROM post
+                    WHERE thread = :thread AND parent IS NULL
+                    ORDER BY path ".$order." ";
+            if (array_key_exists('limit', $_GET))
+                $sql .= " LIMIT " . strval(intval($limit))." ";
+            $sql .= ") AS t;";
+            $command = $connection->createCommand($sql);
+            $command->bindParam(":thread", $thread);
+            $result = $command->queryAll();
+            $right = $result[0]["right_bound"];
+            $result = array();
+            $result[0] = $left;
+            $result[1] = $right;
+            return $result;
+        }
+        catch (Exception $e) {
+            $e->getMessage();
+        }
+        return null;
+    }
+
     public static function getForumByShortName($short_name)
     {
         $connection = Yii::app()->db;
@@ -68,7 +109,7 @@ class ControllersHelper
     public static function getPostThreadById($id)
     {
         $connection = Yii::app()->db;
-        $sql = "SELECT thread FROM post USE KEY (id_thread) WHERE id = :id LIMIT 1;";
+        $sql = "SELECT thread FROM post WHERE id = :id LIMIT 1;";
         $command = $connection->createCommand($sql);
         $command->bindParam(":id", $id);
         try {
@@ -86,7 +127,7 @@ class ControllersHelper
         $connection = Yii::app()->db;
         $sql = "SELECT forum.*
                 FROM forum
-                JOIN post USE KEY (id_forum)
+                JOIN post
                 ON post.forum = forum.short_name
                 WHERE post.id = :id LIMIT 1;";
         $command = $connection->createCommand($sql);
@@ -106,7 +147,7 @@ class ControllersHelper
         $connection = Yii::app()->db;
         $sql = "SELECT user.*
                 FROM user
-                JOIN post USE KEY (id_user)
+                JOIN post
                 ON post.user = user.email
                 WHERE post.id = :id LIMIT 1;";
         $command = $connection->createCommand($sql);
@@ -126,7 +167,7 @@ class ControllersHelper
         $connection = Yii::app()->db;
         $sql = "SELECT thread.*, (thread.likes - thread.dislikes) AS points
                 FROM thread
-                JOIN post USE KEY (id_thread)
+                JOIN post
                 ON post.thread = thread.id
                 WHERE post.id = :id LIMIT 1;";
         $command = $connection->createCommand($sql);
@@ -146,7 +187,7 @@ class ControllersHelper
         $connection = Yii::app()->db;
         $sql = "SELECT forum.*
                 FROM forum
-                JOIN thread USE KEY (id_forum)
+                JOIN thread
                 ON thread.forum = forum.short_name
                 WHERE thread.id = :id LIMIT 1;";
         $command = $connection->createCommand($sql);
@@ -166,7 +207,7 @@ class ControllersHelper
         $connection = Yii::app()->db;
         $sql = "SELECT user.*
                 FROM user
-                JOIN thread USE KEY (id_user)
+                JOIN thread
                 ON thread.user = user.email
                 WHERE thread.id = :id LIMIT 1;";
         $command = $connection->createCommand($sql);
@@ -186,7 +227,7 @@ class ControllersHelper
         $connection = Yii::app()->db;
         $sql = "SELECT user.*
                 FROM user
-                JOIN forum USE KEY (short_name_user)
+                JOIN forum
                 ON forum.user = user.email
                 WHERE forum.short_name = :short_name LIMIT 1;";
         $command = $connection->createCommand($sql);
@@ -205,7 +246,7 @@ class ControllersHelper
     {
         $connection = Yii::app()->db;
         $sql = "SELECT group_concat(email) AS followers
-                FROM user USE KEY (id_email)
+                FROM user
                 JOIN followers
                 ON id = u_from
                 WHERE u_to = :id;";
@@ -225,7 +266,7 @@ class ControllersHelper
     {
         $connection = Yii::app()->db;
         $sql = "SELECT group_concat(email) AS following
-                FROM user USE KEY (id_email)
+                FROM user
                 JOIN followers
                 ON id = u_to
                 WHERE u_from = :id;";
