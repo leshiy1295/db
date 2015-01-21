@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ca5508a4-4ada-41fd-adf0-0cbc10ab7c64" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/protected/helpers/ControllersHelper.php" afterPath="$PROJECT_DIR$/api/protected/helpers/ControllersHelper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/protected/controllers/ForumController.php" afterPath="$PROJECT_DIR$/api/protected/controllers/ForumController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/protected/controllers/PostController.php" afterPath="$PROJECT_DIR$/api/protected/controllers/PostController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/protected/controllers/ThreadController.php" afterPath="$PROJECT_DIR$/api/protected/controllers/ThreadController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/protected/controllers/UserController.php" afterPath="$PROJECT_DIR$/api/protected/controllers/UserController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/protected/runtime/application.log" afterPath="$PROJECT_DIR$/api/protected/runtime/application.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="db.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,56 +31,94 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/protected/controllers/UserController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="544">
+              <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+              <folding>
+                <element signature="n#actionCreate#0;n#UserController#0;n#!!top" expanded="false" />
+                <element signature="n#actionDetails#0;n#UserController#0;n#!!top" expanded="false" />
+                <element signature="n#actionFollow#0;n#UserController#0;n#!!top" expanded="false" />
+                <element signature="n#actionListFollowers#0;n#UserController#0;n#!!top" expanded="false" />
+                <element signature="n#actionListFollowing#0;n#UserController#0;n#!!top" expanded="false" />
+                <element signature="n#actionListPosts#0;n#UserController#0;n#!!top" expanded="false" />
+                <element signature="n#actionUnfollow#0;n#UserController#0;n#!!top" expanded="false" />
+                <element signature="n#actionUpdateProfile#0;n#UserController#0;n#!!top" expanded="false" />
+                <marker date="1421843901220" expanded="true" signature="797:844" placeholder="SELECT 1 FRO..user..." />
+                <marker date="1421843901220" expanded="true" signature="1277:1422" placeholder="INSERT INTO ..." />
+                <marker date="1421843901220" expanded="true" signature="3172:3219" placeholder="SELECT * FRO..user..." />
+                <marker date="1421843901220" expanded="true" signature="5559:5631" placeholder="INSERT INTO ..." />
+                <marker date="1421843901220" expanded="true" signature="5921:5968" placeholder="SELECT * FRO..user..." />
+                <marker date="1421843901220" expanded="true" signature="8573:8704" placeholder="SELECT * FRO..user..." />
+                <marker date="1421843901220" expanded="true" signature="8638:8704" placeholder="SELECT u_fro..followers..." />
+                <marker date="1421843901220" expanded="true" signature="11759:11889" placeholder="SELECT * FRO..user..." />
+                <marker date="1421843901220" expanded="true" signature="11824:11889" placeholder="SELECT u_to ..followers..." />
+                <marker date="1421843901220" expanded="true" signature="14864:14931" placeholder="SELECT *, (l..post..." />
+                <marker date="1421843901220" expanded="true" signature="17855:17928" placeholder="DELETE FROM ..." />
+                <marker date="1421843901220" expanded="true" signature="17855:17936" placeholder="DELETE FROM ..." />
+                <marker date="1421843901220" expanded="true" signature="18226:18273" placeholder="SELECT * FRO..user..." />
+                <marker date="1421843901220" expanded="true" signature="20640:20704" placeholder="UPDATE user ..." />
+                <marker date="1421843901220" expanded="true" signature="20640:20712" placeholder="UPDATE user ..." />
+                <marker date="1421843901220" expanded="true" signature="21029:21068" placeholder="SELECT * FRO..user..." />
+                <marker date="1421843901220" expanded="true" signature="21029:21076" placeholder="SELECT * FRO..user..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="PostController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/protected/controllers/PostController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.961538" vertical-offset="2622" max-vertical-offset="3179">
-              <caret line="388" column="34" selection-start-line="388" selection-start-column="34" selection-end-line="388" selection-end-column="34" />
+            <state vertical-scroll-proportion="-13.038462" vertical-offset="1" max-vertical-offset="629">
+              <caret line="360" column="0" selection-start-line="360" selection-start-column="0" selection-end-line="360" selection-end-column="0" />
               <folding>
                 <element signature="e#7#55#0#PHP" expanded="true" />
                 <element signature="n#actionFixPaths#0;n#PostController#0;n#!!top" expanded="false" />
                 <element signature="n#actionCreate#0;n#PostController#0;n#!!top" expanded="false" />
+                <element signature="n#actionDetails#0;n#PostController#0;n#!!top" expanded="false" />
                 <element signature="n#actionList#0;n#PostController#0;n#!!top" expanded="false" />
                 <element signature="n#actionRemove#0;n#PostController#0;n#!!top" expanded="false" />
                 <element signature="n#actionRestore#0;n#PostController#0;n#!!top" expanded="false" />
                 <element signature="n#actionUpdate#0;n#PostController#0;n#!!top" expanded="false" />
                 <element signature="n#actionVote#0;n#PostController#0;n#!!top" expanded="false" />
-                <marker date="1421622912958" expanded="true" signature="193:225" placeholder="SELECT COUNT..post..." />
-                <marker date="1421622912958" expanded="true" signature="199:225" placeholder="select count..post..." />
-                <marker date="1421622912958" expanded="true" signature="450:506" placeholder="SELECT paren..post..." />
-                <marker date="1421622912958" expanded="true" signature="975:1036" placeholder="UPDATE post ..." />
-                <marker date="1421622912958" expanded="true" signature="1158:1201" placeholder="SELECT path ..post..." />
-                <marker date="1421622912958" expanded="true" signature="1456:1516" placeholder="UPDATE post ..." />
-                <marker date="1421622912958" expanded="true" signature="1769:1805" placeholder="SELECT path ..post..." />
-                <marker date="1421622912958" expanded="true" signature="3975:4028" placeholder="SELECT posts..thread..." />
-                <marker date="1421622912958" expanded="true" signature="3975:4036" placeholder="SELECT posts..thread..." />
-                <marker date="1421622912958" expanded="true" signature="3981:4028" placeholder="select posts..thread..." />
-                <marker date="1421622912958" expanded="true" signature="4319:4364" placeholder="SELECT path ..post..." />
-                <marker date="1421622912958" expanded="true" signature="4319:4372" placeholder="SELECT path ..post..." />
-                <marker date="1421622912958" expanded="true" signature="4325:4364" placeholder="select path ..post..." />
-                <marker date="1421622912958" expanded="true" signature="4709:5059" placeholder="INSERT INTO ..." />
-                <marker date="1421622912958" expanded="true" signature="5085:5146" placeholder="UPDATE threa..." />
-                <marker date="1421622912958" expanded="true" signature="5085:5154" placeholder="UPDATE threa..." />
-                <marker date="1421622912958" expanded="true" signature="15404:15453" placeholder="SELECT *, (l..post..." />
-                <marker date="1421622912958" expanded="true" signature="15404:15458" placeholder="SELECT *, (l..post..." />
-                <marker date="1421622912958" expanded="true" signature="15410:15453" placeholder="select *, (l..post..." />
-                <marker date="1421622912958" expanded="true" signature="18474:18520" placeholder="UPDATE post ..." />
-                <marker date="1421622912958" expanded="true" signature="18474:18528" placeholder="UPDATE post ..." />
-                <marker date="1421622912958" expanded="true" signature="18554:18601" placeholder="UPDATE threa..." />
-                <marker date="1421622912958" expanded="true" signature="18554:18616" placeholder="UPDATE threa..." />
-                <marker date="1421622912958" expanded="true" signature="19783:19829" placeholder="UPDATE post ..." />
-                <marker date="1421622912958" expanded="true" signature="19783:19837" placeholder="UPDATE post ..." />
-                <marker date="1421622912958" expanded="true" signature="19863:19910" placeholder="UPDATE threa..." />
-                <marker date="1421622912958" expanded="true" signature="19863:19925" placeholder="UPDATE threa..." />
-                <marker date="1421622912958" expanded="true" signature="21108:21167" placeholder="UPDATE post ..." />
-                <marker date="1421622912958" expanded="true" signature="21114:21159" placeholder="update post ..." />
-                <marker date="1421622912958" expanded="true" signature="21435:21500" placeholder="SELECT *, (l..post..." />
-                <marker date="1421622912958" expanded="true" signature="21435:21508" placeholder="SELECT *, (l..post..." />
-                <marker date="1421622912958" expanded="true" signature="21441:21500" placeholder="select *, (l..post..." />
-                <marker date="1421622912958" expanded="true" signature="24108:24244" placeholder="UPDATE post ..." />
-                <marker date="1421622912958" expanded="true" signature="24114:24236" placeholder="update post ..." />
-                <marker date="1421622912958" expanded="true" signature="24453:24526" placeholder="SELECT *, (l..post..." />
-                <marker date="1421622912958" expanded="true" signature="24459:24518" placeholder="select *, (l..post..." />
+                <marker date="1421845058830" expanded="true" signature="193:225" placeholder="SELECT COUNT..post..." />
+                <marker date="1421845058830" expanded="true" signature="199:225" placeholder="select count..post..." />
+                <marker date="1421845058830" expanded="true" signature="450:506" placeholder="SELECT paren..post..." />
+                <marker date="1421845058830" expanded="true" signature="975:1036" placeholder="UPDATE post ..." />
+                <marker date="1421845058830" expanded="true" signature="1158:1201" placeholder="SELECT path ..post..." />
+                <marker date="1421845058830" expanded="true" signature="1456:1516" placeholder="UPDATE post ..." />
+                <marker date="1421845058830" expanded="true" signature="1769:1805" placeholder="SELECT path ..post..." />
+                <marker date="1421845058830" expanded="true" signature="3975:4047" placeholder="SELECT posts..thread..." />
+                <marker date="1421845058830" expanded="true" signature="3975:4055" placeholder="SELECT posts..thread..." />
+                <marker date="1421845058830" expanded="true" signature="3981:4047" placeholder="select posts..thread..." />
+                <marker date="1421845058830" expanded="true" signature="4338:4401" placeholder="SELECT path ..post..." />
+                <marker date="1421845058830" expanded="true" signature="4338:4409" placeholder="SELECT path ..post..." />
+                <marker date="1421845058830" expanded="true" signature="4344:4401" placeholder="select path ..post..." />
+                <marker date="1421845058830" expanded="true" signature="4746:5096" placeholder="INSERT INTO ..." />
+                <marker date="1421845058830" expanded="true" signature="5122:5183" placeholder="UPDATE threa..." />
+                <marker date="1421845058830" expanded="true" signature="5122:5191" placeholder="UPDATE threa..." />
+                <marker date="1421845058830" expanded="true" signature="8725:8798" placeholder="SELECT *, (l..post..." />
+                <marker date="1421845058830" expanded="true" signature="14391:14440" placeholder="SELECT *, (l..post..." />
+                <marker date="1421845058830" expanded="true" signature="14391:14445" placeholder="SELECT *, (l..post..." />
+                <marker date="1421845058830" expanded="true" signature="14397:14440" placeholder="select *, (l..post..." />
+                <marker date="1421845058830" expanded="true" signature="17461:17507" placeholder="UPDATE post ..." />
+                <marker date="1421845058830" expanded="true" signature="17461:17515" placeholder="UPDATE post ..." />
+                <marker date="1421845058830" expanded="true" signature="17541:17588" placeholder="UPDATE threa..." />
+                <marker date="1421845058830" expanded="true" signature="17541:17603" placeholder="UPDATE threa..." />
+                <marker date="1421845058830" expanded="true" signature="18770:18816" placeholder="UPDATE post ..." />
+                <marker date="1421845058830" expanded="true" signature="18770:18824" placeholder="UPDATE post ..." />
+                <marker date="1421845058830" expanded="true" signature="18850:18897" placeholder="UPDATE threa..." />
+                <marker date="1421845058830" expanded="true" signature="18850:18912" placeholder="UPDATE threa..." />
+                <marker date="1421845058830" expanded="true" signature="20095:20154" placeholder="UPDATE post ..." />
+                <marker date="1421845058830" expanded="true" signature="20101:20146" placeholder="update post ..." />
+                <marker date="1421845058830" expanded="true" signature="20422:20487" placeholder="SELECT *, (l..post..." />
+                <marker date="1421845058830" expanded="true" signature="20422:20495" placeholder="SELECT *, (l..post..." />
+                <marker date="1421845058830" expanded="true" signature="20428:20487" placeholder="select *, (l..post..." />
+                <marker date="1421845058830" expanded="true" signature="23095:23231" placeholder="UPDATE post ..." />
+                <marker date="1421845058830" expanded="true" signature="23101:23223" placeholder="update post ..." />
+                <marker date="1421845058830" expanded="true" signature="23440:23513" placeholder="SELECT *, (l..post..." />
+                <marker date="1421845058830" expanded="true" signature="23446:23505" placeholder="select *, (l..post..." />
               </folding>
             </state>
           </provider>
@@ -91,8 +127,8 @@
       <file leaf-file-name="ThreadController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/protected/controllers/ThreadController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.230769" vertical-offset="5036" max-vertical-offset="6018">
-              <caret line="539" column="49" selection-start-line="539" selection-start-column="49" selection-end-line="539" selection-end-column="49" />
+            <state vertical-scroll-proportion="20.923077" vertical-offset="816" max-vertical-offset="5457">
+              <caret line="101" column="5" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
               <folding>
                 <element signature="e#7#55#0#PHP" expanded="true" />
                 <element signature="n#actionClose#0;n#ThreadController#0;n#!!top" expanded="false" />
@@ -100,6 +136,7 @@
                 <element signature="n#actionList#0;n#ThreadController#0;n#!!top" expanded="false" />
                 <element signature="n#actionOpen#0;n#ThreadController#0;n#!!top" expanded="false" />
                 <element signature="n#actionRemove#0;n#ThreadController#0;n#!!top" expanded="false" />
+                <element signature="n#actionRestore#0;n#ThreadController#0;n#!!top" expanded="false" />
                 <element signature="n#actionSubscribe#0;n#ThreadController#0;n#!!top" expanded="false" />
                 <element signature="n#actionUnsubscribe#0;n#ThreadController#0;n#!!top" expanded="false" />
                 <element signature="n#actionUpdate#0;n#ThreadController#0;n#!!top" expanded="false" />
@@ -145,82 +182,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/protected/controllers/UserController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="544">
-              <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-              <folding>
-                <element signature="n#actionCreate#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#actionDetails#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#actionFollow#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#actionListFollowers#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#actionListFollowing#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#actionListPosts#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#actionUnfollow#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#actionUpdateProfile#0;n#UserController#0;n#!!top" expanded="false" />
-                <marker date="1421620896078" expanded="true" signature="797:844" placeholder="SELECT 1 FRO..user..." />
-                <marker date="1421620896078" expanded="true" signature="1277:1422" placeholder="INSERT INTO ..." />
-                <marker date="1421620896078" expanded="true" signature="3172:3219" placeholder="SELECT * FRO..user..." />
-                <marker date="1421620896078" expanded="true" signature="5559:5631" placeholder="INSERT INTO ..." />
-                <marker date="1421620896078" expanded="true" signature="5921:5968" placeholder="SELECT * FRO..user..." />
-                <marker date="1421620896078" expanded="true" signature="8422:8553" placeholder="SELECT * FRO..user..." />
-                <marker date="1421620896078" expanded="true" signature="8487:8553" placeholder="SELECT u_fro..followers..." />
-                <marker date="1421620896078" expanded="true" signature="11457:11587" placeholder="SELECT * FRO..user..." />
-                <marker date="1421620896078" expanded="true" signature="11522:11587" placeholder="SELECT u_to ..followers..." />
-                <marker date="1421620896078" expanded="true" signature="14411:14478" placeholder="SELECT *, (l..post..." />
-                <marker date="1421620896078" expanded="true" signature="17402:17475" placeholder="DELETE FROM ..." />
-                <marker date="1421620896078" expanded="true" signature="17402:17483" placeholder="DELETE FROM ..." />
-                <marker date="1421620896078" expanded="true" signature="17773:17820" placeholder="SELECT * FRO..user..." />
-                <marker date="1421620896078" expanded="true" signature="20187:20251" placeholder="UPDATE user ..." />
-                <marker date="1421620896078" expanded="true" signature="20187:20259" placeholder="UPDATE user ..." />
-                <marker date="1421620896078" expanded="true" signature="20576:20615" placeholder="SELECT * FRO..user..." />
-                <marker date="1421620896078" expanded="true" signature="20576:20623" placeholder="SELECT * FRO..user..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ForumController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ForumController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/protected/controllers/ForumController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8222621" vertical-offset="7923" max-vertical-offset="9112">
-              <caret line="496" column="51" selection-start-line="496" selection-start-column="51" selection-end-line="496" selection-end-column="51" />
+            <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="9112">
+              <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
               <folding>
-                <marker date="1421622776419" expanded="true" signature="752:826" placeholder="SELECT id, u..forum..." />
-                <marker date="1421622776419" expanded="true" signature="752:834" placeholder="SELECT id, u..forum..." />
-                <marker date="1421622776419" expanded="true" signature="1144:1221" placeholder="INSERT INTO ..." />
-                <marker date="1421622776419" expanded="true" signature="3678:3937" placeholder="SELECT forum..forum..." />
-                <marker date="1421622776419" expanded="true" signature="3678:3945" placeholder="SELECT forum..forum..." />
-                <marker date="1421622776419" expanded="true" signature="3684:3937" placeholder="select forum..forum..." />
-                <marker date="1421622776419" expanded="true" signature="4037:4087" placeholder="SELECT * fro..forum..." />
-                <marker date="1421622776419" expanded="true" signature="4037:4095" placeholder="SELECT * FRO..forum..." />
-                <marker date="1421622776419" expanded="true" signature="4043:4087" placeholder="select * fro..forum..." />
-                <marker date="1421622776419" expanded="true" signature="21429:21791" placeholder="SELECT * FRO..user..." />
-                <marker date="1421622776419" expanded="true" signature="21435:21788" placeholder="select id as..user..." />
-                <marker date="1421622776419" expanded="true" signature="21435:21791" placeholder="select * fro..user..." />
-                <marker date="1421622776419" expanded="true" signature="21607:21785" placeholder="select u.id ..post..." />
+                <marker date="1421782067212" expanded="true" signature="752:826" placeholder="SELECT id, u..forum..." />
+                <marker date="1421782067212" expanded="true" signature="752:834" placeholder="SELECT id, u..forum..." />
+                <marker date="1421782067212" expanded="true" signature="1144:1221" placeholder="INSERT INTO ..." />
+                <marker date="1421782067212" expanded="true" signature="3678:3937" placeholder="SELECT forum..forum..." />
+                <marker date="1421782067212" expanded="true" signature="3678:3945" placeholder="SELECT forum..forum..." />
+                <marker date="1421782067212" expanded="true" signature="3684:3937" placeholder="select forum..forum..." />
+                <marker date="1421782067212" expanded="true" signature="4037:4087" placeholder="SELECT * fro..forum..." />
+                <marker date="1421782067212" expanded="true" signature="4037:4095" placeholder="SELECT * FRO..forum..." />
+                <marker date="1421782067212" expanded="true" signature="4043:4087" placeholder="select * fro..forum..." />
+                <marker date="1421782067212" expanded="true" signature="21429:21791" placeholder="SELECT * FRO..user..." />
+                <marker date="1421782067212" expanded="true" signature="21435:21788" placeholder="select id as..user..." />
+                <marker date="1421782067212" expanded="true" signature="21435:21791" placeholder="select * fro..user..." />
+                <marker date="1421782067212" expanded="true" signature="21607:21785" placeholder="select u.id ..post..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ControllersHelper.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ControllersHelper.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/protected/helpers/ControllersHelper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.2692308" vertical-offset="255" max-vertical-offset="1938">
-              <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+            <state vertical-scroll-proportion="4.761221" vertical-offset="0" max-vertical-offset="2958">
+              <caret line="156" column="32" selection-start-line="156" selection-start-column="32" selection-end-line="156" selection-end-column="32" />
               <folding>
-                <marker date="1421624019516" expanded="true" signature="145:185" placeholder="SELECT id fr..user..." />
-                <marker date="1421624019516" expanded="true" signature="151:185" placeholder="select id fr..user..." />
-                <marker date="1421624019516" expanded="true" signature="606:661" placeholder="SELECT COUNT..post..." />
-                <marker date="1421624019516" expanded="true" signature="1080:1118" placeholder="SELECT threa..post..." />
-                <marker date="1421624019516" expanded="true" signature="1527:1687" placeholder="SELECT group..user..." />
-                <marker date="1421624019516" expanded="true" signature="1533:1687" placeholder="select group..user..." />
-                <marker date="1421624019516" expanded="true" signature="2101:2261" placeholder="SELECT group..user..." />
-                <marker date="1421624019516" expanded="true" signature="2107:2261" placeholder="select group..user..." />
-                <marker date="1421624019516" expanded="true" signature="2679:2789" placeholder="SELECT group..subscriptions..." />
-                <marker date="1421624019516" expanded="true" signature="2685:2789" placeholder="select group..subscriptions..." />
+                <marker date="1421845675476" expanded="true" signature="145:185" placeholder="SELECT id fr..user..." />
+                <marker date="1421845675476" expanded="true" signature="145:193" placeholder="SELECT id FR..user..." />
+                <marker date="1421845675476" expanded="true" signature="151:185" placeholder="select id fr..user..." />
+                <marker date="1421845675476" expanded="true" signature="614:669" placeholder="SELECT COUNT..post..." />
+                <marker date="1421845675476" expanded="true" signature="1088:1146" placeholder="SELECT threa..post..." />
+                <marker date="1421845675476" expanded="true" signature="1088:1154" placeholder="SELECT threa..post..." />
+                <marker date="1421845675476" expanded="true" signature="1567:1727" placeholder="SELECT forum..forum..." />
+                <marker date="1421845675476" expanded="true" signature="2131:2282" placeholder="SELECT user...user..." />
+                <marker date="1421845675476" expanded="true" signature="2688:2888" placeholder="SELECT threa..thread..." />
+                <marker date="1421845675476" expanded="true" signature="3289:3468" placeholder="SELECT group..user..." />
+                <marker date="1421845675476" expanded="true" signature="3295:3468" placeholder="select group..user..." />
+                <marker date="1421845675476" expanded="true" signature="3882:4061" placeholder="SELECT group..user..." />
+                <marker date="1421845675476" expanded="true" signature="3888:4061" placeholder="select group..user..." />
+                <marker date="1421845675476" expanded="true" signature="4479:4589" placeholder="SELECT group..subscriptions..." />
+                <marker date="1421845675476" expanded="true" signature="4485:4589" placeholder="select group..subscriptions..." />
               </folding>
             </state>
           </provider>
@@ -240,11 +246,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/api/protected/config/main.php" />
-        <option value="$PROJECT_DIR$/api/protected/controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/api/protected/controllers/ThreadController.php" />
         <option value="$PROJECT_DIR$/api/protected/controllers/ForumController.php" />
+        <option value="$PROJECT_DIR$/api/protected/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/api/protected/controllers/PostController.php" />
         <option value="$PROJECT_DIR$/api/protected/helpers/ControllersHelper.php" />
-        <option value="$PROJECT_DIR$/api/protected/controllers/ThreadController.php" />
       </list>
     </option>
   </component>
@@ -602,7 +608,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -650,7 +656,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="22" />
+      <option name="time" value="23" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -663,47 +669,49 @@
             <element signature="e#7#55#0#PHP" expanded="true" />
             <element signature="n#actionFixPaths#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionCreate#0;n#PostController#0;n#!!top" expanded="false" />
+            <element signature="n#actionDetails#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionList#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionRemove#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionRestore#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionUpdate#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionVote#0;n#PostController#0;n#!!top" expanded="false" />
-            <marker date="1421622912958" expanded="true" signature="193:225" placeholder="SELECT COUNT..post..." />
-            <marker date="1421622912958" expanded="true" signature="199:225" placeholder="select count..post..." />
-            <marker date="1421622912958" expanded="true" signature="450:506" placeholder="SELECT paren..post..." />
-            <marker date="1421622912958" expanded="true" signature="975:1036" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="1158:1201" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="1456:1516" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="1769:1805" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="3975:4028" placeholder="SELECT posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="3975:4036" placeholder="SELECT posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="3981:4028" placeholder="select posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="4319:4364" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4319:4372" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4325:4364" placeholder="select path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4709:5059" placeholder="INSERT INTO ..." />
-            <marker date="1421622912958" expanded="true" signature="5085:5146" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="5085:5154" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="15404:15453" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="15404:15458" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="15410:15453" placeholder="select *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="18474:18520" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="18474:18528" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="18554:18601" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="18554:18616" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="19783:19829" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="19783:19837" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="19863:19910" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="19863:19925" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="21108:21167" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="21114:21159" placeholder="update post ..." />
-            <marker date="1421622912958" expanded="true" signature="21435:21500" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="21435:21508" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="21441:21500" placeholder="select *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="24108:24244" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="24114:24236" placeholder="update post ..." />
-            <marker date="1421622912958" expanded="true" signature="24453:24526" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="24459:24518" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="193:225" placeholder="SELECT COUNT..post..." />
+            <marker date="1421845058830" expanded="true" signature="199:225" placeholder="select count..post..." />
+            <marker date="1421845058830" expanded="true" signature="450:506" placeholder="SELECT paren..post..." />
+            <marker date="1421845058830" expanded="true" signature="975:1036" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="1158:1201" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="1456:1516" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="1769:1805" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="3975:4047" placeholder="SELECT posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="3975:4055" placeholder="SELECT posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="3981:4047" placeholder="select posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="4338:4401" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4338:4409" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4344:4401" placeholder="select path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4746:5096" placeholder="INSERT INTO ..." />
+            <marker date="1421845058830" expanded="true" signature="5122:5183" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="5122:5191" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="8725:8798" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14391:14440" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14391:14445" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14397:14440" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="17461:17507" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="17461:17515" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="17541:17588" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="17541:17603" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="18770:18816" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="18770:18824" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="18850:18897" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="18850:18912" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="20095:20154" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="20101:20146" placeholder="update post ..." />
+            <marker date="1421845058830" expanded="true" signature="20422:20487" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="20422:20495" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="20428:20487" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="23095:23231" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="23101:23223" placeholder="update post ..." />
+            <marker date="1421845058830" expanded="true" signature="23440:23513" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="23446:23505" placeholder="select *, (l..post..." />
           </folding>
         </state>
       </provider>
@@ -719,6 +727,7 @@
             <element signature="n#actionList#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionOpen#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionRemove#0;n#ThreadController#0;n#!!top" expanded="false" />
+            <element signature="n#actionRestore#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionSubscribe#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionUnsubscribe#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionUpdate#0;n#ThreadController#0;n#!!top" expanded="false" />
@@ -771,47 +780,49 @@
             <element signature="e#7#55#0#PHP" expanded="true" />
             <element signature="n#actionFixPaths#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionCreate#0;n#PostController#0;n#!!top" expanded="false" />
+            <element signature="n#actionDetails#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionList#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionRemove#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionRestore#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionUpdate#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionVote#0;n#PostController#0;n#!!top" expanded="false" />
-            <marker date="1421622912958" expanded="true" signature="193:225" placeholder="SELECT COUNT..post..." />
-            <marker date="1421622912958" expanded="true" signature="199:225" placeholder="select count..post..." />
-            <marker date="1421622912958" expanded="true" signature="450:506" placeholder="SELECT paren..post..." />
-            <marker date="1421622912958" expanded="true" signature="975:1036" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="1158:1201" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="1456:1516" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="1769:1805" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="3975:4028" placeholder="SELECT posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="3975:4036" placeholder="SELECT posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="3981:4028" placeholder="select posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="4319:4364" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4319:4372" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4325:4364" placeholder="select path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4709:5059" placeholder="INSERT INTO ..." />
-            <marker date="1421622912958" expanded="true" signature="5085:5146" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="5085:5154" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="15404:15453" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="15404:15458" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="15410:15453" placeholder="select *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="18474:18520" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="18474:18528" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="18554:18601" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="18554:18616" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="19783:19829" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="19783:19837" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="19863:19910" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="19863:19925" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="21108:21167" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="21114:21159" placeholder="update post ..." />
-            <marker date="1421622912958" expanded="true" signature="21435:21500" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="21435:21508" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="21441:21500" placeholder="select *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="24108:24244" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="24114:24236" placeholder="update post ..." />
-            <marker date="1421622912958" expanded="true" signature="24453:24526" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="24459:24518" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="193:225" placeholder="SELECT COUNT..post..." />
+            <marker date="1421845058830" expanded="true" signature="199:225" placeholder="select count..post..." />
+            <marker date="1421845058830" expanded="true" signature="450:506" placeholder="SELECT paren..post..." />
+            <marker date="1421845058830" expanded="true" signature="975:1036" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="1158:1201" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="1456:1516" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="1769:1805" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="3975:4047" placeholder="SELECT posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="3975:4055" placeholder="SELECT posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="3981:4047" placeholder="select posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="4338:4401" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4338:4409" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4344:4401" placeholder="select path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4746:5096" placeholder="INSERT INTO ..." />
+            <marker date="1421845058830" expanded="true" signature="5122:5183" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="5122:5191" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="8725:8798" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14391:14440" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14391:14445" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14397:14440" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="17461:17507" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="17461:17515" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="17541:17588" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="17541:17603" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="18770:18816" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="18770:18824" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="18850:18897" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="18850:18912" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="20095:20154" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="20101:20146" placeholder="update post ..." />
+            <marker date="1421845058830" expanded="true" signature="20422:20487" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="20422:20495" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="20428:20487" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="23095:23231" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="23101:23223" placeholder="update post ..." />
+            <marker date="1421845058830" expanded="true" signature="23440:23513" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="23446:23505" placeholder="select *, (l..post..." />
           </folding>
         </state>
       </provider>
@@ -827,6 +838,7 @@
             <element signature="n#actionList#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionOpen#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionRemove#0;n#ThreadController#0;n#!!top" expanded="false" />
+            <element signature="n#actionRestore#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionSubscribe#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionUnsubscribe#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionUpdate#0;n#ThreadController#0;n#!!top" expanded="false" />
@@ -879,47 +891,49 @@
             <element signature="e#7#55#0#PHP" expanded="true" />
             <element signature="n#actionFixPaths#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionCreate#0;n#PostController#0;n#!!top" expanded="false" />
+            <element signature="n#actionDetails#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionList#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionRemove#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionRestore#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionUpdate#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionVote#0;n#PostController#0;n#!!top" expanded="false" />
-            <marker date="1421622912958" expanded="true" signature="193:225" placeholder="SELECT COUNT..post..." />
-            <marker date="1421622912958" expanded="true" signature="199:225" placeholder="select count..post..." />
-            <marker date="1421622912958" expanded="true" signature="450:506" placeholder="SELECT paren..post..." />
-            <marker date="1421622912958" expanded="true" signature="975:1036" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="1158:1201" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="1456:1516" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="1769:1805" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="3975:4028" placeholder="SELECT posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="3975:4036" placeholder="SELECT posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="3981:4028" placeholder="select posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="4319:4364" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4319:4372" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4325:4364" placeholder="select path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4709:5059" placeholder="INSERT INTO ..." />
-            <marker date="1421622912958" expanded="true" signature="5085:5146" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="5085:5154" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="15404:15453" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="15404:15458" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="15410:15453" placeholder="select *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="18474:18520" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="18474:18528" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="18554:18601" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="18554:18616" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="19783:19829" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="19783:19837" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="19863:19910" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="19863:19925" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="21108:21167" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="21114:21159" placeholder="update post ..." />
-            <marker date="1421622912958" expanded="true" signature="21435:21500" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="21435:21508" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="21441:21500" placeholder="select *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="24108:24244" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="24114:24236" placeholder="update post ..." />
-            <marker date="1421622912958" expanded="true" signature="24453:24526" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="24459:24518" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="193:225" placeholder="SELECT COUNT..post..." />
+            <marker date="1421845058830" expanded="true" signature="199:225" placeholder="select count..post..." />
+            <marker date="1421845058830" expanded="true" signature="450:506" placeholder="SELECT paren..post..." />
+            <marker date="1421845058830" expanded="true" signature="975:1036" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="1158:1201" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="1456:1516" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="1769:1805" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="3975:4047" placeholder="SELECT posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="3975:4055" placeholder="SELECT posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="3981:4047" placeholder="select posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="4338:4401" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4338:4409" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4344:4401" placeholder="select path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4746:5096" placeholder="INSERT INTO ..." />
+            <marker date="1421845058830" expanded="true" signature="5122:5183" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="5122:5191" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="8725:8798" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14391:14440" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14391:14445" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14397:14440" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="17461:17507" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="17461:17515" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="17541:17588" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="17541:17603" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="18770:18816" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="18770:18824" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="18850:18897" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="18850:18912" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="20095:20154" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="20101:20146" placeholder="update post ..." />
+            <marker date="1421845058830" expanded="true" signature="20422:20487" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="20422:20495" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="20428:20487" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="23095:23231" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="23101:23223" placeholder="update post ..." />
+            <marker date="1421845058830" expanded="true" signature="23440:23513" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="23446:23505" placeholder="select *, (l..post..." />
           </folding>
         </state>
       </provider>
@@ -935,6 +949,7 @@
             <element signature="n#actionList#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionOpen#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionRemove#0;n#ThreadController#0;n#!!top" expanded="false" />
+            <element signature="n#actionRestore#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionSubscribe#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionUnsubscribe#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionUpdate#0;n#ThreadController#0;n#!!top" expanded="false" />
@@ -1001,47 +1016,49 @@
             <element signature="e#7#55#0#PHP" expanded="true" />
             <element signature="n#actionFixPaths#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionCreate#0;n#PostController#0;n#!!top" expanded="false" />
+            <element signature="n#actionDetails#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionList#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionRemove#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionRestore#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionUpdate#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionVote#0;n#PostController#0;n#!!top" expanded="false" />
-            <marker date="1421622912958" expanded="true" signature="193:225" placeholder="SELECT COUNT..post..." />
-            <marker date="1421622912958" expanded="true" signature="199:225" placeholder="select count..post..." />
-            <marker date="1421622912958" expanded="true" signature="450:506" placeholder="SELECT paren..post..." />
-            <marker date="1421622912958" expanded="true" signature="975:1036" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="1158:1201" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="1456:1516" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="1769:1805" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="3975:4028" placeholder="SELECT posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="3975:4036" placeholder="SELECT posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="3981:4028" placeholder="select posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="4319:4364" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4319:4372" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4325:4364" placeholder="select path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4709:5059" placeholder="INSERT INTO ..." />
-            <marker date="1421622912958" expanded="true" signature="5085:5146" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="5085:5154" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="15404:15453" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="15404:15458" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="15410:15453" placeholder="select *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="18474:18520" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="18474:18528" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="18554:18601" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="18554:18616" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="19783:19829" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="19783:19837" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="19863:19910" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="19863:19925" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="21108:21167" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="21114:21159" placeholder="update post ..." />
-            <marker date="1421622912958" expanded="true" signature="21435:21500" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="21435:21508" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="21441:21500" placeholder="select *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="24108:24244" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="24114:24236" placeholder="update post ..." />
-            <marker date="1421622912958" expanded="true" signature="24453:24526" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="24459:24518" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="193:225" placeholder="SELECT COUNT..post..." />
+            <marker date="1421845058830" expanded="true" signature="199:225" placeholder="select count..post..." />
+            <marker date="1421845058830" expanded="true" signature="450:506" placeholder="SELECT paren..post..." />
+            <marker date="1421845058830" expanded="true" signature="975:1036" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="1158:1201" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="1456:1516" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="1769:1805" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="3975:4047" placeholder="SELECT posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="3975:4055" placeholder="SELECT posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="3981:4047" placeholder="select posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="4338:4401" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4338:4409" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4344:4401" placeholder="select path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4746:5096" placeholder="INSERT INTO ..." />
+            <marker date="1421845058830" expanded="true" signature="5122:5183" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="5122:5191" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="8725:8798" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14391:14440" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14391:14445" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14397:14440" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="17461:17507" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="17461:17515" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="17541:17588" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="17541:17603" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="18770:18816" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="18770:18824" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="18850:18897" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="18850:18912" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="20095:20154" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="20101:20146" placeholder="update post ..." />
+            <marker date="1421845058830" expanded="true" signature="20422:20487" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="20422:20495" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="20428:20487" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="23095:23231" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="23101:23223" placeholder="update post ..." />
+            <marker date="1421845058830" expanded="true" signature="23440:23513" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="23446:23505" placeholder="select *, (l..post..." />
           </folding>
         </state>
       </provider>
@@ -1057,6 +1074,7 @@
             <element signature="n#actionList#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionOpen#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionRemove#0;n#ThreadController#0;n#!!top" expanded="false" />
+            <element signature="n#actionRestore#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionSubscribe#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionUnsubscribe#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionUpdate#0;n#ThreadController#0;n#!!top" expanded="false" />
@@ -1116,47 +1134,49 @@
             <element signature="e#7#55#0#PHP" expanded="true" />
             <element signature="n#actionFixPaths#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionCreate#0;n#PostController#0;n#!!top" expanded="false" />
+            <element signature="n#actionDetails#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionList#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionRemove#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionRestore#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionUpdate#0;n#PostController#0;n#!!top" expanded="false" />
             <element signature="n#actionVote#0;n#PostController#0;n#!!top" expanded="false" />
-            <marker date="1421622912958" expanded="true" signature="193:225" placeholder="SELECT COUNT..post..." />
-            <marker date="1421622912958" expanded="true" signature="199:225" placeholder="select count..post..." />
-            <marker date="1421622912958" expanded="true" signature="450:506" placeholder="SELECT paren..post..." />
-            <marker date="1421622912958" expanded="true" signature="975:1036" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="1158:1201" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="1456:1516" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="1769:1805" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="3975:4028" placeholder="SELECT posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="3975:4036" placeholder="SELECT posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="3981:4028" placeholder="select posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="4319:4364" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4319:4372" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4325:4364" placeholder="select path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4709:5059" placeholder="INSERT INTO ..." />
-            <marker date="1421622912958" expanded="true" signature="5085:5146" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="5085:5154" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="15404:15453" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="15404:15458" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="15410:15453" placeholder="select *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="18474:18520" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="18474:18528" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="18554:18601" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="18554:18616" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="19783:19829" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="19783:19837" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="19863:19910" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="19863:19925" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="21108:21167" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="21114:21159" placeholder="update post ..." />
-            <marker date="1421622912958" expanded="true" signature="21435:21500" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="21435:21508" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="21441:21500" placeholder="select *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="24108:24244" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="24114:24236" placeholder="update post ..." />
-            <marker date="1421622912958" expanded="true" signature="24453:24526" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="24459:24518" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="193:225" placeholder="SELECT COUNT..post..." />
+            <marker date="1421845058830" expanded="true" signature="199:225" placeholder="select count..post..." />
+            <marker date="1421845058830" expanded="true" signature="450:506" placeholder="SELECT paren..post..." />
+            <marker date="1421845058830" expanded="true" signature="975:1036" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="1158:1201" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="1456:1516" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="1769:1805" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="3975:4047" placeholder="SELECT posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="3975:4055" placeholder="SELECT posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="3981:4047" placeholder="select posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="4338:4401" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4338:4409" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4344:4401" placeholder="select path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4746:5096" placeholder="INSERT INTO ..." />
+            <marker date="1421845058830" expanded="true" signature="5122:5183" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="5122:5191" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="8725:8798" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14391:14440" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14391:14445" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14397:14440" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="17461:17507" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="17461:17515" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="17541:17588" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="17541:17603" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="18770:18816" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="18770:18824" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="18850:18897" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="18850:18912" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="20095:20154" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="20101:20146" placeholder="update post ..." />
+            <marker date="1421845058830" expanded="true" signature="20422:20487" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="20422:20495" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="20428:20487" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="23095:23231" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="23101:23223" placeholder="update post ..." />
+            <marker date="1421845058830" expanded="true" signature="23440:23513" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="23446:23505" placeholder="select *, (l..post..." />
           </folding>
         </state>
       </provider>
@@ -1262,116 +1282,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/protected/controllers/UserController.php">
+    <entry file="file://$PROJECT_DIR$/api/protected/controllers/ForumController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="544">
-          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+        <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="9112">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
           <folding>
-            <element signature="n#actionCreate#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#actionDetails#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#actionFollow#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#actionListFollowers#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#actionListFollowing#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#actionListPosts#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#actionUnfollow#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#actionUpdateProfile#0;n#UserController#0;n#!!top" expanded="false" />
-            <marker date="1421620896078" expanded="true" signature="797:844" placeholder="SELECT 1 FRO..user..." />
-            <marker date="1421620896078" expanded="true" signature="1277:1422" placeholder="INSERT INTO ..." />
-            <marker date="1421620896078" expanded="true" signature="3172:3219" placeholder="SELECT * FRO..user..." />
-            <marker date="1421620896078" expanded="true" signature="5559:5631" placeholder="INSERT INTO ..." />
-            <marker date="1421620896078" expanded="true" signature="5921:5968" placeholder="SELECT * FRO..user..." />
-            <marker date="1421620896078" expanded="true" signature="8422:8553" placeholder="SELECT * FRO..user..." />
-            <marker date="1421620896078" expanded="true" signature="8487:8553" placeholder="SELECT u_fro..followers..." />
-            <marker date="1421620896078" expanded="true" signature="11457:11587" placeholder="SELECT * FRO..user..." />
-            <marker date="1421620896078" expanded="true" signature="11522:11587" placeholder="SELECT u_to ..followers..." />
-            <marker date="1421620896078" expanded="true" signature="14411:14478" placeholder="SELECT *, (l..post..." />
-            <marker date="1421620896078" expanded="true" signature="17402:17475" placeholder="DELETE FROM ..." />
-            <marker date="1421620896078" expanded="true" signature="17402:17483" placeholder="DELETE FROM ..." />
-            <marker date="1421620896078" expanded="true" signature="17773:17820" placeholder="SELECT * FRO..user..." />
-            <marker date="1421620896078" expanded="true" signature="20187:20251" placeholder="UPDATE user ..." />
-            <marker date="1421620896078" expanded="true" signature="20187:20259" placeholder="UPDATE user ..." />
-            <marker date="1421620896078" expanded="true" signature="20576:20615" placeholder="SELECT * FRO..user..." />
-            <marker date="1421620896078" expanded="true" signature="20576:20623" placeholder="SELECT * FRO..user..." />
+            <marker date="1421782067212" expanded="true" signature="752:826" placeholder="SELECT id, u..forum..." />
+            <marker date="1421782067212" expanded="true" signature="752:834" placeholder="SELECT id, u..forum..." />
+            <marker date="1421782067212" expanded="true" signature="1144:1221" placeholder="INSERT INTO ..." />
+            <marker date="1421782067212" expanded="true" signature="3678:3937" placeholder="SELECT forum..forum..." />
+            <marker date="1421782067212" expanded="true" signature="3678:3945" placeholder="SELECT forum..forum..." />
+            <marker date="1421782067212" expanded="true" signature="3684:3937" placeholder="select forum..forum..." />
+            <marker date="1421782067212" expanded="true" signature="4037:4087" placeholder="SELECT * fro..forum..." />
+            <marker date="1421782067212" expanded="true" signature="4037:4095" placeholder="SELECT * FRO..forum..." />
+            <marker date="1421782067212" expanded="true" signature="4043:4087" placeholder="select * fro..forum..." />
+            <marker date="1421782067212" expanded="true" signature="21429:21791" placeholder="SELECT * FRO..user..." />
+            <marker date="1421782067212" expanded="true" signature="21435:21788" placeholder="select id as..user..." />
+            <marker date="1421782067212" expanded="true" signature="21435:21791" placeholder="select * fro..user..." />
+            <marker date="1421782067212" expanded="true" signature="21607:21785" placeholder="select u.id ..post..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/protected/controllers/PostController.php">
+    <entry file="file://$PROJECT_DIR$/framework/YiiBase.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.961538" vertical-offset="2622" max-vertical-offset="3179">
-          <caret line="388" column="34" selection-start-line="388" selection-start-column="34" selection-end-line="388" selection-end-column="34" />
-          <folding>
-            <element signature="e#7#55#0#PHP" expanded="true" />
-            <element signature="n#actionFixPaths#0;n#PostController#0;n#!!top" expanded="false" />
-            <element signature="n#actionCreate#0;n#PostController#0;n#!!top" expanded="false" />
-            <element signature="n#actionList#0;n#PostController#0;n#!!top" expanded="false" />
-            <element signature="n#actionRemove#0;n#PostController#0;n#!!top" expanded="false" />
-            <element signature="n#actionRestore#0;n#PostController#0;n#!!top" expanded="false" />
-            <element signature="n#actionUpdate#0;n#PostController#0;n#!!top" expanded="false" />
-            <element signature="n#actionVote#0;n#PostController#0;n#!!top" expanded="false" />
-            <marker date="1421622912958" expanded="true" signature="193:225" placeholder="SELECT COUNT..post..." />
-            <marker date="1421622912958" expanded="true" signature="199:225" placeholder="select count..post..." />
-            <marker date="1421622912958" expanded="true" signature="450:506" placeholder="SELECT paren..post..." />
-            <marker date="1421622912958" expanded="true" signature="975:1036" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="1158:1201" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="1456:1516" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="1769:1805" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="3975:4028" placeholder="SELECT posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="3975:4036" placeholder="SELECT posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="3981:4028" placeholder="select posts..thread..." />
-            <marker date="1421622912958" expanded="true" signature="4319:4364" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4319:4372" placeholder="SELECT path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4325:4364" placeholder="select path ..post..." />
-            <marker date="1421622912958" expanded="true" signature="4709:5059" placeholder="INSERT INTO ..." />
-            <marker date="1421622912958" expanded="true" signature="5085:5146" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="5085:5154" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="15404:15453" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="15404:15458" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="15410:15453" placeholder="select *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="18474:18520" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="18474:18528" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="18554:18601" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="18554:18616" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="19783:19829" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="19783:19837" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="19863:19910" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="19863:19925" placeholder="UPDATE threa..." />
-            <marker date="1421622912958" expanded="true" signature="21108:21167" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="21114:21159" placeholder="update post ..." />
-            <marker date="1421622912958" expanded="true" signature="21435:21500" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="21435:21508" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="21441:21500" placeholder="select *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="24108:24244" placeholder="UPDATE post ..." />
-            <marker date="1421622912958" expanded="true" signature="24114:24236" placeholder="update post ..." />
-            <marker date="1421622912958" expanded="true" signature="24453:24526" placeholder="SELECT *, (l..post..." />
-            <marker date="1421622912958" expanded="true" signature="24459:24518" placeholder="select *, (l..post..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/protected/helpers/ControllersHelper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308" vertical-offset="255" max-vertical-offset="1938">
-          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-          <folding>
-            <marker date="1421624019516" expanded="true" signature="145:185" placeholder="SELECT id fr..user..." />
-            <marker date="1421624019516" expanded="true" signature="151:185" placeholder="select id fr..user..." />
-            <marker date="1421624019516" expanded="true" signature="606:661" placeholder="SELECT COUNT..post..." />
-            <marker date="1421624019516" expanded="true" signature="1080:1118" placeholder="SELECT threa..post..." />
-            <marker date="1421624019516" expanded="true" signature="1527:1687" placeholder="SELECT group..user..." />
-            <marker date="1421624019516" expanded="true" signature="1533:1687" placeholder="select group..user..." />
-            <marker date="1421624019516" expanded="true" signature="2101:2261" placeholder="SELECT group..user..." />
-            <marker date="1421624019516" expanded="true" signature="2107:2261" placeholder="select group..user..." />
-            <marker date="1421624019516" expanded="true" signature="2679:2789" placeholder="SELECT group..subscriptions..." />
-            <marker date="1421624019516" expanded="true" signature="2685:2789" placeholder="select group..subscriptions..." />
-          </folding>
+        <state vertical-scroll-proportion="-4.230769" vertical-offset="6520" max-vertical-offset="14739">
+          <caret line="399" column="0" selection-start-line="399" selection-start-column="0" selection-end-line="399" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/protected/controllers/ThreadController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.230769" vertical-offset="5036" max-vertical-offset="6018">
-          <caret line="539" column="49" selection-start-line="539" selection-start-column="49" selection-end-line="539" selection-end-column="49" />
+        <state vertical-scroll-proportion="20.923077" vertical-offset="816" max-vertical-offset="5457">
+          <caret line="101" column="5" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
           <folding>
             <element signature="e#7#55#0#PHP" expanded="true" />
             <element signature="n#actionClose#0;n#ThreadController#0;n#!!top" expanded="false" />
@@ -1379,6 +1323,7 @@
             <element signature="n#actionList#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionOpen#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionRemove#0;n#ThreadController#0;n#!!top" expanded="false" />
+            <element signature="n#actionRestore#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionSubscribe#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionUnsubscribe#0;n#ThreadController#0;n#!!top" expanded="false" />
             <element signature="n#actionUpdate#0;n#ThreadController#0;n#!!top" expanded="false" />
@@ -1423,24 +1368,115 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/protected/controllers/ForumController.php">
+    <entry file="file://$PROJECT_DIR$/api/protected/controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8222621" vertical-offset="7923" max-vertical-offset="9112">
-          <caret line="496" column="51" selection-start-line="496" selection-start-column="51" selection-end-line="496" selection-end-column="51" />
+        <state vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="544">
+          <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
           <folding>
-            <marker date="1421622776419" expanded="true" signature="752:826" placeholder="SELECT id, u..forum..." />
-            <marker date="1421622776419" expanded="true" signature="752:834" placeholder="SELECT id, u..forum..." />
-            <marker date="1421622776419" expanded="true" signature="1144:1221" placeholder="INSERT INTO ..." />
-            <marker date="1421622776419" expanded="true" signature="3678:3937" placeholder="SELECT forum..forum..." />
-            <marker date="1421622776419" expanded="true" signature="3678:3945" placeholder="SELECT forum..forum..." />
-            <marker date="1421622776419" expanded="true" signature="3684:3937" placeholder="select forum..forum..." />
-            <marker date="1421622776419" expanded="true" signature="4037:4087" placeholder="SELECT * fro..forum..." />
-            <marker date="1421622776419" expanded="true" signature="4037:4095" placeholder="SELECT * FRO..forum..." />
-            <marker date="1421622776419" expanded="true" signature="4043:4087" placeholder="select * fro..forum..." />
-            <marker date="1421622776419" expanded="true" signature="21429:21791" placeholder="SELECT * FRO..user..." />
-            <marker date="1421622776419" expanded="true" signature="21435:21788" placeholder="select id as..user..." />
-            <marker date="1421622776419" expanded="true" signature="21435:21791" placeholder="select * fro..user..." />
-            <marker date="1421622776419" expanded="true" signature="21607:21785" placeholder="select u.id ..post..." />
+            <element signature="n#actionCreate#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#actionDetails#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#actionFollow#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#actionListFollowers#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#actionListFollowing#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#actionListPosts#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#actionUnfollow#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#actionUpdateProfile#0;n#UserController#0;n#!!top" expanded="false" />
+            <marker date="1421843901220" expanded="true" signature="797:844" placeholder="SELECT 1 FRO..user..." />
+            <marker date="1421843901220" expanded="true" signature="1277:1422" placeholder="INSERT INTO ..." />
+            <marker date="1421843901220" expanded="true" signature="3172:3219" placeholder="SELECT * FRO..user..." />
+            <marker date="1421843901220" expanded="true" signature="5559:5631" placeholder="INSERT INTO ..." />
+            <marker date="1421843901220" expanded="true" signature="5921:5968" placeholder="SELECT * FRO..user..." />
+            <marker date="1421843901220" expanded="true" signature="8573:8704" placeholder="SELECT * FRO..user..." />
+            <marker date="1421843901220" expanded="true" signature="8638:8704" placeholder="SELECT u_fro..followers..." />
+            <marker date="1421843901220" expanded="true" signature="11759:11889" placeholder="SELECT * FRO..user..." />
+            <marker date="1421843901220" expanded="true" signature="11824:11889" placeholder="SELECT u_to ..followers..." />
+            <marker date="1421843901220" expanded="true" signature="14864:14931" placeholder="SELECT *, (l..post..." />
+            <marker date="1421843901220" expanded="true" signature="17855:17928" placeholder="DELETE FROM ..." />
+            <marker date="1421843901220" expanded="true" signature="17855:17936" placeholder="DELETE FROM ..." />
+            <marker date="1421843901220" expanded="true" signature="18226:18273" placeholder="SELECT * FRO..user..." />
+            <marker date="1421843901220" expanded="true" signature="20640:20704" placeholder="UPDATE user ..." />
+            <marker date="1421843901220" expanded="true" signature="20640:20712" placeholder="UPDATE user ..." />
+            <marker date="1421843901220" expanded="true" signature="21029:21068" placeholder="SELECT * FRO..user..." />
+            <marker date="1421843901220" expanded="true" signature="21029:21076" placeholder="SELECT * FRO..user..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/protected/controllers/PostController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.038462" vertical-offset="1" max-vertical-offset="629">
+          <caret line="360" column="0" selection-start-line="360" selection-start-column="0" selection-end-line="360" selection-end-column="0" />
+          <folding>
+            <element signature="e#7#55#0#PHP" expanded="true" />
+            <element signature="n#actionFixPaths#0;n#PostController#0;n#!!top" expanded="false" />
+            <element signature="n#actionCreate#0;n#PostController#0;n#!!top" expanded="false" />
+            <element signature="n#actionDetails#0;n#PostController#0;n#!!top" expanded="false" />
+            <element signature="n#actionList#0;n#PostController#0;n#!!top" expanded="false" />
+            <element signature="n#actionRemove#0;n#PostController#0;n#!!top" expanded="false" />
+            <element signature="n#actionRestore#0;n#PostController#0;n#!!top" expanded="false" />
+            <element signature="n#actionUpdate#0;n#PostController#0;n#!!top" expanded="false" />
+            <element signature="n#actionVote#0;n#PostController#0;n#!!top" expanded="false" />
+            <marker date="1421845058830" expanded="true" signature="193:225" placeholder="SELECT COUNT..post..." />
+            <marker date="1421845058830" expanded="true" signature="199:225" placeholder="select count..post..." />
+            <marker date="1421845058830" expanded="true" signature="450:506" placeholder="SELECT paren..post..." />
+            <marker date="1421845058830" expanded="true" signature="975:1036" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="1158:1201" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="1456:1516" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="1769:1805" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="3975:4047" placeholder="SELECT posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="3975:4055" placeholder="SELECT posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="3981:4047" placeholder="select posts..thread..." />
+            <marker date="1421845058830" expanded="true" signature="4338:4401" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4338:4409" placeholder="SELECT path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4344:4401" placeholder="select path ..post..." />
+            <marker date="1421845058830" expanded="true" signature="4746:5096" placeholder="INSERT INTO ..." />
+            <marker date="1421845058830" expanded="true" signature="5122:5183" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="5122:5191" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="8725:8798" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14391:14440" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14391:14445" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="14397:14440" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="17461:17507" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="17461:17515" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="17541:17588" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="17541:17603" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="18770:18816" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="18770:18824" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="18850:18897" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="18850:18912" placeholder="UPDATE threa..." />
+            <marker date="1421845058830" expanded="true" signature="20095:20154" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="20101:20146" placeholder="update post ..." />
+            <marker date="1421845058830" expanded="true" signature="20422:20487" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="20422:20495" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="20428:20487" placeholder="select *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="23095:23231" placeholder="UPDATE post ..." />
+            <marker date="1421845058830" expanded="true" signature="23101:23223" placeholder="update post ..." />
+            <marker date="1421845058830" expanded="true" signature="23440:23513" placeholder="SELECT *, (l..post..." />
+            <marker date="1421845058830" expanded="true" signature="23446:23505" placeholder="select *, (l..post..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/protected/helpers/ControllersHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.761221" vertical-offset="0" max-vertical-offset="2958">
+          <caret line="156" column="32" selection-start-line="156" selection-start-column="32" selection-end-line="156" selection-end-column="32" />
+          <folding>
+            <marker date="1421845675476" expanded="true" signature="145:185" placeholder="SELECT id fr..user..." />
+            <marker date="1421845675476" expanded="true" signature="145:193" placeholder="SELECT id FR..user..." />
+            <marker date="1421845675476" expanded="true" signature="151:185" placeholder="select id fr..user..." />
+            <marker date="1421845675476" expanded="true" signature="614:669" placeholder="SELECT COUNT..post..." />
+            <marker date="1421845675476" expanded="true" signature="1088:1146" placeholder="SELECT threa..post..." />
+            <marker date="1421845675476" expanded="true" signature="1088:1154" placeholder="SELECT threa..post..." />
+            <marker date="1421845675476" expanded="true" signature="1567:1727" placeholder="SELECT forum..forum..." />
+            <marker date="1421845675476" expanded="true" signature="2131:2282" placeholder="SELECT user...user..." />
+            <marker date="1421845675476" expanded="true" signature="2688:2888" placeholder="SELECT threa..thread..." />
+            <marker date="1421845675476" expanded="true" signature="3289:3468" placeholder="SELECT group..user..." />
+            <marker date="1421845675476" expanded="true" signature="3295:3468" placeholder="select group..user..." />
+            <marker date="1421845675476" expanded="true" signature="3882:4061" placeholder="SELECT group..user..." />
+            <marker date="1421845675476" expanded="true" signature="3888:4061" placeholder="select group..user..." />
+            <marker date="1421845675476" expanded="true" signature="4479:4589" placeholder="SELECT group..subscriptions..." />
+            <marker date="1421845675476" expanded="true" signature="4485:4589" placeholder="select group..subscriptions..." />
           </folding>
         </state>
       </provider>

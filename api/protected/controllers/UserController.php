@@ -182,6 +182,11 @@ class UserController extends Controller
             if (array_key_exists('order', $_GET))
                 $order = $_GET['order'];
 
+            if (strcmp($order, 'asc') && strcmp($order, 'desc')) {
+                echo json_encode($response);
+                return;
+            }
+
             $id = ControllersHelper::getUserIdByEmail($user);
 
             $connection = Yii::app()->db;
@@ -256,6 +261,11 @@ class UserController extends Controller
             if (array_key_exists('order', $_GET))
                 $order = $_GET['order'];
 
+            if (strcmp($order, 'asc') && strcmp($order, 'desc')) {
+                echo json_encode($response);
+                return;
+            }
+
             $id = ControllersHelper::getUserIdByEmail($user);
 
             $connection = Yii::app()->db;
@@ -329,6 +339,11 @@ class UserController extends Controller
             $order = 'desc';
             if (array_key_exists('order', $_GET))
                 $order = $_GET['order'];
+
+            if (strcmp($order, 'asc') && strcmp($order, 'desc')) {
+                echo json_encode($response);
+                return;
+            }
 
             $connection = Yii::app()->db;
 

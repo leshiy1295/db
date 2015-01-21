@@ -5,7 +5,7 @@ class ControllersHelper
     public static function getUserIdByEmail($email)
     {
         $connection = Yii::app()->db;
-        $sql = "SELECT id FROM user WHERE email = :email;";
+        $sql = "SELECT id FROM user WHERE email = :email LIMIT 1;";
         $command = $connection->createCommand($sql);
         $command->bindParam(":email", $email);
         try {
@@ -36,7 +36,7 @@ class ControllersHelper
     public static function getPostThreadById($id)
     {
         $connection = Yii::app()->db;
-        $sql = "SELECT thread FROM post WHERE id = :id;";
+        $sql = "SELECT thread FROM post USE KEY (id_thread) WHERE id = :id LIMIT 1;";
         $command = $connection->createCommand($sql);
         $command->bindParam(":id", $id);
         try {
@@ -49,11 +49,71 @@ class ControllersHelper
         return -1;
     }
 
+    public static function getForumByPostId($id)
+    {
+        $connection = Yii::app()->db;
+        $sql = "SELECT forum.*
+                FROM forum
+                JOIN post
+                ON post.forum = forum.short_name
+                WHERE post.id = :id LIMIT 1;";
+        $command = $connection->createCommand($sql);
+        $command->bindParam(":id", $id);
+        try {
+            $result = $command->queryAll();
+            return $result[0];
+        }
+        catch (Exception $e) {
+            $e->getMessage();
+        }
+        return null;
+    }
+
+    public static function getUserByPostId($id)
+    {
+        $connection = Yii::app()->db;
+        $sql = "SELECT user.*
+                FROM user
+                JOIN post
+                ON post.user = user.email
+                WHERE post.id = :id LIMIT 1;";
+        $command = $connection->createCommand($sql);
+        $command->bindParam(":id", $id);
+        try {
+            $result = $command->queryAll();
+            return $result[0];
+        }
+        catch (Exception $e) {
+            $e->getMessage();
+        }
+        return null;
+    }
+
+    public static function getThreadByPostId($id)
+    {
+        $connection = Yii::app()->db;
+        $sql = "SELECT thread.*, (thread.likes - thread.dislikes) AS points
+                FROM thread
+                JOIN post
+                ON post.thread = thread.id
+                WHERE post.id = :id LIMIT 1;";
+        $command = $connection->createCommand($sql);
+        $command->bindParam(":id", $id);
+        try {
+            $result = $command->queryAll();
+            return $result[0];
+        }
+        catch (Exception $e) {
+            $e->getMessage();
+        }
+        return null;
+    }
+
     public static function getFollowers($id)
     {
         $connection = Yii::app()->db;
         $sql = "SELECT group_concat(email) AS followers
-                FROM user
+                FROM user USE KEY (id_email)
                 JOIN followers
                 ON id = u_from
                 WHERE u_to = :id;";
@@ -73,7 +133,7 @@ class ControllersHelper
     {
         $connection = Yii::app()->db;
         $sql = "SELECT group_concat(email) AS following
-                FROM user
+                FROM user USE KEY (id_email)
                 JOIN followers
                 ON id = u_to
                 WHERE u_from = :id;";

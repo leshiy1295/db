@@ -30155,3 +30155,27 @@ in D:\GitHub\db\api\index.php (13)
 2015/01/19 03:40:53 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
 in D:\GitHub\db\api\protected\controllers\ThreadController.php (714)
 in D:\GitHub\db\api\index.php (13)
+2015/01/21 14:41:32 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (714)
+in D:\GitHub\db\api\index.php (13)
+2015/01/21 14:41:42 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '3-2' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) VALUES (:thread,:user_id);.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (578)
+in D:\GitHub\db\api\index.php (13)
+2015/01/21 14:49:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (714)
+in D:\GitHub\db\api\index.php (13)
+2015/01/21 14:49:38 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-5' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) VALUES (:thread,:user_id);.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (578)
+in D:\GitHub\db\api\index.php (13)
+2015/01/21 14:57:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (714)
+in D:\GitHub\db\api\index.php (13)
+2015/01/21 14:57:48 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '3-1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO subscriptions (t_id, u_id) VALUES (:thread,:user_id);.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (578)
+in D:\GitHub\db\api\index.php (13)
+2015/01/21 15:02:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (714)
+in D:\GitHub\db\api\index.php (13)
+2015/01/21 17:19:03 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT *, (likes - dislikes) AS points FROM thread WHERE id = :post LIMIT 1.
+in D:\GitHub\db\api\protected\controllers\ThreadController.php (714)
+in D:\GitHub\db\api\index.php (13)
